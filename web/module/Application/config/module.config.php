@@ -9,6 +9,7 @@
 
 return array (
 		'router' => array (
+				
 				'routes' => array (
 						'home' => array (
 								'type' => 'Zend\Mvc\Router\Http\Literal',
@@ -22,6 +23,9 @@ return array (
 						) 
 				) 
 		),
+		
+		
+		
 		'service_manager' => array (
 				
 				'factories' => array (
@@ -58,9 +62,14 @@ return array (
 				) 
 		),
 		'controllers' => array (
-				'invokables' => array (
-						'Application\Controller\Index' => 'Application\Controller\IndexController' 
-				) 
+			'invokables' => array (
+				'Application\Controller\Index' => 'Application\Controller\IndexController',
+				'Application\Controller\About' => 'Application\Controller\AboutController',
+				'Application\Controller\Case' => 'Application\Controller\CaseController',
+				'Application\Controller\News' => 'Application\Controller\NewsController',
+				'Application\Controller\Professional' => 'Application\Controller\NewsController',
+				'Application\Controller\Team' => 'Application\Controller\TeamController',
+			) 
 		),
 		'view_manager' => array (
 				'display_not_found_reason' => true,

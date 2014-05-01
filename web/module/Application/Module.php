@@ -35,56 +35,20 @@ class Module
         //以下是为了在任意地方使用serviceLocator，注册的ServiceLocatorFactory
         ServiceLocatorFactory::setInstance($serviceManager);
          
-        
-        // 以下是为了在使用Ajax的请求的方法的时候禁用布局模板，比如checkUserAdd方法
-        $sharedEvents = $e->getApplication ()->getEventManager ()->getSharedManager ();
-        
-        $sharedEvents->attach ( 'Zend\Mvc\Controller\AbstractActionController', 'dispatch', function ($e) {
-
-        	$result = $e->getResult();
-        	
-        	if($result instanceof \Zend\View\Model\ViewModel){
-        		
-        		if($e->getRequest()->isXmlHttpRequest()){
-        			$result->setTerminal(true);
-        		}
-        		
-        	}
-        	
-        	//->setTerminal ( $e->getRequest()->isXmlHttpRequest() );
-        	
-        	
-        	
-        } ); // attach end
-        
-        
-        
         $renderer = $serviceManager->get('Zend\View\Renderer\PhpRenderer');
         
         $renderer->doctype('XHTML1_TRANSITIONAL');
         
-        $renderer->headTitle('东信同邦-帮助中心');
+        $renderer->headTitle('康润律师事务所');
         
-        
-        
-        
-        
-        
-        
-    }
+   	}//function onBootstrap end
+    
+    
     public function getServiceConfig()
     {
-    	return array(
-    
-    			'factories' => array(
-    						
-    					'Application\Model\UserModel' =>  function($sm) {
-    						$dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-    						return new UserModel($dbAdapter);
-    					},
-    			),
-    	);
+    	return include __DIR__ . '/config/service.config.php';
     }
+    
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';

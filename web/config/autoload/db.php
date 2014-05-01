@@ -13,7 +13,15 @@ x<?php
 
 return array(
 		
-		
+	'db' => array(
+			'driver'   => 'mysqli',
+			'hostname' => 'localhost',
+			'database' => 'oa',
+    		'username' => 'root',
+    		'password' => '',
+			'charset'  => 'utf8',
+			'port'	   => 3306,
+	),
 		
 );
 

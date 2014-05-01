@@ -9,21 +9,16 @@
 
 namespace Application\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
+use Application\Controller\ApplicationBaseController;
 use Zend\View\Model\ViewModel;
 
-class ArticleController extends AbstractActionController
+class ProfessionalController extends ApplicationBaseController
 {
-	
-	 public function showArticleAction()
+    public function indexAction()
     {
     	
-    	
-    	
+
     	
         return new ViewModel();
     }
-    
-    
-    
 }

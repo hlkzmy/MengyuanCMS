@@ -43,7 +43,7 @@ margin:0px auto;
 #headerTop{
 	width:100%;
 	height:108px;
-	background:url(images/headerTopBg.jpg) repeat-x;
+	background:url(headerTopBg.jpg) repeat-x;
 	/* border:1px solid #ff0000; */	
 }
 
@@ -72,7 +72,7 @@ margin:0px auto;
 	height: 108px;
 	margin-bottom: 0;
 	width: 369px;
-	background:url(images/headerLogo.jpg) no-repeat;
+	background:url(headerLogo.jpg) no-repeat;
 	clear:right;
 }
 
@@ -82,53 +82,53 @@ margin:0px auto;
 	float: left;
 	height: 34px;
 	width: 56px;
-	background:url(images/headerNavLeftBg.jpg) no-repeat;
+	background:url(headerNavLeftBg.jpg) no-repeat;
 }
 #headerNavRightBg {/*导航条右侧背景*/
 	display: inline;
 	float: left;
 	height: 34px;
 	width: 49px;
-	background:url(images/headerNavRightBg.jpg) no-repeat;
+	background:url(headerNavRightBg.jpg) no-repeat;
 }
 .headerNavDivideBg {
 	display:inline;
 	float:  left;
 	height: 34px;
 	width:	16px;
-	background:url(images/headerNavDivideBg.jpg) no-repeat;
+	background:url(headerNavDivideBg.jpg) no-repeat;
 }
 
 #headerIndex {
 	display: inline;
 	float: left;
-	background:url(images/headerIndex.jpg) no-repeat;
+	background:url(headerIndex.jpg) no-repeat;
 }
 #headerAbout {
 	display: inline;
 	float: left;
-	background:url(images/headerAbout.jpg) no-repeat;
+	background:url(headerAbout.jpg) no-repeat;
 }
 #headerProfessionField {
 	display: inline;
 	float: left;
-	background:url(images/headerProfessionField.jpg) no-repeat;
+	background:url(headerProfessionField.jpg) no-repeat;
 }
 
 #headerSuccessCase {
 	display: inline;
 	float: left;
-	background:url(images/headerSuccessCase.jpg) no-repeat
+	background:url(headerSuccessCase.jpg) no-repeat
 }
 #headerEliteTeam {
 	display: inline;
 	float: left;
-	background:url(images/headerEliteTeam.jpg) no-repeat
+	background:url(headerEliteTeam.jpg) no-repeat
 }
 #headerNews {
 	display: inline;
 	float: left;
-	background:url(images/headerNews.jpg) no-repeat
+	background:url(headerNews.jpg) no-repeat
 }
 
 

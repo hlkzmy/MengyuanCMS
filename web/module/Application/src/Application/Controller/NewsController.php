@@ -12,7 +12,7 @@ namespace Application\Controller;
 use Application\Controller\ApplicationBaseController;
 use Zend\View\Model\ViewModel;
 
-class IndexController extends ApplicationBaseController
+class NewsController extends ApplicationBaseController
 {
     public function indexAction()
     {
