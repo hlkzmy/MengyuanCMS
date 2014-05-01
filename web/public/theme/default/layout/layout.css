@@ -1,4 +1,5 @@
 @CHARSET "UTF-8";
+/*-----------网站基础架构的容器定义----------*/
 html{
 overflow-y: scroll;
 }
@@ -9,7 +10,6 @@ padding:0px;
 #wrap{
 width:100%;
 height:auto;
-
 }
 
 #allContainer{
@@ -17,7 +17,28 @@ width:1000px;
 height:auto;
 margin:0px auto;
 }
-
+#header{
+	width:100%;
+	height:200px;
+	border:1px solid #ff0000;
+	overflow:hidden;	
+}
+#mainer{
+	width:100%;
+	height:600px;
+	border:1px solid #ff0000;
+	overflow:hidden;
+	margin-top:10px;
+}
+#footer{
+	width:100%;
+	height:100px;
+	border:1px solid #ff0000;
+	margin-top:20px;
+	overflow:hidden;
+	text-align:center;
+}
+/*-----------网站header的容器定义----------*/
 #headerLogo{
 width:278px;
 height:80px;
@@ -39,9 +60,7 @@ margin-left:974px;
 width:26px;
 height:20px;
 z-index:10000;
-
 background: url(image/righttop.png) no-repeat;
-
 }
 
 #headerNavigation ul.itemContainer li{
@@ -94,14 +113,6 @@ float:left;
 }
 
 
-#mainer{
-margin-top:10px;
-}
 
-
-#footer{
-margin-top:20px;
-text-align:center;
-}
 
 
