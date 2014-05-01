@@ -13,15 +13,15 @@ height:auto;
 }
 
 #allContainer{
-width:1000px;
+width:988px;
 height:auto;
 margin:0px auto;
 }
 #header{
 	width:100%;
-	height:200px;
+	height:143px;
+	overflow:hidden;
 	border:1px solid #ff0000;
-	overflow:hidden;	
 }
 #mainer{
 	width:100%;
@@ -38,78 +38,97 @@ margin:0px auto;
 	overflow:hidden;
 	text-align:center;
 }
+
 /*-----------网站header的容器定义----------*/
-#headerLogo{
-width:278px;
-height:80px;
-background:url(image/headerLogo.png) no-repeat;
-}
-#headerNavigation{
-width:100%;
-height:33px;
-background: url(image/menu.png) repeat-x scroll 0 0 transparent
+#headerTop{
+	width:100%;
+	height:108px;
+	background:url(images/headerTopBg.jpg) repeat-x;
+	/* border:1px solid #ff0000; */	
 }
 
-#headerNavigation ul.itemContainer{
-background: url(image/menu.png) no-repeat scroll 0 0 transparent	
+#headerNavigation{/*头部导航条*/
+	width:100%;
+	margin:0px;
+	padding:0px;
+	height:34px;
+	/* border:1px solid #ff0000; */
+	float: left;
+	overflow:hidden;
 }
 
-#headerNavigation .righttop{
-position:absolute;
-margin-left:974px;
-width:26px;
-height:20px;
-z-index:10000;
-background: url(image/righttop.png) no-repeat;
+#headerNavigation li.NavItem{
+	width: 131px;
+	height: 34px;
+	float: left;
+	cursor:pointer;
 }
 
-#headerNavigation ul.itemContainer li{
-float:left;
-height:34px;
-line-height:34px;
-list-style:none;
-font-size:14px;
-font-weight:bolder;
-padding:0px 0px;
+#headerLogo {
+	margin-left:56px;
+	margin-top: 0px;
+	display: inline;
+	float: left;
+	height: 108px;
+	margin-bottom: 0;
+	width: 369px;
+	background:url(images/headerLogo.jpg) no-repeat;
+	clear:right;
 }
 
-#headerNavigation ul.itemContainer li a{
-color:#ffffff;
-text-decoration:none;
-cursor:pointer;
+
+#headerNavLeftBg {/*导航条左侧背景*/
+	display: inline;
+	float: left;
+	height: 34px;
+	width: 56px;
+	background:url(images/headerNavLeftBg.jpg) no-repeat;
+}
+#headerNavRightBg {/*导航条右侧背景*/
+	display: inline;
+	float: left;
+	height: 34px;
+	width: 49px;
+	background:url(images/headerNavRightBg.jpg) no-repeat;
+}
+.headerNavDivideBg {
+	display:inline;
+	float:  left;
+	height: 34px;
+	width:	16px;
+	background:url(images/headerNavDivideBg.jpg) no-repeat;
 }
 
-#headerNavigation ul.itemContainer li .left{
-width:6px;
-float:left;
+#headerIndex {
+	display: inline;
+	float: left;
+	background:url(images/headerIndex.jpg) no-repeat;
 }
-#headerNavigation ul.itemContainer li .middle{
-padding:3px 15px 0px 15px;
-float:left;
+#headerAbout {
+	display: inline;
+	float: left;
+	background:url(images/headerAbout.jpg) no-repeat;
 }
-#headerNavigation ul.itemContainer li .right{
-width:6px;
-float:left;
+#headerProfessionField {
+	display: inline;
+	float: left;
+	background:url(images/headerProfessionField.jpg) no-repeat;
 }
 
-#headerNavigation ul.itemContainer li.selected a{
-color:#000000;
+#headerSuccessCase {
+	display: inline;
+	float: left;
+	background:url(images/headerSuccessCase.jpg) no-repeat
 }
-
-#headerNavigation ul.itemContainer li.selected .left{
-width:6px;
-background:url(image/headerNavigationItemLeft.jpg) no-repeat;
-float:left;
+#headerEliteTeam {
+	display: inline;
+	float: left;
+	background:url(images/headerEliteTeam.jpg) no-repeat
 }
-#headerNavigation ul.itemContainer li.selected .middle{
-background:url(image/headerNavigationItemMiddle.jpg) repeat-x;
-padding:3px 15px 0px 15px;
-float:left;
-}
-#headerNavigation ul.itemContainer li.selected .right{
-width:6px;
-background:url(image/headerNavigationItemRight.jpg) no-repeat;
-float:left;
+#headerNews {
+	display: inline;
+	float: left;
+	background:url(images/headerNews.jpg) no-repeat
 }
 
 

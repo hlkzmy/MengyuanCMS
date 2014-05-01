@@ -19,34 +19,43 @@
 							  ->appendFile($this->basePath() . '/js/jquery.min.js')
                              ?>
 
+<script type='text/javascript'>
+$(document).ready(function(){
+
+	$("#headerNavigation").find("li.NavItem").click(function(){
+		var url = $(this).attr('request-url')?$(this).attr('request-url'):'#';
+		window.location.href= url;
+		window.location 	= url;
+		return false;
+	});
+});
+</script>
 </head>
 <body>
 <div id='wrap'>
 	<div id='allContainer'>
 		<div id='header'>
-   			<div id='headerLogo'>&nbsp;</div>
-   			<div id='headerNavigation'>
-   			
-   			   <ul class='itemContainer'>
-   			       <li <?php if(!isset($select) || $select == 'index' ) echo 'class="selected" ';?> >
-   			            <a href='<?php echo $this->url('home');?>'    >
-   			                <div class='left'>&nbsp;</div>
-   			                <div class='middle'>首页</div>
-   			                <div class='right'>&nbsp;</div>
-   			            </a>
-   			       </li>
-   			       <li <?php if(isset($select)  && $select == 'question') echo  'class="selected" ';?> >
-   			            <a href='<?php echo $this->url('help',array('controller'=>'article','action'=>'index'));?>'>
-   			            	<div class='left'>&nbsp;</div> 
-   			                <div class='middle'>常见问题</div>
-   			                <div class='right'>&nbsp;</div>
-   			            </a>
-   			       </li>
-   			   </ul>
-   			   
-   			   <div class="righttop" >&nbsp;</div>
-   			</div>
-		</div><!-- header end -->
+			<div id='headerTop'>
+				<div id='headerLogo'>&nbsp;</div>
+			
+			</div><!-- headerTop end -->
+   			<ul  id='headerNavigation'>
+   				<li id='headerNavLeftBg'>&nbsp;</li>
+   			  	<li id='headerIndex' class='NavItem' request-url='http://www.baidu.com'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerAbout' class='NavItem'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerProfessionField' class='NavItem'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerSuccessCase' class='NavItem'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerEliteTeam' class='NavItem'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerNews' class='NavItem'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerNavRightBg'>&nbsp;</li>
+   			</ul><!-- headerNavigation end -->
+   		</div><!-- header end -->
 		<div id="mainer">
             <?php echo $this->content; ?>
         </div> <!-- mainer end -->
