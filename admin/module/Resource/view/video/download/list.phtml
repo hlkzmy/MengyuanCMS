@@ -1,0 +1,101 @@
+<div class="pageHeader">
+	<?php echo  $this->form()->openTag($pagerForm);?>
+	<?php foreach($pagerForm as $key=>$element):?>
+	    <?php if($element->getAttribute('type')=='hidden'):?>
+	    
+	    <?php echo $this->formElement($element);$pagerForm->remove( $element->getName() );?>
+	    
+	    <?php endif;?>
+	<?php endforeach;?>
+	
+	<table  class='pagerTable'  cellspacing='0'  cellpadding='0' border='0'>
+	<tbody>
+	<?php 
+		$formElementList = $pagerForm->getElements();
+		$formElementList = array_chunk($formElementList,$readConfig['pager_form']['row_element_count']);
+	?>
+	<?php foreach($formElementList as $rowKey=>$row):?>
+	 	<tr>
+	 		<?php foreach($row as $element):?>
+	 		<td class='center'><?php echo $element->getLabel(); ?></td>
+			<td class='center'><?php echo $this->formElement($element);?></td>
+			<?php endforeach;?>
+			<td class='center'>
+				<input type='button' value='刷新下载进度' onclick='javascript:navTab.reload();' >
+			</td>
+		</tr>
+	<?php endforeach;?>
+	</tbody>
+	</table>
+	<?php echo $this->form()->closeTag();?>
+</div><!-- pageHeader end -->
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<?php foreach($operationList as $operation):?>
+				<li><a class="<?php echo $operation['class'];?>"
+					   href="<?php echo $operation['url'];?>"
+					   rel="<?php echo $operation['rel'];?>"
+					   <?php if(isset($operation['target'])):?>
+					   	   target="<?php echo $operation['target'];?>"  
+					   <?php endif;?>
+					 ><span><?php echo $operation['title'];?></span>
+					</a>
+			    </li>
+			<?php endforeach;?>
+		</ul>
+	</div>
+	<table class="table" width="100%"  layoutH="<?php echo $readConfig['layout_height'];?>" targetType="navTab">
+		<thead>
+			<tr>
+				<?php if(isset($readConfig['select_control_type'])):?>
+					<?php if(in_array($readConfig['select_control_type'],array('checkbox','radio'))):?>
+						<th width='22'><input type="checkbox" group="ids[]" class="checkboxCtrl"></th>
+					<?php endif;?>
+				<?php endif;?>
+				
+				<?php foreach($templateDisplayColumns as $columnName=>$columnSetting):?>
+			    	<?php if(isset($columnSetting['width'])):?>
+			    		<th  width="<?php echo $columnSetting['width'];?>" align='center'><?php echo $columnSetting['label'];?></th>
+					<?php else:?>
+			    		<th align='center'><?php echo $columnSetting['label'];?></th>
+					<?php endif;?>
+			    <?php endforeach;?>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($list as $key=>$element ):?>
+		    <tr target="id" rel="<?php echo $element['id'];?>">
+		        <?php if(isset($readConfig['select_control_type'])):?>
+		        	<?php if(in_array($readConfig['select_control_type'],array('checkbox','radio'))):?>
+						<td>
+							<input type="<?php echo $readConfig['select_control_type'];?>" name="ids[]" value="<?php echo $element['id'];?>" />
+						</td>
+			        <?php endif;?>
+		        <?php endif;?>
+		        
+		        <?php foreach($templateDisplayColumns as $columnName=>$columnSetting):?>
+		        		<?php if(isset($columnSetting['class'])):?>
+		        			<td class='<?php echo $columnSetting['class'];?>'><?php echo $element[$columnName];?></td>
+		        		<?php else:?>
+		        			<td><?php echo $element[$columnName];?></td>
+		        		<?php endif;?>
+		        <?php endforeach;?>
+		    </tr>
+			<?php endforeach;?>
+		</tbody>
+	</table>
+	<div class="panelBar" >
+        <div class="pages">
+            <span>显示</span>
+            <?php echo $this->formSelect($paginationForm->get('pageRowCount'));?>
+			<span>条，共<?php echo $readConfig['count'];?>条</span>
+        </div><!--pages end -->
+        <div class="pagination" targetType="navTab" 
+        	 totalCount="<?php echo $readConfig['count'];?>" 
+        	 numPerPage="<?php echo $readConfig['pageRowCount'];?>" 
+        	 pageNumShown="5" 
+        	 currentPage="<?php echo $readConfig['currentPageNumber'];?>">
+        </div>
+     </div><!-- panelBar end -->
+</div><!-- pageContent end -->

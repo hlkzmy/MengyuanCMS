@@ -1,0 +1,23 @@
+<div class="pageContent">
+	<?php echo  $this->form()->openTag($form);?>
+	<table id='UserAddTable' class='CustomerTable' width='100%' cellspacing='0' cellpadding='0' border='0'>
+	<tbody>
+	<?php foreach($form as $key=>$element):?>
+	    <?php if(in_array(  $element->getName() , array('submit','reset','close') ))continue;?>
+	    <tr>
+	 	    <td class='center' width='140'><?php echo $element->getLabel(); ?></td>
+			<td class='indent' ><?php echo $this->formElement($element);?></td>
+		</tr>
+	<?php endforeach;?>
+	</tbody>
+	</table>
+	<div class="panelBar">
+		    <ul class="toolBar">
+				<li><?php echo $this->formSubmit($form->get('submit'));?></li>
+				<li><?php echo $this->formButton($form->get('reset'));?></li>
+				<li><?php echo $this->formButton($form->get('close'));?></li>
+			</ul>
+	</div>
+	<?php echo $this->form()->closeTag();?>
+</div><!-- pageContent end -->
+
