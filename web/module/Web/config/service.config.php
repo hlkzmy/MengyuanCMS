@@ -7,18 +7,17 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application\Controller;
+return array (
+		
+		'factories' => array (
+		
+				
+		
+		)//factories end
+		
+		
+		
+		
+		
+);//array end
 
-use Application\Controller\ApplicationBaseController;
-use Zend\View\Model\ViewModel;
-
-class TeamController extends ApplicationBaseController
-{
-    public function indexAction()
-    {
-    	
-
-    	
-        return new ViewModel();
-    }
-}

@@ -4,7 +4,7 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 
-class ApplicationBaseController extends AbstractActionController
+class BaseController extends AbstractActionController
 {
 	
 	public function __construct(){

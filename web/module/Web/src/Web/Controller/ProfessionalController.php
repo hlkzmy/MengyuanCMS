@@ -7,12 +7,12 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application\Controller;
+namespace Web\Controller;
 
-use Application\Controller\ApplicationBaseController;
+use Web\Controller\WebBaseController;
 use Zend\View\Model\ViewModel;
 
-class AboutController extends ApplicationBaseController
+class ProfessionalController extends WebBaseController
 {
     public function indexAction()
     {
