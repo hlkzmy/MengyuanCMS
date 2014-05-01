@@ -17,8 +17,6 @@ class IndexController extends WebBaseController
     public function indexAction()
     {
     	
-
-    	
-        return new ViewModel();
+		return new ViewModel();
     }
 }
