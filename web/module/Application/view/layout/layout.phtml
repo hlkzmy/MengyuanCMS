@@ -12,7 +12,9 @@
 								  'href' => $this->basePath('theme/favicon.ico')
 								 )
 						  )
-                ->appendStylesheet($this->basePath('theme/default/layout/layout.css'));
+                ->appendStylesheet($this->basePath('theme/default/layout/style.css'))
+                ->appendStylesheet($this->basePath('theme/default/index/style.css'));
+				
 ?>
 <!-- Scripts -->
 <?php echo $this->headScript()->appendFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
@@ -21,7 +23,6 @@
 
 <script type='text/javascript'>
 $(document).ready(function(){
-
 	$("#headerNavigation").find("li.NavItem").click(function(){
 		var url = $(this).attr('request-url')?$(this).attr('request-url'):'#';
 		window.location.href= url;
