@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+/*-------------------------------------布局表格开始-------------------------------------*/
+#BannerPictureContainer{
+	width:990px;
+	height:194px;
+	background:url(BannerPictureBg.jpg) no-repeat;
+}
+
+#SmallSlidePictureContainer{
+	width:496px;
+	height:224px;
+	float:left;
+	/* border:1px solid #ff0000; */
+	background:url(SmallSlidePictureContainer.jpg) no-repeat center center;
+}
+#SideArticleColumn{
+width:250px;
+height:230px;
+float:left;
+clear:right;
+background:#EBEEF5;
+/* border:1px solid #ff0000;	 */
+}
+
+#ColumnsLayoutTable{/*用来显示布局的表格*/
+	width:100%;
+	height:530px;
+	border:1px solid #ff000;
+}
+
+#ColumnsLayoutTable tr td{
+	padding:3px 3px 3px 0px;	
+}
+
+#SidebarNavigation{/*侧边栏导航条*/
+	width:231px;
+	height:282px;
+	background:url(SidebarNavigation.jpg) no-repeat;
+	margin:0px;
+	padding:0px;
+}
+#SidebarPhoneNumber{/*侧边栏400电话*/
+	width:231px;
+	height:126px;
+	background:url(SidebarPhoneNumber.jpg) no-repeat;
+}
+#SidebarActivity{/*侧边栏专题活动*/
+	width:231px;
+	height:93px;
+	background:url(SidebarActivity.jpg) no-repeat;
+}
+.EqualArticleColumn{
+width:368px;
+margin:0px auto;
+height:230px;
+
+background:#EBEEF5;
+/* border:1px solid #ff0000; */	
+}
+
+

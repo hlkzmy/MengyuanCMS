@@ -18,7 +18,8 @@ class AboutController extends WebBaseController
     {
     	
 
-    	
-        return new ViewModel();
+    	$viewModel = new ViewModel();
+    	$viewModel->setTemplate("web/common/layout");
+    	return $viewModel;
     }
 }

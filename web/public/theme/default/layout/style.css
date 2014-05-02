@@ -25,7 +25,7 @@ margin:0px auto;
 }
 #mainer{
 	width:986px;
-	height:576px;
+	height:auto;
 	/* border:1px solid #ff0000; */
 }
 #footer{
