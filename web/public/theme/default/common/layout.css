@@ -1,35 +1,32 @@
 @CHARSET "UTF-8";
 /*-------------------------------------布局表格开始-------------------------------------*/
-#BannerPictureContainer{
+#ColumnsLayoutTable{/*用来显示布局的表格*/
+	width:100%;
+	height:530px;
+	border:1px solid #ff000;
+}
+#ColumnsLayoutTable tr td{/*布局表格的td的内边距*/
+	padding:3px 3px 3px 0px;	
+}
+#BannerPictureContainer{/*栏目页的banner条*/
 	width:990px;
 	height:194px;
 	background:url(BannerPictureBg.jpg) no-repeat;
 }
-
-#SmallSlidePictureContainer{
+#SmallSlidePictureContainer{/*栏目页的图片容器*/
 	width:496px;
 	height:224px;
 	float:left;
 	/* border:1px solid #ff0000; */
 	background:url(SmallSlidePictureContainer.jpg) no-repeat center center;
 }
-#SideArticleColumn{
-width:250px;
-height:230px;
-float:left;
-clear:right;
-background:#EBEEF5;
-/* border:1px solid #ff0000;	 */
-}
-
-#ColumnsLayoutTable{/*用来显示布局的表格*/
-	width:100%;
-	height:530px;
-	border:1px solid #ff000;
-}
-
-#ColumnsLayoutTable tr td{
-	padding:3px 3px 3px 0px;	
+#SideArticleColumn{/*栏目页的图片容器旁边的栏目*/
+	width:250px;
+	height:230px;
+	float:left;
+	clear:right;
+	background:#EBEEF5;
+	/*border:1px solid #ff0000;*/
 }
 
 #SidebarNavigation{/*侧边栏导航条*/
@@ -44,18 +41,33 @@ background:#EBEEF5;
 	height:126px;
 	background:url(SidebarPhoneNumber.jpg) no-repeat;
 }
-#SidebarActivity{/*侧边栏专题活动*/
+#SidebarActivity{/*侧边栏专题活动,后面要改成邮箱*/
 	width:231px;
 	height:93px;
 	background:url(SidebarActivity.jpg) no-repeat;
 }
-.EqualArticleColumn{
-width:368px;
-margin:0px auto;
-height:230px;
-
-background:#EBEEF5;
-/* border:1px solid #ff0000; */	
+.EqualArticleColumn{/*栏目页的两个相关的栏目*/
+	width:368px;
+	height:230px;
+	margin:0px auto;
+	background:#EBEEF5;
+	/* border:1px solid #ff0000; */	
 }
+.article-column-ul{/*在栏目页存放文章标题的无序列表*/
+	margin:0px auto;
+	width:96%;
+}
+.ArticleColumnTitle{/*文章无序列表的标题*/
+	width:100%;
+	height:36px;
+	margin:0px auto;
+	line-height:36px;
+	font-size:16px;
+	list-style:none;
+	text-indent:20px;
+	float:left;
+	border-bottom:1px solid #909EB9;
+}
+
 
 

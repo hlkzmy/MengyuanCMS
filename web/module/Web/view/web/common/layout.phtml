@@ -9,16 +9,20 @@
 	<tr>
 		<td colspan='2'>
 			<div id='SmallSlidePictureContainer'></div>
-			<div id='SideArticleColumn'></div>
+			<div id='SideArticleColumn'><?php echo $this->sideArticleColumnViewModel;?></div>
 		</td>
 	</tr> 
 	<tr>
 		<td><div id='SidebarPhoneNumber'></div></td>
 		<td rowspan='2'>
-			<div class='EqualArticleColumn'></div>
+			<div class='EqualArticleColumn'>
+				<?php echo $this->leftArticleColumnViewModel;?>
+			</div><!-- EqualArticleColumn end -->
 		</td>
 		<td rowspan='2'>
-			<div class='EqualArticleColumn'></div>
+			<div class='EqualArticleColumn'>
+				<?php echo $this->rightArticleColumnViewModel;?>
+			</div><!-- EqualArticleColumn end -->
 		</td>
 	</tr>
 	<tr>

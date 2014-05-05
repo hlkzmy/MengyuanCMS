@@ -3,9 +3,12 @@
 html{
 overflow-y: scroll;
 }
-html,body{
+html,body,ul{
 margin:0px;
 padding:0px;
+}
+ul{
+	list-style:none;	
 }
 #wrap{
 width:100%;
