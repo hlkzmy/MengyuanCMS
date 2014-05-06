@@ -62,6 +62,7 @@ abstract class AbstractResultSet implements Iterator, ResultSetInterface
         }
 
         if ($dataSource instanceof ResultInterface) {
+        	$dataSource->buffer();
             $this->count = $dataSource->count();
             $this->fieldCount = $dataSource->getFieldCount();
             $this->dataSource = $dataSource;

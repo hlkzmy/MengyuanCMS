@@ -21,10 +21,10 @@ class Module
     public function getServiceConfig()
     {
     	return include __DIR__ . '/config/service.config.php';
+    
     }
     
-
-    public function getAutoloaderConfig()
+	public function getAutoloaderConfig()
     {
         return array(
             'Zend\Loader\StandardAutoloader' => array(

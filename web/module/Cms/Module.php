@@ -7,7 +7,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Web;
+namespace Cms;
 
 
 class Module
@@ -20,7 +20,28 @@ class Module
     
     public function getServiceConfig()
     {
-    	return include __DIR__ . '/config/service.config.php';
+    	
+    	$path = realpath(__DIR__.'/src');//源码库的位置
+    	 
+    	$objects = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
+
+    	$serviceConfig = array();
+    	
+    	foreach ($objects as $path =>$object) {
+    		
+    		if(is_file($path)&&is_readable($path)){
+    			$fileName = basename($path);
+    			if(strtolower($fileName)=='service.config.php'){
+    				$config = include_once $path;
+    				if(is_array($config)&&sizeof($config)>0){
+    					$serviceConfig = array_merge_recursive($serviceConfig,$config);
+    				}
+    			}
+    		}
+    	}//foreach end
+    	
+    	
+    	return $serviceConfig;
     }
     
 

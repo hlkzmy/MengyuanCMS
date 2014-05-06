@@ -7,20 +7,18 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Web\Controller;
+return array (
+		
+		'factories' => array (
+		
+				//加载转化率租的表单
+				'Event\Form\ConversionRateForm'=>function($serviceManager){
+				
+					return array('zhaomengyuan');
+				},
+				
+		
+		)//factories end
+		
+);//array end
 
-use Web\Controller\WebBaseController;
-use Zend\View\Model\ViewModel;
-
-class TeamController extends WebBaseController
-{
-    public function indexAction()
-    {
-    	
-
-    	
-        $viewModel = new ViewModel();
-    	$viewModel->setTemplate("web/common/layout");
-    	return $viewModel;
-    }
-}
