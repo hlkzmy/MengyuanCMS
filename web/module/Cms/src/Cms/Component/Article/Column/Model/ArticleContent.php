@@ -1,12 +1,13 @@
 <?php
-namespace Cms\Component\Article;
+
+namespace Cms\Component\Article\Column\Model;
 
 use Application\Model\BaseModel;
 use Zend\Db\Adapter\Adapter;
 
-class ContentModel extends BaseModel
+class ArticleContent extends BaseModel
 {
-    protected $table = 'razor_product';
+    protected $table = 'resource_article_content';
     
     public function __construct(Adapter $adapter)
     {
@@ -23,8 +24,6 @@ class ContentModel extends BaseModel
     	$data = $this->selectWith($select)->toArray();
     	
     	$data = array_slice($data,0,1);
-    	
-    	
     	
     	return $data;
     	

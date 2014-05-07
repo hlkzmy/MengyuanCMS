@@ -11,23 +11,30 @@ namespace Web\Controller;
 
 use Web\Controller\WebBaseController;
 use Zend\View\Model\ViewModel;
-use Web\Plugin\Article\Column as ArticleColumn;
+use Cms\Component\Article\Column\Content as ArticleColumn;
 
 
 class AboutController extends WebBaseController
 {
     public function indexAction()
     {
+    	$serviceLocator = $this->getServiceLocator();
     	
-    	$honorViewModel     = new ArticleColumn();
-    	$honorViewModel->setColumnTitle('康润荣誉');
+    	$config = $serviceLocator->get('config');
+    	
+    	print_r($config);
     	
     	
-    	$dutyViewModel      = new ArticleColumn();
-    	$dutyViewModel->setColumnTitle('康润社会责任');
+    	$honorViewModel  = new ArticleColumn($serviceLocator);
+    	$honorViewModel->setCategoryId(18);
+    	$honorViewModel->componentRender();
     	
-    	$advantageViewModel = new ArticleColumn();
-    	$advantageViewModel->setColumnTitle('康润优势');
+    	
+    	$dutyViewModel      = new ArticleColumn($serviceLocator);
+    	$dutyViewModel->setCategoryName('康润社会责任');
+    	
+    	$advantageViewModel = new ArticleColumn($serviceLocator);
+    	$advantageViewModel->setCategoryName('康润优势');
     	
     	
 

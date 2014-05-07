@@ -1,0 +1,79 @@
+<?php echo $this->doctype(); ?>
+
+<html>
+<head>
+<meta charset="utf-8">
+<?php echo $this->headTitle() ?>
+<?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+<!-- css -->
+<?php echo $this->headLink( 
+							array('rel' => 'shortcut icon', 
+								  'type' => 'image/vnd.microsoft.icon', 
+								  'href' => $this->basePath('theme/favicon.ico')
+								 )
+						  )
+                ->appendStylesheet($this->basePath('theme/default/layout/style.css'))
+                ->appendStylesheet($this->basePath('theme/default/index/style.css'))
+                ->appendStylesheet($this->basePath('theme/default/common/layout.css'));
+				
+?>
+<!-- Scripts -->
+<?php echo $this->headScript()->appendFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+							  ->appendFile($this->basePath() . '/js/jquery.min.js')
+                             ?>
+
+<script type='text/javascript'>
+$(document).ready(function(){
+	$("#headerNavigation").find("li.NavItem").click(function(){
+		var url = $(this).attr('request-url')?$(this).attr('request-url'):'#';
+		window.location.href= url;
+		window.location 	= url;
+		return false;
+	});
+});
+</script>
+</head>
+<body>
+<div id='wrap'>
+	<div id='allContainer'>
+		<div id='header'>
+			<div id='headerTop'>
+				<div id='headerLogo'>&nbsp;</div>
+			
+			</div><!-- headerTop end -->
+   			<ul  id='headerNavigation'>
+   				<li id='headerNavLeftBg'>&nbsp;</li>
+   			  	<li id='headerIndex' class='NavItem' request-url='<?php echo $this->url('home');?>'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerAbout' class='NavItem' request-url='<?php echo $this->url('about');?>'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerProfessionField' class='NavItem' request-url='<?php echo $this->url('professional');?>'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerSuccessCase' class='NavItem' request-url='<?php echo $this->url('case');?>'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerEliteTeam' class='NavItem' request-url='<?php echo $this->url('team');?>'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerNews' class='NavItem' request-url='<?php echo $this->url('news');?>'>&nbsp;</li>
+   			  	<li class='headerNavDivideBg'>&nbsp;</li>
+   			  	<li id='headerNavRightBg'>&nbsp;</li>
+   			</ul><!-- headerNavigation end -->
+   		</div><!-- header end -->
+		<div id="mainer">
+            <?php echo $this->content; ?>
+        </div> <!-- mainer end -->
+		<div id='footer'>
+			<ul  id='footerTop'>
+   				<li  class='Item'><a href='#'>免责声明</a></li>
+   				<li  class='Item'><a href='#'>加入我们</a></li>
+   				<li  class='Item'><a href='#'>康润微博</a></li>
+   				<li  class='Item'><a href='#'>热线电话</a></li>
+   			</ul><!-- headerNavigation end -->
+			<div id='footerBottom'>
+				Copyright &copy; 2012-2016&nbsp;康润律师事务所&nbsp;&nbsp;
+				<a href='http://www.miibeian.gov.cn' class='beian'>赣ICP备案xxxxxx号</a>
+			</div><!-- footerBottom -->
+    	</div><!-- footer end  -->
+	</div><!-- AllContainer end  -->
+</div><!-- wrap end  -->
+</body>
+</html>

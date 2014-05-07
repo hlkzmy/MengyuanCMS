@@ -14,6 +14,7 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends WebBaseController
 {
+	
     public function indexAction()
     {
     	
@@ -21,7 +22,7 @@ class IndexController extends WebBaseController
     	
     	$model = $this->getServiceLocator()->get('Cms\Component\Article\ContentModel');
     	
-    	print_r( $model->getArticleContent() );
+    	$config = $this->getServiceLocator()->get('config');
     	
     	
     	

@@ -3,8 +3,8 @@
 return array(
 		
 	'router' => array(
-			
-        'routes' => array(	
+		'routes' => array(	
+        	/*----------------------------静态路由开始----------------------------*/
         		'about' => array (
         				'type' => 'Literal',
         				'options' => array (
@@ -55,8 +55,10 @@ return array(
         						)
         				)
         		)
-			
-        )//routes end
+        	/*----------------------------动态路由开始----------------------------*/
+				
+				
+		)//routes end
     ),
     
     'controllers' => array (

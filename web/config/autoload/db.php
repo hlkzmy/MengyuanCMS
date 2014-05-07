@@ -13,29 +13,17 @@
 
 return array(
 		
-// 	'db' => array(
-// 			'driver'   => 'mysqli',
-// 			'hostname' => 'localhost',
-// 			'database' => 'platform',
-//     		'username' => 'root',
-//     		'password' => 'zmy@5201314',
-// 			'charset'  => 'utf8',
-// 			'port'	   => 3306,
-// 	),
+	'db' => array(
+			'driver'   => 'mysqli',
+			'hostname' => '115.28.105.41',
+			'database' => 'kangrun',
+    		'username' => 'user',
+    		'password' => 'kangrunzhuzeyi',
+			'charset'  => 'utf8',
+			'port'	   => 3306,
+	),
 
-			'db' => array(
-					'driver'   => 'mysqli',
-					'hostname' => '116.211.25.115',
-					'database' => 'razor_jky',
-					'username' => 'root',
-					'password' => '5GoaSMjogfVm',
-					'charset'  => 'utf8',
-					'port'	   =>  3306
-			),
-		
-		
-		
-		
+
 );
 
 
