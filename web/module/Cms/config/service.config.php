@@ -15,7 +15,6 @@ return array (
 				
 				
 		
-		)//factories end
-		
+		),//factories end
 );//array end
 

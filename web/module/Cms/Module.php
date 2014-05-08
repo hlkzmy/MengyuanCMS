@@ -43,34 +43,7 @@ class Module
     	return $serviceConfig;
     }
     
-    public function getRouteConfig(){
-    	
-    	$path = realpath(__DIR__.'/src');//源码库的位置
-    	
-    	$objects = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
-    	
-    	$routeConfig = array();
-    	 
-    	foreach ($objects as $path =>$object) {
-    	
-    		if(is_file($path)&&is_readable($path)){
-    			$fileName = basename($path);
-    			if(strtolower($fileName)=='route.config.php'){
-    				$config = include_once $path;
-    				if(is_array($config)&&sizeof($config)>0){
-    					$routeConfig = array_merge_recursive($routeConfig,$config);
-    				}
-    			}
-    		}
-    	}//foreach end
-    	
-    	print_r($routeConfig);
-    	
-    	return $routeConfig;
-    }
-    
-    
-
+   
     public function getAutoloaderConfig()
     {
         return array(

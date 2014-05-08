@@ -79,6 +79,13 @@ class Content extends BaseComponent implements ComponentInterface{
 		//拿到URL对象
 		$url = $this->serviceManager->get('Controller\Plugin\Manager')->get('url');
 		
+		foreach($articleList as $key=>$element){
+			$articleList[$key]['href'] = $url->fromRoute('article-content-route',array('id'=>$element['id']));
+		}
+		
+		
+		
+		
 		$this->setVariable('articleList', $articleList);
 		
 	}//function render() end

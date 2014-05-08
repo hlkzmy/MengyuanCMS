@@ -18,14 +18,9 @@ class IndexController extends WebBaseController
     public function indexAction()
     {
     	
-    	//print_r($this->getServiceLocator()->getRegisteredServices());
-    	
-    	$model = $this->getServiceLocator()->get('Cms\Component\Article\ContentModel');
-    	
-    	$config = $this->getServiceLocator()->get('config');
     	
     	
-    	
-    	return new ViewModel();
+    	$viewModel = new ViewModel();
+    	return $viewModel;
     }
 }

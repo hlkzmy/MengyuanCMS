@@ -23,4 +23,20 @@ class NewsController extends WebBaseController
     	$viewModel->setTemplate("web/common/layout");
     	return $viewModel;
     }
+    
+    
+    /**
+     *  显示文章内容的页面
+     */
+    public function contentAction(){
+    	
+    	
+    	
+    	
+    	
+    	$viewModel = new ViewModel();
+    	return $viewModel;
+    }//function contentAction() end
+    
+    
 }

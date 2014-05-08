@@ -2,7 +2,7 @@
 	<li class='ArticleColumnTitle'><?php echo $this->categoryName; ?></li>
 	<?php if(isset($this->articleList)):?>
 		<?php foreach($this->articleList as $element):?>					
-			<li><a href='#'><?php echo $element['title']; ?></a></li>		
+			<li><a href='<?php echo $element['href']?>' target='_blank'><?php echo $element['title']; ?></a></li>		
 		<?php endforeach;?>	
 	<?php endif;?>
 </ul>

@@ -22,12 +22,12 @@ class AboutController extends WebBaseController
     	
     	$config = $serviceLocator->get('config');
     	
-    	print_r($config);
-    	
     	
     	$honorViewModel  = new ArticleColumn($serviceLocator);
     	$honorViewModel->setCategoryId(18);
+    	$honorViewModel->setArticleCount(10);
     	$honorViewModel->componentRender();
+    	$honorViewModel->setCategoryName('测试栏目标题');
     	
     	
     	$dutyViewModel      = new ArticleColumn($serviceLocator);
