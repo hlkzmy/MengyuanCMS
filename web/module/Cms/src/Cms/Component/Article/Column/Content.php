@@ -13,6 +13,8 @@ class Content extends BaseComponent implements ComponentInterface{
 	
 	protected $articleCount = 5; //设置文章的总数
 	
+	protected $articleTitleWithDate = false;//文章标题
+	
 	function __construct($serviceManager){
 		parent::__construct($serviceManager);
 		
@@ -47,12 +49,21 @@ class Content extends BaseComponent implements ComponentInterface{
 		return $this;
 	}
 	
+	/**
+	 * 设置显示栏目标题的时候是否显示日期
+	 */
+	public function setArticleTitleWithDate($status){
+		$this->articleTitleWithDate = $status;
+		$this->setVariable('articleTitleWithDate', $status);
+		return $this;
+	}
+	
+	
 	
 	/**
 	 * 查询数据，渲染模板
 	 */
 	public function componentRender($returnType='ViewModel'){
-		
 		
 		//第一步:查询文章分类相关信息
 		if(is_null($this->categoryId)){
@@ -72,7 +83,12 @@ class Content extends BaseComponent implements ComponentInterface{
 		//第二步：查询该文章分类之下所有文章列表的信息
 		$articleModel = $this->serviceManager->get('Cms\Component\Article\Column\Model\Article');
 		
-		$articleList = $articleModel->getArticleList($this->categoryId,array('id','title'));
+		$column = array('id','title');
+		if($this->articleTitleWithDate){
+			$column['date'] = 'add_time';
+		}
+		
+		$articleList = $articleModel->getArticleList($this->categoryId,$column);
 		
 		$articleList = array_slice($articleList, 0 ,$this->articleCount);
 		
@@ -81,10 +97,10 @@ class Content extends BaseComponent implements ComponentInterface{
 		
 		foreach($articleList as $key=>$element){
 			$articleList[$key]['href'] = $url->fromRoute('article-content-route',array('id'=>$element['id']));
+			if($this->articleTitleWithDate){
+				$articleList[$key]['date'] = substr($element['date'],0,10);
+			}
 		}
-		
-		
-		
 		
 		$this->setVariable('articleList', $articleList);
 		

@@ -17,14 +17,14 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                    	'controller' => 'Admin\Controller\Index',
-                        'action'     => 'console',
+                    	'controller' => 'Application\Controller\Index',
+                        'action'     => 'ShowUserLogin',
                     ),
                 ),
             ),
             
         		
-            'admin' => array(
+            'application' => array(
 						'type'    => 'Segment',
             			'options' => array(
                     			'route'    => '/[:controller[/:action]][/:m]',
@@ -34,16 +34,12 @@ return array(
                     						'm'          => '[a-zA-Z]*',
                     			),
                     			'defaults' => array(
-                    						'__NAMESPACE__' => 'Admin\Controller',
+                    						'__NAMESPACE__' => 'application\Controller',
                     						'controller'    => 'Index',
-                    						'action'        => 'ShowUserLogin',
+                    						'action'        => 'showUserLogin',
                     			),
                     	),
             ),
-            
-           
-            
-           
                     		
                     			
                     
@@ -69,9 +65,7 @@ return array(
     					//返回数据库的连接
     
     				},
-
-    					
-    		),
+   			),
     ),
 
     
@@ -87,8 +81,9 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Admin\Controller\Index' => 'Admin\Controller\IndexController',
-         ),
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+        		
+        ),
     ),
     'view_manager' => array(
         'display_not_found_reason' => true,
@@ -105,17 +100,13 @@ return array(
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
         'template_path_stack' => array(
-        		
-            'Application' =>dirname(__DIR__) . '/view',
-        		
-        	'Cms'=>WEBSITE_DISK_PATH.'/vendor/ETAH/Cms'
+            __DIR__ . '/../view',
         ),
     ),	
     
     'controller_plugins' => array(
     		'invokables' => array(
-    				'Permission' => 'Etah\Mvc\Plugin\Permission\Permission',
-    				'LogManager' => 'Etah\Mvc\Plugin\Log\LogManager'
+    				'Permission' => 'Application\Plugin\Permission\Permission',
     		),
     ),
     

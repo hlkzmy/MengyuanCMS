@@ -1,16 +1,31 @@
 <?php
-/**
- * Global Configuration Override
- *
- * You can use this file for overriding configuration values from modules, etc.
- * You would place values in here that are agnostic to the environment and not
- * sensitive to security.
- *
- * @NOTE: In practice, this file will typically be INCLUDED in your source
- * control, so do not include passwords or other sensitive information in this
- * file.
- */
-
 return array(
-    // ...
+		
+		
+		
+		'not_need_auth_module' => array('application'),
+         //不需要验证的模块
+									
+		'not_need_auth_controller' => array('application.index'),
+		//不需要验证的控制器
+				
+		'not_need_auth_action' => array(
+	    //不需要验证的方法	
+				'application.index.showuserlogin',
+				'application.index.checkuserlogin',
+				'application.index.captcha',
+				'application.index.logout',
+				
+		),
+		
+		'need_generate_menu' =>array(
+				//需要生成菜单的方法列表
+		
+			'application.index.admin',
+				 
+			'application.index.sidebar',
+				 
+		),
+		
+		
 );

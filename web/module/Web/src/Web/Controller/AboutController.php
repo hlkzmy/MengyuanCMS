@@ -20,24 +20,26 @@ class AboutController extends WebBaseController
     {
     	$serviceLocator = $this->getServiceLocator();
     	
-    	$config = $serviceLocator->get('config');
-    	
-    	
     	$honorViewModel  = new ArticleColumn($serviceLocator);
     	$honorViewModel->setCategoryId(18);
-    	$honorViewModel->setArticleCount(10);
+    	$honorViewModel->setArticleCount(9);
     	$honorViewModel->componentRender();
-    	$honorViewModel->setCategoryName('测试栏目标题');
     	
     	
-    	$dutyViewModel      = new ArticleColumn($serviceLocator);
-    	$dutyViewModel->setCategoryName('康润社会责任');
+    	$dutyViewModel = new ArticleColumn($serviceLocator);
+    	$dutyViewModel->setCategoryId(18);
+    	$dutyViewModel->setArticleCount(9);
+    	$dutyViewModel->setArticleTitleWithDate(true);
+    	$dutyViewModel->componentRender();
+    	
+    	
     	
     	$advantageViewModel = new ArticleColumn($serviceLocator);
-    	$advantageViewModel->setCategoryName('康润优势');
+    	$advantageViewModel->setCategoryId(18);
+    	$advantageViewModel->setArticleCount(9);
+    	$advantageViewModel->setArticleTitleWithDate(true);
+    	$advantageViewModel->componentRender();
     	
-    	
-
     	$viewModel = new ViewModel();
     	$viewModel->addChild( $honorViewModel,'sideArticleColumnViewModel');
     	$viewModel->addChild( $dutyViewModel,'leftArticleColumnViewModel');

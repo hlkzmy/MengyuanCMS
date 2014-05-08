@@ -9,20 +9,28 @@
  */
 namespace Application;
 
+
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use System\Model\UserModel;
+use Application\Plugin\Permission\Model\AccessModel;
+use Application\Plugin\Permission\Model\UserRoleModel;
+use Application\Plugin\Permission\Model\NodeModel;
+use Application\Plugin\Permission\Model\MenuModel;
+use Application\Factory\ServiceLocatorFactory;
+
 use Zend\View\HelperPluginManager;
-use Zend\Permissions\Acl\Acl;
-use Zend\Permissions\Acl\Resource\GenericResource as Resource;
-use Zend\Permissions\Acl\Role\GenericRole as Role;
-use Zend\Navigation\Navigation;
-use Zend\Navigation\Page\Mvc as MvcPage;
-use Zend\Navigation\Page\Uri as UriPage;
+
+use  Zend\Permissions\Acl\Acl;
+use  Zend\Permissions\Acl\Resource\GenericResource as Resource;
+use  Zend\Permissions\Acl\Role\GenericRole as Role;
+
+use  Zend\Navigation\Navigation;
+
 use Zend\Log\Writer;
 
-use Etah\Mvc\Factory\ServiceLocator\ServiceLocatorFactory;
-
-use System\Model\UserModel;
+use Zend\Navigation\Page\Mvc as MvcPage;
+use Zend\Navigation\Page\Uri as UriPage;
 
 class Module {
 	
@@ -50,40 +58,18 @@ class Module {
 		$sharedEvents->attach ( 'Zend\Mvc\Controller\AbstractActionController', 'dispatch', function ($e) {
 			
 			$e->getResult ()->setTerminal ( true );
-			
 		} ); // attach end
 		    
 		//在路由的时候进行权限检查
 		$eventManager->attach ('route', array ($this,'checkAcl'),-100); 
-		$eventManager->attach ('route', array ($this,'writeLog'),-100);
-		
-		//以下为了从前台的配置文件里读取配置
-		$CustomerConfigPath  = WEBSITE_DISK_PATH."/frontend/config/customer/website_view.php";
-		
-		$CustomerConfig = $this->FormatConfigArray($CustomerConfigPath,'website_view');
-		
-		$title = $CustomerConfig['backend']['backend_title'];
-		$copyright = $CustomerConfig['backend']['copyright'];
 				
+		
+		
 		// 以下是为了在全局中使用一些公用的文档信息，如headTitle等内容
 		$renderer = $serviceManager->get ( 'Zend\View\Renderer\PhpRenderer' );
 		
-		$renderer->layout()->setVariable('copyright',$copyright); 
-		
-		$renderer->headTitle ( $title );
+		$renderer->headTitle ( '康润律师事务所-内容管理系统' );
 	}
-	
-	private function FormatConfigArray($CustomerConfigPath,$key)
-	{
-		if(!file_exists($CustomerConfigPath)){
-			die('网站用户自定义配置文件丢失');
-		}
-		$CustomerConfigArray = require($CustomerConfigPath);
-		
-		return $CustomerConfigArray[$key];
-	}
-	
-	
 	
 
 	public function checkAcl($e) {
@@ -103,38 +89,64 @@ class Module {
 		
 	}//function checkAcl() end
 	
-	
-	
-	public function writeLog($e){
-		
-		$serviceManager = $e->getApplication ()->getServiceManager ();
-		$logManager = $serviceManager->get ('ControllerPluginManager')->get ('LogManager');
-		$logManager->writeLogs($e);
-		
-	}
-	
 	public function getConfig() {
-		
-		return  include __DIR__ . '/config/module.config.php';
-		
+		return include __DIR__ . '/config/module.config.php';
 	}
 	public function getServiceConfig() {
 		
-		return  include __DIR__ . '/config/server.config.php';
-		
+		return array (
+				
+				'factories' => array (
+						'Application\Model\MenuModel' => function ($sm) {
+							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
+							return new MenuModel ( $dbAdapter );
+						},
+						'Application\Plugin\Permission\Model\AccessModel' => function ($sm) {
+							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
+							return new AccessModel ( $dbAdapter );
+						},
+						'Application\Plugin\Permission\Model\NodeModel' => function ($sm) {
+							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
+							return new NodeModel ( $dbAdapter );
+						},
+						'Application\Plugin\Permission\Model\UserRoleModel' => function ($sm) {
+							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
+							return new UserRoleModel ( $dbAdapter );
+						},
+						'Application\Plugin\Permission\Model\MenuModel' => function ($sm) {
+							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
+							return new MenuModel ( $dbAdapter );
+						},
+						'System\Model\UserModel' => function ($sm) {
+							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
+							return new UserModel ( $dbAdapter );
+						} ,
+
+
+				)
+				 
+		);
 	}
 
 	public function getAutoloaderConfig() {
 		return array (
 				'Zend\Loader\StandardAutoloader' => array (
 						'namespaces' => array (
-								__NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-								'Base'  => __DIR__ . '/src/' . 'Base',
-								'Admin' => __DIR__ . '/src/' . 'Admin'
+								__NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__ 
 						) 
 				) 
 		);
 	}
 	
 	
+	
+	private function hasChildren($row)
+	{
+		if($row['right_number']-$row['left_number'] > 1)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
 }

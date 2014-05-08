@@ -1,0 +1,15 @@
+<div class="content">
+	<div class="articleContent">
+		<div class="articleContentHeader">
+			<h4><?php echo $this->articleInfo['title'];?></h4>
+			<h6>—— &nbsp;&nbsp;<?php echo $this->articleInfo['sub_title'];?></h6>
+				<ul>
+					<li>点击数:<?php echo $this->articleInfo['hits'];?></li>
+					<li>发布时间:<?php echo $this->articleInfo['add_time'];?></li>
+				</ul>
+		</div>
+		<div class="articleContentBody">
+			<?php echo $this->articleInfo['content'];?>
+		</div>
+	</div>
+</div>

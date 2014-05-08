@@ -11,15 +11,37 @@ namespace Web\Controller;
 
 use Web\Controller\WebBaseController;
 use Zend\View\Model\ViewModel;
+use Cms\Component\Article\Column\Content  as ArticleColumn;
+use Cms\Component\Article\Details\Content as ArticleDetails;
 
 class NewsController extends WebBaseController
 {
     public function indexAction()
     {
     	
-
-    	
-        $viewModel = new ViewModel();
+    	$serviceLocator = $this->getServiceLocator();
+    	 
+    	$honorViewModel  = new ArticleColumn($serviceLocator);
+    	$honorViewModel->setCategoryId(18);
+    	$honorViewModel->setArticleCount(10);
+    	$honorViewModel->componentRender();
+    	 
+    	 
+    	$dutyViewModel = new ArticleColumn($serviceLocator);
+    	$dutyViewModel->setCategoryId(18);
+    	$dutyViewModel->setArticleCount(10);
+    	$dutyViewModel->componentRender();
+    	 
+    	 
+    	$advantageViewModel = new ArticleColumn($serviceLocator);
+    	$advantageViewModel->setCategoryId(18);
+    	$advantageViewModel->setArticleCount(10);
+    	$advantageViewModel->componentRender();
+    	 
+    	$viewModel = new ViewModel();
+    	$viewModel->addChild( $honorViewModel,'sideArticleColumnViewModel');
+    	$viewModel->addChild( $dutyViewModel,'leftArticleColumnViewModel');
+    	$viewModel->addChild( $advantageViewModel,'rightArticleColumnViewModel');
     	$viewModel->setTemplate("web/common/layout");
     	return $viewModel;
     }
@@ -30,11 +52,18 @@ class NewsController extends WebBaseController
      */
     public function contentAction(){
     	
+    	$id = $this->params('id');
     	
+    	$serviceLocator = $this->getServiceLocator();
     	
+		//对于文章内容页的视图
+    	$articleDetailsViewModel  = new ArticleDetails($serviceLocator);
+    	$articleDetailsViewModel->setArticleId($id);
+    	$articleDetailsViewModel->componentRender();
     	
     	
     	$viewModel = new ViewModel();
+    	$viewModel->addChild($articleDetailsViewModel,'articleDetailsViewModel');
     	return $viewModel;
     }//function contentAction() end
     

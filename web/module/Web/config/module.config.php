@@ -8,7 +8,7 @@ return array(
         		'about' => array (
         				'type' => 'Literal',
         				'options' => array (
-        						'route' => '/about',
+        						'route' => '/about.html',
         						'defaults' => array (
         								'controller' => 'Web\Controller\About',
         								'action' => 'index'
@@ -18,7 +18,7 @@ return array(
         		'case' => array (
         				'type' => 'Literal',
         				'options' => array (
-        						'route' => '/case',
+        						'route' => '/case.html',
         						'defaults' => array (
         								'controller' => 'Web\Controller\Case',
         								'action' => 'index'
@@ -28,7 +28,7 @@ return array(
         		'news' => array (
         				'type' => 'Literal',
         				'options' => array (
-        						'route' => '/news',
+        						'route' => '/news.html',
         						'defaults' => array (
         								'controller' => 'Web\Controller\News',
         								'action' => 'index'
@@ -38,7 +38,7 @@ return array(
         		'professional' => array (
         				'type' => 'Literal',
         				'options' => array (
-        						'route' => '/professional',
+        						'route' => '/professional.html',
         						'defaults' => array (
         								'controller' => 'Web\Controller\Professional',
         								'action' => 'index'
@@ -48,15 +48,14 @@ return array(
         		'team' => array (
         				'type' => 'Literal',
         				'options' => array (
-        						'route' => '/team',
+        						'route' => '/team.html',
         						'defaults' => array (
         								'controller' => 'Web\Controller\Team',
         								'action' => 'index'
         						)
         				)
         		)
-        	/*----------------------------动态路由开始----------------------------*/
-				
+        		
 				
 		)//routes end
     ),

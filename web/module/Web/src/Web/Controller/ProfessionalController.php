@@ -11,15 +11,36 @@ namespace Web\Controller;
 
 use Web\Controller\WebBaseController;
 use Zend\View\Model\ViewModel;
+use Cms\Component\Article\Column\Content as ArticleColumn;
 
 class ProfessionalController extends WebBaseController
 {
     public function indexAction()
     {
     	
-
-    	
-        $viewModel = new ViewModel();
+    	$serviceLocator = $this->getServiceLocator();
+    	 
+    	$honorViewModel  = new ArticleColumn($serviceLocator);
+    	$honorViewModel->setCategoryId(18);
+    	$honorViewModel->setArticleCount(10);
+    	$honorViewModel->componentRender();
+    	 
+    	 
+    	$dutyViewModel = new ArticleColumn($serviceLocator);
+    	$dutyViewModel->setCategoryId(18);
+    	$dutyViewModel->setArticleCount(10);
+    	$dutyViewModel->componentRender();
+    	 
+    	 
+    	$advantageViewModel = new ArticleColumn($serviceLocator);
+    	$advantageViewModel->setCategoryId(18);
+    	$advantageViewModel->setArticleCount(10);
+    	$advantageViewModel->componentRender();
+    	 
+    	$viewModel = new ViewModel();
+    	$viewModel->addChild( $honorViewModel,'sideArticleColumnViewModel');
+    	$viewModel->addChild( $dutyViewModel,'leftArticleColumnViewModel');
+    	$viewModel->addChild( $advantageViewModel,'rightArticleColumnViewModel');
     	$viewModel->setTemplate("web/common/layout");
     	return $viewModel;
     }
