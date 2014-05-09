@@ -34,9 +34,7 @@ class UserController extends BaseController {
 	 *
 	 * @return \Zend\View\Model\ViewModel
 	 */
-	public function showUserListAction() {
-		
-
+	public function listAction() {
 		
 		// 用户列表查询、翻页动作时，提交的数据
 		$postData = $this->getPostDataOfUserList ();
@@ -193,7 +191,7 @@ class UserController extends BaseController {
 	/**
 	 * 显示添加用户界面
 	 */
-	public function showUserAddAction() {
+	public function addAction() {
 		// 部门列表
 		$departmentModel = $this->departmentModel;
 		$departmentList = $departmentModel->getDepartmentStructure ();
@@ -287,6 +285,8 @@ class UserController extends BaseController {
 		
 		$this->returnMessage ( 300, "添加用户失败！" );
 	}
+	
+	
 	private function FormatUserData($userData) {
 		$data = array ();
 		if ($userData ['password'] != $userData ['confirmPassword']) {
@@ -310,7 +310,7 @@ class UserController extends BaseController {
 	 *
 	 * @return \Zend\View\Model\ViewModel
 	 */
-	public function showUserEditAction() {
+	public function editAction() {
 		$request = $this->getRequest ();
 		
 		if ($request->isGet ()) {

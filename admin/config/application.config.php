@@ -3,9 +3,8 @@ return array(
 		
     'modules' => array(
     	'Application',
-    	'Help',
-    	'System',
-    	'Report',
+    	'News',
+    	'System'
     ),
 		
     'module_listener_options' => array(

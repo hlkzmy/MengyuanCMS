@@ -7,7 +7,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Appliction\ViewHelper;
+namespace Application\ViewHelper;
 
 use RecursiveIteratorIterator;
 use Zend\Navigation\AbstractContainer;

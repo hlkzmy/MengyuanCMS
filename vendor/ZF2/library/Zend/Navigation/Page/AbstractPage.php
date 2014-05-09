@@ -243,14 +243,16 @@ abstract class AbstractPage extends AbstractContainer
         }
 
         $hasUri = isset($options['uri']);
-        $hasMvc = isset($options['action']) || isset($options['controller'])
-                || isset($options['route']);
-
-        if ($hasMvc) {
+        $hasMvc = isset($options['action']) || isset($options['controller'])|| isset($options['route']);
+                
+		if ($hasMvc) {
             return new Mvc($options);
         } elseif ($hasUri) {
             return new Uri($options);
         } else {
+        	
+        	print_r($options);
+        	
             throw new Exception\InvalidArgumentException(
                 'Invalid argument: Unable to determine class to instantiate'
             );

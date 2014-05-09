@@ -12,11 +12,7 @@ namespace Application;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
-use System\Model\UserModel;
-use Application\Plugin\Permission\Model\AccessModel;
-use Application\Plugin\Permission\Model\UserRoleModel;
-use Application\Plugin\Permission\Model\NodeModel;
-use Application\Plugin\Permission\Model\MenuModel;
+
 use Application\Factory\ServiceLocatorFactory;
 
 use Zend\View\HelperPluginManager;
@@ -41,8 +37,6 @@ class Module {
 		
 		$eventManager = $e->getApplication ()->getEventManager();
 		
-		//$e->getResponse()
-		
 		$moduleRouteListener = new ModuleRouteListener ();
 		$moduleRouteListener->attach ( $eventManager );
 		
@@ -56,19 +50,16 @@ class Module {
 		$sharedEvents = $e->getApplication ()->getEventManager ()->getSharedManager ();
 		
 		$sharedEvents->attach ( 'Zend\Mvc\Controller\AbstractActionController', 'dispatch', function ($e) {
-			
 			$e->getResult ()->setTerminal ( true );
 		} ); // attach end
 		    
 		//在路由的时候进行权限检查
 		$eventManager->attach ('route', array ($this,'checkAcl'),-100); 
 				
-		
-		
 		// 以下是为了在全局中使用一些公用的文档信息，如headTitle等内容
 		$renderer = $serviceManager->get ( 'Zend\View\Renderer\PhpRenderer' );
 		
-		$renderer->headTitle ( '东信同邦-自动化办公系统' );
+		$renderer->headTitle ( '康润律师事务所-内容管理系统' );
 	}
 	
 
@@ -82,53 +73,26 @@ class Module {
 		
 		//进行权限认证
 		$serviceManager = $e->getApplication ()->getServiceManager ();
-		$permission = $serviceManager->get ('ControllerPluginManager')->get ('Permission');
+		$permission = $serviceManager->get ('Controller\Plugin\Manager')->get ('Permission');
 		$permission->auth($e);
 
-		//$permission->menu($e);
+		$permission->menu($e);
 		
 	}//function checkAcl() end
 	
 	public function getConfig() {
+		
 		return include __DIR__ . '/config/module.config.php';
+		
 	}
 	public function getServiceConfig() {
 		
-		return array (
-				
-				'factories' => array (
-						'Application\Model\MenuModel' => function ($sm) {
-							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
-							return new MenuModel ( $dbAdapter );
-						},
-						'Application\Plugin\Permission\Model\AccessModel' => function ($sm) {
-							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
-							return new AccessModel ( $dbAdapter );
-						},
-						'Application\Plugin\Permission\Model\NodeModel' => function ($sm) {
-							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
-							return new NodeModel ( $dbAdapter );
-						},
-						'Application\Plugin\Permission\Model\UserRoleModel' => function ($sm) {
-							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
-							return new UserRoleModel ( $dbAdapter );
-						},
-						'Application\Plugin\Permission\Model\MenuModel' => function ($sm) {
-							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
-							return new MenuModel ( $dbAdapter );
-						},
-						'System\Model\UserModel' => function ($sm) {
-							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
-							return new UserModel ( $dbAdapter );
-						} ,
-
-
-				)
-				 
-		);
+		return include __DIR__ . '/config/service.config.php';
 	}
 
+	
 	public function getAutoloaderConfig() {
+		
 		return array (
 				'Zend\Loader\StandardAutoloader' => array (
 						'namespaces' => array (
@@ -136,17 +100,8 @@ class Module {
 						) 
 				) 
 		);
+		
 	}
 	
 	
-	
-	private function hasChildren($row)
-	{
-		if($row['right_number']-$row['left_number'] > 1)
-		{
-			return true;
-		}else{
-			return false;
-		}
-	}
 }

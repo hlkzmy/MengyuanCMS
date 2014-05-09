@@ -42,8 +42,6 @@ class BaseController extends AbstractActionController
 	
 			$model = $serviceManager->get ( $path );
 	
-				
-				
 			$this->{$lcfirstModelName} = $model;
 		}
 	}

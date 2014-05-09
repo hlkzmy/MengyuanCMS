@@ -5,8 +5,6 @@ namespace Application\Plugin\Permission;
 use Zend\Permissions\Acl\Acl;
 use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 use Zend\Authentication\AuthenticationService as AuthenticationService;
-
-
 use Zend\Permissions\Acl\Role\GenericRole as Role;
 use Zend\Permissions\Acl\Resource\GenericResource as Resource;
 use Zend\Navigation\Navigation;
@@ -57,42 +55,55 @@ class Permission extends AbstractPlugin
 		$menuItemList = array();
 		
 		foreach($tempMenuItemList as $menuItem){
-			$menuItemList[$menuItem['id']] = $menuItem;
+			$menuItemList[$menuItem['id']] = $menuItem;//把id转化为键名
 		}//foreach end
 		
-		$baseUrl = $e->getRequest()->getBaseUrl();
+		$baseUrl = $e->getRequest()->getBaseUrl();//得到基准网址
 		
 		foreach($menuItemList as $key=>$menuItem){
 			
 			$parentId = $menuItem['parent_id'];
 			
 			if($parentId==0){
+				unset($menuItemList[$key]['module_name']);
+				unset($menuItemList[$key]['controller_name']);
+				unset($menuItemList[$key]['action_name']);
 				$menuItemList[$key]['uri'] = '#';
 			}
             else{
             	
-            	//通过菜单项中的模块名称、控制器名称、方法名称拼接得到资源名称
-            	$resourceArray = array($menuItem['module_name'],$menuItem['controller_name'],$menuItem['action_name']);
-            		
-            	$menuItemList[$key]['resource'] = strtolower(  implode('.',array_filter($resourceArray))  );
-            		
             	if($menuItem['level']==1){
-            		
-            		$menuItemList[$key]['uri']	= $baseUrl.'/index/sidebar/'.$menuItem['module_name'];
-            		
+            		unset($menuItemList[$key]['module_name']);
+            		unset($menuItemList[$key]['controller_name']);
+            		unset($menuItemList[$key]['action_name']);
+            		$menuItemList[$key]['uri']	= sprintf("%s/index/sidebar/%s",$baseUrl,$menuItem['module_name']);
             	}
             	else{
             		
-            		$menuItemList[$key]['route']	  = $menuItem['module_name'];
+            		if(isset($menuItem['module_name'])&&isset($menuItem['controller_name'])&&$menuItem['action_name']){
+            			//通过菜单项中的模块名称、控制器名称、方法名称拼接得到资源名称
+            			$resourceArray = array($menuItem['module_name'],$menuItem['controller_name'],$menuItem['action_name']);
+            			$menuItemList[$key]['resource'] = strtolower(  implode('.',array_filter($resourceArray))  );
+            		}
+            		else{
+            			$menuItemList[$key]['uri'] ='#';
+            		}
             		
-            		$menuItemList[$key]['module'] 	  = $menuItem['module_name'];
             		
-            		$menuItemList[$key]['controller'] = $menuItem['controller_name'];
+            		if(!is_null($menuItem['module_name'])){
+            			$menuItemList[$key]['route']	  = $menuItem['module_name'];
+            			$menuItemList[$key]['module']	  = $menuItem['module_name'];
+            		}
             		
-            		$menuItemList[$key]['action'] 	  = $menuItem['action_name'];
+            		if(!is_null($menuItem['controller_name'])){
+            			$menuItemList[$key]['controller'] = $menuItem['controller_name'];
+            		}
             		
-            		$menuItemList[$key]['target'] 	  = 'navTab';
+            		if(!is_null($menuItem['action_name'])){
+            			$menuItemList[$key]['action'] = $menuItem['action_name'];
+            		}
             		
+            		$menuItemList[$key]['target'] = 'navTab';
             		
             	}
             	
@@ -101,37 +112,27 @@ class Permission extends AbstractPlugin
             		$menuItemList[$parentId]['pages'] = array();
             	}
             	
-            	$menuItemList[$parentId]['pages'] = array_merge(array($menuItemList[$key]),$menuItemList[$parentId]['pages']);
+            	$menuItemList[$parentId]['pages'] = array_merge($menuItemList[$parentId]['pages'],array($menuItemList[$key]));
             	
             	unset($menuItemList[$key]);
             
             }
 			
-			
-            
-        }//foreach
-		
+		}//foreach
+        
         $container = new Navigation();
         
-        $container->addPages($menuItemList);
+		$container->addPages($menuItemList);
         
-        
-        
-        $this->injectRouter($container,$router);
+       	$this->injectRouter($container,$router);
         
         $renderer = $serviceManager->get ( 'Zend\View\Renderer\PhpRenderer' );
         
         $acl  = $this->getAcl();
         
-        //print_r($menuItemList);//report.weeklyreporttemplate.showweeklyreporttemplatelist
-        
-//         print_r($acl);
-        
-        $role = $this->getRole();
-        
-
-       
-        $renderer->navigation()->setContainer($container)->setAcl($acl)->setRole('total');
+		$role = $this->getRole();
+		
+		$renderer->navigation()->setContainer($container)->setAcl($acl)->setRole('total');
         
      }//function menu() end
 	

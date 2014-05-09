@@ -33,8 +33,6 @@ class IndexController extends BaseController
 		
 		$this->getDbModel($serviceManager,'System','Model','UserModel');
 		
-		$this->getDbModel($serviceManager,'Report','Model','UserReportModel');
-		
 	}
 	
 	
