@@ -1,5 +1,6 @@
 <?php
 
+
 return array(
 		
 	'router' => array(
@@ -59,6 +60,8 @@ return array(
 				
 		)//routes end
     ),
+		
+	
     
     'controllers' => array (
 			'invokables' => array (

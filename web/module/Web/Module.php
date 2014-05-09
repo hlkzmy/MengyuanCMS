@@ -24,7 +24,30 @@ class Module
     
     }
     
-	public function getAutoloaderConfig()
+    public function onBootStrap($e){
+    	
+    	$serviceManager = $e->getApplication()->getServiceManager();
+    	
+    	$pm = $serviceManager->get('View\Helper\Manager')->get('Navigation')->getPluginManager();
+    	
+    	$pm->setInvokableClass('hengleike','\Zend\View\Helper\Navigation\Links');
+    	
+    }
+    
+    
+    public function getViewHelperConfig($e){
+    	
+    	return array(
+    			
+    		'invokables' => array (
+    					'hengleike'=> '\Zend\View\Helper\Navigation\Links'
+    		 )
+    		
+    	
+    	);
+    }
+    
+    public function getAutoloaderConfig()
     {
         return array(
             'Zend\Loader\StandardAutoloader' => array(

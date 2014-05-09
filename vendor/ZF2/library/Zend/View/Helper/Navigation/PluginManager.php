@@ -48,7 +48,8 @@ class PluginManager extends HelperPluginManager
             // we're okay
             return;
         }
-
+        
+        
         throw new Exception\InvalidArgumentException(sprintf(
             'Plugin of type %s is invalid; must implement %s\AbstractHelper',
             (is_object($plugin) ? get_class($plugin) : gettype($plugin)),
