@@ -41,14 +41,14 @@ class IndexController extends BaseController
 	public function showUserLoginAction()
 	{
 	
-// 		$auth = new AuthenticationService();
-// 		$Identity = $auth->getIdentity();
+		$auth = new AuthenticationService();
+		$Identity = $auth->getIdentity();
 		
-// 		if($Identity){
-// 			$url = $this->url()->fromRoute('application',array('action'=>'admin'));
-// 			return $this->redirect()->toUrl($url);
+		if($Identity){
+			$url = $this->url()->fromRoute('application',array('action'=>'admin'));
+			return $this->redirect()->toUrl($url);
 			
-// 		}
+		}
 		
 		$viewModel = new ViewModel();
 		
@@ -156,7 +156,7 @@ class IndexController extends BaseController
 					'username' =>$user->username,
 					'realname' => $user->realname,
 			));
-				
+			
 			$this->returnMessage(1,'验证成功!');
 	    }
 	
@@ -194,71 +194,12 @@ class IndexController extends BaseController
 	public function adminAction()
 	{
 
-		
-		$viewModel = new ViewModel();
-		
-		
 		$loginUser = $this->getLoginUser();
-		
 		$realname = $loginUser->realname;
 		
 		
-		//得到上周没有交周报的人员
-		$weeknum = date("W");
-		
-		$week = date("w");
-		
-		switch ($week){
-			case 0:$week = '星期天';break;
-			case 1:$week = '星期一';break;
-			case 2:$week = '星期二';break;
-			case 3:$week = '星期三';break;
-			case 4:$week = '星期四';break;
-			case 5:$week = '星期五';break;
-			case 6:$week = '星期六';break;
-			
-		}
-		
-
-		$userIds = $this->userReportModel->getReportedPersonByWeekNum($weeknum-1);
-		
-		$users = $this->userModel->getUserList(NULL,array('id','realname'));
-		
-		$badpeople = array();
-		
-		$config = $this->getServiceLocator()->get('config');
-		$ignoreList = $config['ignore_list'];
-		
-		foreach ($users as $key=>$user){
-				
-			if (!in_array($user['id'] ,$userIds )){
-				
-				if (in_array($user['realname'] ,$ignoreList )){continue;}
-				array_push($badpeople, $user);
-			}
-		}
-		
-		
-		//组合内容
-		
-		
-		$content = '今天是'.date("Y年m月d日").'&nbsp;&nbsp;&nbsp;'.$week.'&nbsp;&nbsp;&nbsp;第'.$weeknum.'周<br />';
-		
-	 	if(sizeof($badpeople)){
-			$content .= '<p>上周没有交周报的人员有：<br />';
-			foreach ($badpeople as $key=>$user){
-				if ($key%6 == 0){
-					$content .= '<br />';
-				}
-				$content .= '<b>'.$user['realname'].'&nbsp;&nbsp;</b>';
-			}
-			$content  .= '<br /><br />请以上人员注意周报的提交时间！！</p>';
-		}else{
-			$content  .= '<br />上周所有人员都按时交了周报，希望大家再接再厉！';
-		}
-		$viewModel->setVariable('contnet',$content);
+		$viewModel = new ViewModel();
 		$viewModel->setVariable('realname',$realname);
-		
 		return $viewModel;
 
     }

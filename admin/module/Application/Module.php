@@ -85,7 +85,7 @@ class Module {
 		$permission = $serviceManager->get ('ControllerPluginManager')->get ('Permission');
 		$permission->auth($e);
 
-		$permission->menu($e);
+		//$permission->menu($e);
 		
 	}//function checkAcl() end
 	

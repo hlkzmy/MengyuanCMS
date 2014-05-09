@@ -69,8 +69,13 @@ return array(
     					
     		),
     ),
-
     
+    'navigation_helpers'=>array(
+    	'invokables'=>array(
+    		'Admin'=>'Application\ViewHelper\Admin'
+    	)
+    ),
+
     'translator' => array(
         'locale' => 'zh_CN',
         'translation_file_patterns' => array(

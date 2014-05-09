@@ -5,32 +5,31 @@
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
 <?php echo $this->headTitle();?>
 <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/theme/favicon.ico'))
-                ->appendStylesheet($this->basePath() . '/theme/default/style.css')                   
-                ->appendStylesheet($this->basePath() . '/theme/core.css')
-                ->appendStylesheet($this->basePath() . '/theme/print.css',"print")
-                ->appendStylesheet($this->basePath() . '/theme/self.css')
-                ->appendStylesheet($this->basePath() . '/plugin/uploadify/css/uploadify.css')
-			    ->appendStylesheet($this->basePath() . '/theme/ieHack.css',array('conditional' => 'IF IE',))
+                ->appendStylesheet($this->basePath('theme/default/style.css'))                   
+                ->appendStylesheet($this->basePath('theme/core.css'))
+                ->appendStylesheet($this->basePath('theme/print.css'),"print")
+                ->appendStylesheet($this->basePath('theme/self.css'))
+                ->appendStylesheet($this->basePath('plugin/uploadify/css/uploadify.css'))
+			    ->appendStylesheet($this->basePath('theme/ieHack.css') ,array('conditional' => 'IF IE',))
 
 ?>
 
-<?php     echo $this->headScript()->appendFile($this->basePath() . '/js/compatible/speedup.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-								  ->appendFile($this->basePath() . '/js/compatible/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-								  ->appendFile($this->basePath() . '/js/compatible/swfobject.js')
-								  ->appendFile($this->basePath() . '/js/org/jquery/jquery-1.7.2.min.js')
-                                  ->appendFile($this->basePath() . '/js/org/jquery/jquery.cookie.js')
-                                  ->appendFile($this->basePath() . '/js/org/jquery/jquery.validate.js')
-								  ->appendFile($this->basePath() . '/js/org/jquery/jquery.bgiframe.js')
-								  ->appendFile($this->basePath() . '/plugin/xheditor/xheditor-1.1.14-zh-cn.min.js')
-								  ->appendFile($this->basePath() . '/plugin/uploadify/scripts/jquery.uploadify.js')
-								  ->appendFile($this->basePath() . '/plugin/dwz/dwz.min.gzjs')
-								  ->appendFile($this->basePath() . '/plugin/dwz/dwz.regional.zh.js')
-								  ->appendFile($this->basePath() . '/plugin/dwz/dwz.unlimitedCombox.js')
-								  ->appendFile($this->basePath() . '/plugin/dwz/dwz.report.js')
+<?php     echo $this->headScript()->appendFile($this->basePath('js/compatible/speedup.js') , 'text/javascript', array('conditional' => 'lt IE 9',))
+								  ->appendFile($this->basePath('js/compatible/html5.js') , 'text/javascript', array('conditional' => 'lt IE 9',))
+								  ->appendFile($this->basePath('js/compatible/swfobject.js'))
+								  ->appendFile($this->basePath('js/org/jquery/jquery-1.7.2.min.js'))
+                                  ->appendFile($this->basePath('js/org/jquery/jquery.cookie.js'))
+                                  ->appendFile($this->basePath('js/org/jquery/jquery.validate.js'))
+								  ->appendFile($this->basePath('js/org/jquery/jquery.bgiframe.js'))
+								  ->appendFile($this->basePath('plugin/xheditor/xheditor-1.1.14-zh-cn.min.js'))
+								  ->appendFile($this->basePath('plugin/uploadify/scripts/jquery.uploadify.js'))
+								  ->appendFile($this->basePath('plugin/dwz/dwz.min.js') )
+								  ->appendFile($this->basePath('plugin/dwz/dwz.regional.zh.js') )
+								  ->appendFile($this->basePath('plugin/dwz/dwz.unlimitedCombox.js'));
 ?>
 <script type="text/javascript">
 $(function(){
-	DWZ.init("<?php echo $this->basePath().'/plugin/dwz/dwz.frag.xml'?>", {
+	DWZ.init("<?php echo $this->basePath('plugin/dwz/dwz.frag.xml');?>", {
 		loginUrl:"login_dialog.html", loginTitle:"登录",	// 弹出登录对话框
 		statusCode:{ok:200, error:300, timeout:301}, //【可选】
 		pageInfo:{pageNum:"pageNum", numPerPage:"numPerPage", orderField:"orderField", orderDirection:"orderDirection"}, //【可选】
@@ -54,7 +53,7 @@ $(function(){
 				</ul>
 			</div>
 			<div id="navMenu">
-				<?php echo $this->navigation()->Admin()->renderNav();?>
+				<?php //echo $this->navigation()->Admin()->renderNav();?>
 			</div><!-- navMenu end -->
 		</div><!-- header end -->
 
@@ -65,7 +64,7 @@ $(function(){
 				</div>
 			</div>
 			<div id="sidebar">
-				<?php echo $this->navigation()->Admin()->renderSidebar(); ?>
+				<?php //echo $this->navigation()->Admin()->renderSidebar(); ?>
 			</div><!-- sidebar -->
 		</div>
 		<div id="container">
@@ -85,7 +84,7 @@ $(function(){
 				</ul>
 				<div class="navTab-panel tabsPageContent layoutBox">
 					<div class="page bedpeople">
-						<?php echo $contnet;?>
+						<?php echo $this->contnet;?>
 						
 					</div>
 					
