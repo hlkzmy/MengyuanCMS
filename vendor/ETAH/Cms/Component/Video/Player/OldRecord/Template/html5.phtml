@@ -1,0 +1,13 @@
+<?php 
+$script = sprintf('$(document).ready(function(){
+		
+	$("#RecordVideo").html5Recordplayer();
+			
+});');
+
+$this->headScript()->appendScript($script);
+?>
+
+	         		 <video  id='RecordVideo'  width='100%' height='460' controls='controls' autoplay='autoplay' src='<?php echo $this->videoFilePath;?>'>  
+		                  		 您的浏览器不支持HTML5的视频播放版本
+		             </video>

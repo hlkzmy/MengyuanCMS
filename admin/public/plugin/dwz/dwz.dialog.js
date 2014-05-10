@@ -32,6 +32,7 @@
 		open:function(url, dlgid, title, options) {
 			var op = $.extend({},$.pdialog._op, options);
 			var dialog = $("body").data(dlgid);
+			
 			//重复打开一个层
 			if(dialog) {
 				if(dialog.is(":hidden")) {
@@ -177,6 +178,9 @@
 			var op = $.extend({}, this._op, options);
 			var height = op.height>op.minH?op.height:op.minH;
 			var width = op.width>op.minW?op.width:op.minW;
+			if(op.width == 'auto'){
+				width = $(window).width()*0.8;
+			}
 			if(isNaN(dialog.height()) || dialog.height() < height){
 				$(dialog).height(height+"px");
 				$(".dialogContent",dialog).height(height - $(".dialogHeader", dialog).outerHeight() - $(".dialogFooter", dialog).outerHeight() - 6);

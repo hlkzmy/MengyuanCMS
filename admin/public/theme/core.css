@@ -253,10 +253,11 @@ a:hover {text-decoration:underline;}
 .panelBar .toolBar a, .panelBar .toolBar li.hover a { float:left; display:block; overflow:hidden; padding:0 5px 0 0; text-decoration:none; background-position:100% -150px;}
 .panelBar .toolBar span, .panelBar .toolBar li.hover span { float:left; display:block; overflow:hidden; height:23px; padding:0 0 0 20px; line-height:23px; cursor:pointer;}
 
-.panelBar .toolBar a.add span { background-position:0 -696px;}
+.panelBar .toolBar a.add 	span { background-position:0 -696px;}
 .panelBar .toolBar a.delete span { background-position:0 -746px;}
-.panelBar .toolBar a.edit span { background-position:0 -796px;}
-.panelBar .toolBar a.icon span { background-position:0 -846px;}
+.panelBar .toolBar a.edit 	span { background-position:0 -796px;}
+.panelBar .toolBar a.list 	span { background-position:0 -796px;}
+.panelBar .toolBar a.icon 	span { background-position:0 -846px;}
 
 .panelBar .toolBar li.line { display:block; overflow:hidden; width:12px; padding:0; text-indent:-1000px; background-position:5px -200px;}
 
@@ -309,24 +310,105 @@ line-height:21px;
 font-weight:bold;
 cursor:default;}
 .grid .gridHeader th.hover, .grid .gridHeader th.thSelected { background-position:0 -50px;}
+
+/*以下是为了做无限分类列表所做出的努力，额外的定义了一些样式,这一部分的内容在common.css中有对应的部分*/
 .grid .gridTbody td {
 border-right:solid 1px #ededed;
-overflow:hidden;
-padding:0 3px;
 border-bottom:solid 1px #ededed;
+line-height:26px;
+height:28px;
+overflow:hidden; 
+padding:0 3px; 
 vertical-align:middle;
-height:30px;
-line-height:30px;
 }
 .grid .gridTbody td div {
 display:block;
 overflow:hidden;
-height:20px;
-line-height:20px;
+height:26px;
+line-height:26px;
 white-space:nowrap;
 }
-.grid .gridTbody td div a{line-height:20px;}
+.grid .gridTbody td div a{
+line-height:21px;
+}
 
+.grid .gridTbody td div.only_collapsed{
+width:24px;
+background-position:0px 0px;
+}
+.grid .gridTbody td div.first_collapsed{
+width:24px;
+background-position:0px -50px;
+}
+.grid .gridTbody td div.middle_collapsed{
+width:24px;
+background-position:0px -100px;
+}
+.grid .gridTbody td div.last_collapsed{
+width:24px;
+background-position:0px -150px;
+}
+/*压缩状态开始*/
+.grid .gridTbody td div.only_expanded{
+width:24px;
+background-position:0px -200px;
+}
+.grid .gridTbody td div.first_expanded{
+width:24px;
+background-position:0px -250px;
+}
+.grid .gridTbody td div.middle_expanded{
+width:24px;
+background-position:0px -300px;
+}
+.grid .gridTbody td div.last_expanded{
+width:24px;
+background-position:0px -350px;
+}
+
+.grid .gridTbody td div.node{
+width:24px;
+}
+.grid .gridTbody td div.line{
+width:24px;
+}
+
+.grid .gridTbody td div.indent{
+width:24px;
+}
+
+.grid .gridTbody td div.folder{
+width:24px;
+}
+
+.grid .gridTbody td div.file{
+width:24px;
+}
+
+.grid .gridTbody td div.item{
+width:auto;
+padding:0px 5px;
+}
+
+.grid .gridTbody td div.checkbox{
+width:24px;
+}
+.grid .gridTbody td div.checkbox input{
+margin:0px;
+padding:0px;
+height:23px;
+line-height:23px;
+}
+.grid .gridTbody td div.radio{
+width:24px;
+}
+.grid .gridTbody td div.radio input{
+margin:0px;
+padding:0px;
+height:23px;
+line-height:23px;
+}
+/*---------------------------努力结束---------------------------------*/
 .grid .gridRow { border-style:solid; border-width:0 0 1px 0; cursor:default;}
 .grid .gridRow td.tdLast { padding:0 4px 0 5px; border-right:solid 1px;}
 .grid .gridCol { width:100%; display:block; overflow:hidden; height:21px; line-height:21px; white-space:nowrap;}
@@ -458,7 +540,7 @@ body { overflow:hidden;}
 #footer {position:absolute; bottom:0; left:0; text-align:center; width:100%; height:21px; padding:0 5px;z-index:-1}
 
 #header .headerNav { height:50px; background-repeat:no-repeat; background-position:100% -50px;}
-#header .logo { float:left; width:250px; height:50px; text-indent:-1000px;}
+#header .logo { float:left; width:370px; height:50px; text-indent:-1000px;}
 
 #header .nav { display:block; height:21px; position:absolute; top:8px; right:0; z-index:31;}
 #header .nav li { float:left; margin-left:-1px; padding:0 10px; line-height:11px; position:relative;}
@@ -655,3 +737,5 @@ a.btnAttach{background-position: -183px 0}
 
 .sortDragPlaceholder {border:1px dashed #ccc;}
 #printBox {display:none}
+.indent{position: relative}
+span.error{top: 4px;left: 260px;}

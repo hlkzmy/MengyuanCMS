@@ -9,24 +9,20 @@
  */
 namespace Application;
 
-
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
-
-use Application\Factory\ServiceLocatorFactory;
-
 use Zend\View\HelperPluginManager;
-
-use  Zend\Permissions\Acl\Acl;
-use  Zend\Permissions\Acl\Resource\GenericResource as Resource;
-use  Zend\Permissions\Acl\Role\GenericRole as Role;
-
-use  Zend\Navigation\Navigation;
-
-use Zend\Log\Writer;
-
+use Zend\Permissions\Acl\Acl;
+use Zend\Permissions\Acl\Resource\GenericResource as Resource;
+use Zend\Permissions\Acl\Role\GenericRole as Role;
+use Zend\Navigation\Navigation;
 use Zend\Navigation\Page\Mvc as MvcPage;
 use Zend\Navigation\Page\Uri as UriPage;
+use Zend\Log\Writer;
+
+use Etah\Mvc\Factory\ServiceLocator\ServiceLocatorFactory;
+
+use System\Model\UserModel;
 
 class Module {
 	
@@ -36,6 +32,8 @@ class Module {
 	public function onBootstrap(MvcEvent $e) {
 		
 		$eventManager = $e->getApplication ()->getEventManager();
+		
+		//$e->getResponse()
 		
 		$moduleRouteListener = new ModuleRouteListener ();
 		$moduleRouteListener->attach ( $eventManager );
@@ -50,19 +48,26 @@ class Module {
 		$sharedEvents = $e->getApplication ()->getEventManager ()->getSharedManager ();
 		
 		$sharedEvents->attach ( 'Zend\Mvc\Controller\AbstractActionController', 'dispatch', function ($e) {
+			
 			$e->getResult ()->setTerminal ( true );
+			
 		} ); // attach end
 		    
 		//在路由的时候进行权限检查
 		$eventManager->attach ('route', array ($this,'checkAcl'),-100); 
+		//$eventManager->attach ('route', array ($this,'writeLog'),-100);
+		
+		
 				
 		// 以下是为了在全局中使用一些公用的文档信息，如headTitle等内容
 		$renderer = $serviceManager->get ( 'Zend\View\Renderer\PhpRenderer' );
 		
-		$renderer->headTitle ( '康润律师事务所-内容管理系统' );
+		$renderer->layout()->setVariable('copyright','康润内容管理系统'); 
+		
+		$renderer->headTitle ( '康润内容管理系统' );
 	}
 	
-
+	
 	public function checkAcl($e) {
 		
 		$routeMatch = $e->getRouteMatch();
@@ -73,34 +78,44 @@ class Module {
 		
 		//进行权限认证
 		$serviceManager = $e->getApplication ()->getServiceManager ();
-		$permission = $serviceManager->get ('Controller\Plugin\Manager')->get ('Permission');
+		$permission = $serviceManager->get ('ControllerPluginManager')->get ('Permission');
 		$permission->auth($e);
 
 		$permission->menu($e);
 		
 	}//function checkAcl() end
 	
+	
+	
+	public function writeLog($e){
+		
+		$serviceManager = $e->getApplication ()->getServiceManager ();
+		$logManager = $serviceManager->get ('ControllerPluginManager')->get ('LogManager');
+		$logManager->writeLogs($e);
+		
+	}
+	
 	public function getConfig() {
 		
-		return include __DIR__ . '/config/module.config.php';
+		return  include __DIR__ . '/config/module.config.php';
 		
 	}
 	public function getServiceConfig() {
 		
-		return include __DIR__ . '/config/service.config.php';
+		return  include __DIR__ . '/config/server.config.php';
+		
 	}
 
-	
 	public function getAutoloaderConfig() {
-		
 		return array (
 				'Zend\Loader\StandardAutoloader' => array (
 						'namespaces' => array (
-								__NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__ 
+								__NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+								'Base'  => __DIR__ . '/src/' . 'Base',
+								'Admin' => __DIR__ . '/src/' . 'Admin'
 						) 
 				) 
 		);
-		
 	}
 	
 	

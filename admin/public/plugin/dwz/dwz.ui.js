@@ -110,19 +110,51 @@ function initUI(_box){
 	}
 	
 	if ($.fn.uploadify) {
-		$(":file[uploaderOption]", $p).each(function(){
+		$(":file[uploadify=true]", $p).each(function(){
+			
 			var $this = $(this);
+			
+//			alert(  $this.attr('formData')  );
+			
+			
 			var options = {
+					
 				fileObjName: $this.attr("name") || "file",
-				auto: true,
-				multi: true,
-				onUploadError: uploadifyError
+				
+				auto: true,  //在后台中默认一旦选择就直接开始上传
+				
+				multi: false,//在后台中默认都只能一次上传一个文件
+				
+				method:'post',
+				
+				width:$this.attr('width'),
+				
+				height:$this.attr('height'),
+				
+				id:$this.attr('id'),
+				
+				swf:$this.attr('swf'),
+				
+				uploader:$this.attr('uploader'),
+				
+				formData:$.parseJSON( $this.attr('formData') ),
+				
+				buttonImage:$this.attr('buttonImage'),
+				
+				buttonClass:$this.attr('buttonClass'),
+				
+				fileSizeLimit:$this.attr('fileSizeLimit'),
+				
+				fileTypeDesc:$this.attr('fileTypeDesc'),
+				
+				fileTypeExts:$this.attr('fileTypeExts'),
+				
+				onUploadSuccess:window[$this.attr('onUploadSuccess')],
+			
+				onUploadError  :window[$this.attr('onUploadError')]
 			};
 			
-			var uploaderOption = DWZ.jsonEval($this.attr("uploaderOption"));
-			$.extend(options, uploaderOption);
-
-			DWZ.debug("uploaderOption: "+DWZ.obj2str(uploaderOption));
+			DWZ.debug("uploaderOption: "+DWZ.obj2str(options));
 			
 			$this.uploadify(options);
 		});
@@ -281,8 +313,8 @@ function initUI(_box){
 	// 这里放其他第三方jQuery插件...
 	
 	if($.fn.unlimitedCombox)$("select[target=unlimitedCombox]",$p).unlimitedCombox();
-	if($.fn.Report){$("table[class=ReportTable]",$p).Report();}
 	
+	if($.fn.componentSelect)$("form.componentSelect",$p).componentSelect();
 	
 	
 }

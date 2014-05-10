@@ -114,13 +114,13 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 					height          : 30,                 // The height of the browse button
 					itemTemplate    : false,              // The template for the file item in the queue
 					method          : 'post',             // The method to use when sending files to the server-side upload script
-					multi           : true,               // Allow multiple file selection in the browse dialog
+					multi           : false,               // Allow multiple file selection in the browse dialog
 					formData        : {},                 // An object with additional data to send to the server-side upload script with every file upload
 					preventCaching  : true,               // Adds a random value to the Flash URL to prevent caching of it (conflicts with existing parameters)
 					progressData    : 'percentage',       // ('percentage' or 'speed') Data to show in the queue item during a file upload
 					queueID         : false,              // The ID of the DOM object to use as a file queue (without the #)
 					queueSizeLimit  : 999,                // The maximum number of files that can be in the queue at one time
-					removeCompleted : true,               // Remove queue items from the queue when they are done uploading
+					removeCompleted : false,               // Remove queue items from the queue when they are done uploading
 					removeTimeout   : 3,                  // The delay in seconds before removing a queue item if removeCompleted is set to true
 					requeueErrors   : false,              // Keep errored files in the queue and keep trying to upload them
 					successTimeout  : 30,                 // The number of seconds to wait for Flash to detect the server's response after the file has finished uploading
@@ -279,7 +279,7 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 						uploadSize         : 0, // The size in bytes of the upload queue
 						queueBytesUploaded : 0, // The size in bytes that have been uploaded for the current upload queue
 						uploadQueue        : [], // The files currently to be uploaded
-						errorMsg           : 'Some files were not added to the queue:'
+						errorMsg           : '文件未添加到上传队列:'
 					};
 
 					// Save references to all the objects
@@ -569,7 +569,7 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 			var settings = this.settings;
 
 			// Reset some queue info
-			this.queueData.errorMsg       = 'Some files were not added to the queue:';
+			this.queueData.errorMsg       = '文件未添加到上传队列:';
 			this.queueData.filesReplaced  = 0;
 			this.queueData.filesCancelled = 0;
 
@@ -694,22 +694,22 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 			// Run the default event handler
 			if ($.inArray('onSelectError', settings.overrideEvents) < 0) {
 				switch(errorCode) {
-					case SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED:
-						if (settings.queueSizeLimit > errorMsg) {
-							this.queueData.errorMsg += '\nThe number of files selected exceeds the remaining upload limit (' + errorMsg + ').';
-						} else {
-							this.queueData.errorMsg += '\nThe number of files selected exceeds the queue size limit (' + settings.queueSizeLimit + ').';
-						}
-						break;
-					case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
-						this.queueData.errorMsg += '\nThe file "' + file.name + '" exceeds the size limit (' + settings.fileSizeLimit + ').';
-						break;
-					case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
-						this.queueData.errorMsg += '\nThe file "' + file.name + '" is empty.';
-						break;
-					case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
-						this.queueData.errorMsg += '\nThe file "' + file.name + '" is not an accepted file type (' + settings.fileTypeDesc + ').';
-						break;
+				case SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED:
+					if (settings.queueSizeLimit > errorMsg) {
+						this.queueData.errorMsg += '\n选择文件的数量超过了设定的数量 (' + errorMsg + ').';
+					} else {
+						this.queueData.errorMsg += '\n所选择的上传文件的大小超过了所设定的大小 (' + settings.queueSizeLimit + ').';
+					}
+					break;
+				case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
+					this.queueData.errorMsg += '\n文件 "' + file.name + '" 超过了系统设定的最大上传文件大小 (' + settings.fileSizeLimit + ').';
+					break;
+				case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
+					this.queueData.errorMsg += '\n文件 "' + file.name + '" 是空文件.';
+					break;
+				case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
+					this.queueData.errorMsg += '\n文件 "' + file.name + '" 的类型必须是 (' + settings.fileTypeDesc + ').';
+					break;
 				}
 			}
 			if (errorCode != SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED) {

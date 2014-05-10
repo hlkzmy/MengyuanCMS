@@ -315,7 +315,7 @@ function uploadifyQueueComplete(queueData){
 /**
  * http://www.uploadify.com/documentation/uploadify/onuploadsuccess/
  */
-function uploadifySuccess(file, data, response){
+function onUploadSuccess(file, data, response){
 	alert(data)
 }
 

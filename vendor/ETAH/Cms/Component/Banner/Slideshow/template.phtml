@@ -1,0 +1,17 @@
+<div id="z_new_video_main">
+	<div id="z_new_video_title">最新视频</div>
+    <div id="slideshow">
+     <div id='img_box'>
+        <ul class="slides">
+        <?php foreach ($this->data['list'] as $video):?>
+        
+            <li><a href="<?php echo $video['img_url']?>" target="_blank" type="video" ><img src="<?php echo $video['img_src']?>" width="710" height="390" alt="<?php echo $video['name'];?>" /></a></li>
+            
+        <?php endforeach;?>
+        </ul>
+       </div>
+        <span class="arrow previous" title="上一个"></span>
+        <span class="arrow next" title="下一个" ></span>
+    </div>
+    <div class="z_shadow_730"></div>
+</div>

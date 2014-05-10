@@ -17,14 +17,14 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                    	'controller' => 'Application\Controller\Index',
-                        'action'     => 'ShowUserLogin',
+                    	'controller' => 'Admin\Controller\Index',
+                        'action'     => 'console',
                     ),
                 ),
             ),
             
         		
-            'application' => array(
+            'admin' => array(
 						'type'    => 'Segment',
             			'options' => array(
                     			'route'    => '/[:controller[/:action]][/:m]',
@@ -34,12 +34,16 @@ return array(
                     						'm'          => '[a-zA-Z]*',
                     			),
                     			'defaults' => array(
-                    						'__NAMESPACE__' => 'application\Controller',
+                    						'__NAMESPACE__' => 'Admin\Controller',
                     						'controller'    => 'Index',
-                    						'action'        => 'showUserLogin',
+                    						'action'        => 'ShowUserLogin',
                     			),
                     	),
             ),
+            
+           
+            
+           
                     		
                     			
                     
@@ -65,17 +69,34 @@ return array(
     					//返回数据库的连接
     
     				},
-//     				'Navigation' => 'Application\Navigation\MyNavigationFactory',
+
     					
     		),
     ),
     
+    /**
+     * 以下是为了使用导航栏的admin的方法所进行的配置
+     */
     'navigation_helpers'=>array(
+    		'invokables'=>array(
+    				'Admin'=>'Etah\Mvc\View\Helper\Navigation\Admin'
+    		)
+    ),
+    
+    /**
+     * 以下是为了使用dwz自定义的表单组件所进行的配置
+     */
+    'view_helpers'=>array(
     	'invokables'=>array(
-    		'Admin'=>'Application\ViewHelper\Admin'
+    		'formdwzlookup'			  => 'Etah\Mvc\View\Helper\Form\Dwz\FormDwzLookup',
+        	'formdwzuploadify'		  => 'Etah\Mvc\View\Helper\Form\Dwz\FormDwzUploadify',
+    		'formdwzdatepicker'		  => 'Etah\Mvc\View\Helper\Form\Dwz\FormDwzDatePicker',
     	)
     ),
+    				
+    				
 
+    
     'translator' => array(
         'locale' => 'zh_CN',
         'translation_file_patterns' => array(
@@ -88,8 +109,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController',
-        ),
+            'Admin\Controller\Index' => 'Admin\Controller\IndexController',
+         ),
     ),
     'view_manager' => array(
         'display_not_found_reason' => true,
@@ -106,13 +127,17 @@ return array(
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
         'template_path_stack' => array(
-            __DIR__ . '/../view',
+        		
+            'Application' =>dirname(__DIR__) . '/view',
+        		
+        	'Cms'=>WEBSITE_DISK_PATH.'/vendor/ETAH/Cms'
         ),
     ),	
     
     'controller_plugins' => array(
     		'invokables' => array(
-    				'Permission' => 'Application\Plugin\Permission\Permission',
+    				'Permission' => 'Etah\Mvc\Plugin\Permission\Permission',
+    				'LogManager' => 'Etah\Mvc\Plugin\Log\LogManager'
     		),
     ),
     

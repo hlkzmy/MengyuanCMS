@@ -296,6 +296,7 @@ var navTab = {
 		}
 	},
 	reload: function(url, options){
+		
 		var op = $.extend({data:{}, navTabId:"", callback:null}, options);
 		var $tab = op.navTabId ? this._getTab(op.navTabId) : this._getTabs().eq(this._currentIndex);
 		var $panel =  op.navTabId ? this.getPanel(op.navTabId) : this._getPanels().eq(this._currentIndex);
@@ -309,6 +310,7 @@ var navTab = {
 					navTab.openExternal(url, $panel);
 				} else {
 					if ($.isEmptyObject(op.data)) { //获取pagerForm参数
+						
 						var $pagerForm = $("#pagerForm", $panel);
 						op.data = $pagerForm.size()>0 ? $pagerForm.serializeArray() : {}
 					}

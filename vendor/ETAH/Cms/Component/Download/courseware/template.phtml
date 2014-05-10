@@ -1,0 +1,52 @@
+<?php 
+	$this->headScript()->appendFile($this->basePath('js/etah/resource/courseware/courseware.js'));
+?>
+<script>
+var checkFileUrl = '<?php echo $this->url('resource',array('controller'=>'Courseware','action'=>'ajaxCheckFile'));?>';
+</script>
+<div class="info">
+                    <div class="tit">
+                        <h2></h2>
+                        <h3><?php echo $data['name']?></h3>
+                        <h4><a url="<?php echo $data['download_url']?>" target="_blank"  id='downLoad'>立即下载</a></h4>
+                    </div>
+                    <div class="infoleft">
+                        <div class="softinfo">
+                            <ul>
+                                <li><span>课件类别：</span><?php echo $data['courseware_sort_name']?></li>
+<!--                                <li><span>课件大小：</span>22585KB</li>-->
+                                <li><span>课件授权：</span>免费版　　</li>
+                                <li><span>人气指数：</span><span class="cRed"><?php echo $data['hits']?></span></li>
+                                <li><span>课件语言：</span>简体中文</li>
+                                <li><span>更新时间：</span><?php echo $data['update_time']?></li>
+                                <li><span>课件评级：</span><img src="/platform/frontend/public/theme/resource/courseware/showcourseware/images/icon_star.gif" /><img src="/platform/frontend/public/theme/resource/courseware/showcourseware/images/icon_star.gif" /><img src="/platform/frontend/public/theme/resource/courseware/showcourseware/images/icon_star.gif" /><img src="/platform/frontend/public/theme/resource/courseware/showcourseware/images/icon_star.gif" /></li>
+                                <li><span>发 布 人：</span><?php echo $data['realname']?></li>
+                                <li><span>联 系 人：</span><?php echo $data['realname']?></li>
+                            </ul>
+                        </div>
+                        <div class="share"></div>
+                    </div>
+                    <div class="imgcut">
+
+                        <h2><img src="<?php echo $data['image_url']?>" width="180" height="120" /></h2>
+                        <p>相关视频截图</p>
+                    </div>
+</div>
+
+<div class="str">
+                    <div class="lt"><h2><?php echo $data['name']?> 课件描述</h2></div>
+                    <div class="box">
+                        <p><?php echo $data['description']?></p>                
+
+					</div>
+</div>
+<script type="text/javascript">
+            var data = {
+                where:{
+                    'id':<? echo $data['id']?>                    
+                },
+                model:'CoursewareModel',
+                column:'hits'
+            };
+            addPv(data);
+</script>

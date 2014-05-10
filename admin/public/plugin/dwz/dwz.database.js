@@ -41,11 +41,14 @@
 	$.fn.extend({
 		lookup: function(){
 			return this.each(function(){
-				var $this = $(this), options = {mask:true, 
-					width:$this.attr('width')||820, height:$this.attr('height')||400,
-					maxable:eval($this.attr("maxable") || "true"),
-					resizable:eval($this.attr("resizable") || "true")
-				};
+				var $this = $(this);
+				var options = {	
+								mask:true, 
+								width:$this.attr('width')||820, 
+								height:$this.attr('height')||400,
+								maxable:eval($this.attr("maxable") || "true"),
+								resizable:eval($this.attr("resizable") || "true")
+							 };
 				$this.click(function(event){
 					_lookup = $.extend(_lookup, {
 						currentGroup: $this.attr("lookupGroup") || "",

@@ -1,0 +1,33 @@
+<?php 
+$script = sprintf('$(document).ready(function(){
+		
+	$("#RecordPlayerLayoutTable").html5Recordplayer();
+			
+});');
+
+$this->headScript()->appendScript($script);
+?>
+
+<table id='RecordPlayerLayoutTable' width='100%' cellpadding='0' cellspacing='0' border='0'>
+	  <tr>
+	      <td colspan='2' height='400'>
+	         	<div id="RecordPlayerContainer">
+	         		 <video  id='RecordVideo'  width='100%' height='460' controls='controls' autoplay='autoplay' src='<?php echo $this->videoFilePath;?>'>  
+		                  		 您的浏览器不支持HTML5的视频播放版本
+		             </video>
+	            </div><!-- RecordPlayerContainer end -->
+	      </td>
+	  </tr>
+	  <?php if(isset($this->videoHtml5UrlList)):?>
+	  <tr>
+	     <td colspan='2'>
+              <div id="chapterList">
+              		<?php foreach($this->videoHtml5UrlList as $key=>$html5url):?>
+              			<?php $j = $key+1; ?>
+      					<span class='chapterPlayButton' html5url='<?php echo $html5url;?>'>第<?php echo $j;?>节</span>
+              		<?php endforeach;?>
+              </div>
+         </td>
+	  </tr>
+	  <?php endif;?>
+</table>

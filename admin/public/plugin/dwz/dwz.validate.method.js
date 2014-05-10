@@ -42,6 +42,14 @@
 				return false;
 			}
 		}, "Please fix this field.");
+                
+                                    $.validator.addMethod("ip", function(value, element) {
+			return this.optional(element) || /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(value);
+		}, "请输入合法的ip地址!");
+                
+                                     $.validator.addMethod("flag", function(value, element) {
+			return this.optional(element) || /[0,1]/.test(value);
+		}, "所填值必须为0或1!");
 		
 		$.validator.addClassRules({
 			date: {date: true},

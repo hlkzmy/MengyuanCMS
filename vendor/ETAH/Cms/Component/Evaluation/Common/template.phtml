@@ -1,0 +1,139 @@
+<table class = "VideoSortVideoInfoTable" cellpadding='0' cellspacing='0'>
+	<thead>
+	   <tr>
+	     <td>
+	        <span class='VideoSortName'>
+	          <a href="#">
+	            <?php echo $this->data['title_name'];?>
+	          </a>
+	        </span>
+	     </td>
+	     <td>
+	        <span class='VideoSortMoreLink'>
+	           <a href="#">更多..</a>
+	        </span>
+	     </td>
+	   </tr>
+	</thead>
+	<tbody >
+		 <tr>
+	      <td td colspan="2">
+	      <div class="EvalutionTab" >
+	      <ul>
+	      <li id="EvalutionTab1" onclick="setTab('EvalutionTab',1,3)" class="select"><a >未进行</a></li>
+	      <li id="EvalutionTab2" onclick="setTab('EvalutionTab',2,3)" ><a >评价中</a></li>
+	      <li id="EvalutionTab3" onclick="setTab('EvalutionTab',3,3)" ><a >评价结束</a></li></ul>
+	      </div>
+	      </td>
+	    </tr>
+	<tr><td colspan="2">
+	<div  id="con_EvalutionTab_1"  >
+	    <?php foreach($this->data['evaluationNotStartList'] as $element):?>
+	    
+	    <table  class="EvaluationListLayoutTable" cellpadding='0' cellspacing="0">
+	     <tr>
+	     	<td width="10">&nbsp;</td>
+	        <td valign="center" width='100'><img  src="<?php echo $element['img_src']; ?>"  width='118' height='100' /></td>
+	        <td width="20">&nbsp;</td>
+	        <td>
+	         <table class="EvaluatorListContentTable" EvaluationId="{%$outer_value['id']%}"   cellpadding='0' cellspacing="0" border='0'>
+	            <tr>
+	               <td width='20' rowspan='4'>&nbsp;</td>
+	               <td colspan='5' height='30'>
+	                  <div class='EvaluationTitle'><?php echo $element['name'];?></div>
+	               </td>
+	               <td width='15' rowspan='3'>&nbsp;</td>
+	            </tr>
+	            <tr>
+	               <td width='200'><label>开始时间:</label><label class="EvaluationStartTime"><?php echo $element['start_time'];?>&nbsp;</label></td>
+	               <td width='200'><label>结束时间:</label><label class="EvaluationEndTime"><?php echo $element['end_time'];?>&nbsp;</label></td>
+	               <td>&nbsp;</td>
+	            </tr>
+	            <tr>  
+	               <td><label>评价科目：</label><label  class='EvaluationSubject'><?php echo $element['name'];?></label></td>
+	               <td colspan='2'><label>评课参与人员：</label><label><?php foreach ($element['evaluationEvaluator'] as $user){echo $user.'  '; }?></label></td>
+	            </tr>
+	            <tr>
+	               <td colspan='5' valign='top'><div class="EvaluationCourseDescription"><?php echo $element['course_description'];?></div></td>
+	            </tr>
+	        </table>
+	      </td>
+	     </tr>
+  	 </table>
+	    <?php endforeach;?>
+	</div>
+	<div  id="con_EvalutionTab_2" style="display:none;" >
+	    <?php foreach($this->data['evaluatingList'] as $element):?>
+	    
+	    <table  class="EvaluationListLayoutTable" cellpadding='0' cellspacing="0">
+	     <tr>
+	     	<td width="10">&nbsp;</td>
+	        <td valign="center" width='100'><img  src="<?php echo $element['img_src']; ?>"  width='118' height='100' /></td>
+	        <td width="20">&nbsp;</td>
+	        <td>
+	         <table class="EvaluatorListContentTable" EvaluationId="{%$outer_value['id']%}"   cellpadding='0' cellspacing="0" border='0'>
+	            <tr>
+	               <td width='20' rowspan='4'>&nbsp;</td>
+	               <td colspan='5' height='30'>
+	                  <div class='EvaluationTitle'><?php echo $element['name'];?></div>
+	               </td>
+	               <td width='15' rowspan='3'>&nbsp;</td>
+	            </tr>
+	            <tr>
+	               <td width='200'><label>开始时间:</label><label class="EvaluationStartTime"><?php echo $element['start_time'];?>&nbsp;</label></td>
+	               <td width='200'><label>结束时间:</label><label class="EvaluationEndTime"><?php echo $element['end_time'];?>&nbsp;</label></td>
+	               <td>&nbsp;</td>
+	            </tr>
+	            <tr>  
+	               <td><label>评价科目：</label><label  class='EvaluationSubject'><?php echo $element['name'];?></label></td>
+	               <td colspan='2'><label>评课参与人员：</label><label><?php foreach ($element['evaluationEvaluator'] as $user){echo $user.'  '; }?></label></td>
+	            </tr>
+	            <tr>
+	               <td colspan='5' valign='top'><div class="EvaluationCourseDescription"><?php echo $element['course_description'];?></div></td>
+	            </tr>
+	        </table>
+	      </td>
+	     </tr>
+  	 </table>
+	    <?php endforeach;?>
+	</div>
+	<div  id="con_EvalutionTab_3" style="display:none;" >
+	    <?php foreach($this->data['evaluatedList'] as $element):?>
+	    
+	    <table  class="EvaluationListLayoutTable" cellpadding='0' cellspacing="0">
+	     <tr>
+	     	<td width="10">&nbsp;</td>
+	        <td valign="center" width='100'><img  src="<?php echo $element['img_src']; ?>"  width='118' height='100' /></td>
+	        <td width="20">&nbsp;</td>
+	        <td>
+	         <table class="EvaluatorListContentTable" EvaluationId="{%$outer_value['id']%}"   cellpadding='0' cellspacing="0" border='0'>
+	            <tr>
+	               <td width='20' rowspan='4'>&nbsp;</td>
+	               <td colspan='5' height='30'>
+	                  <div class='EvaluationTitle'><?php echo $element['name'];?></div>
+	               </td>
+	               <td width='15' rowspan='3'>&nbsp;</td>
+	            </tr>
+	            <tr>
+	               <td width='200'><label>开始时间:</label><label class="EvaluationStartTime"><?php echo $element['start_time'];?>&nbsp;</label></td>
+	               <td width='200'><label>结束时间:</label><label class="EvaluationEndTime"><?php echo $element['end_time'];?>&nbsp;</label></td>
+	               <td>&nbsp;</td>
+	            </tr>
+	            <tr>  
+	               <td><label>评价科目：</label><label  class='EvaluationSubject'><?php echo $element['name'];?></label></td>
+	               <td colspan='2'><label>评课参与人员：</label><label><?php foreach ($element['evaluationEvaluator'] as $user){echo $user.'  '; }?></label></td>
+	            </tr>
+	            <tr>
+	               <td colspan='5' valign='top'><div class="EvaluationCourseDescription"><?php echo $element['course_description'];?></div></td>
+	            </tr>
+	        </table>
+	      </td>
+	     </tr>
+  	 </table>
+	    <?php endforeach;?>
+	</div>
+	
+	</td></tr>
+	</tbody>
+</table>
+

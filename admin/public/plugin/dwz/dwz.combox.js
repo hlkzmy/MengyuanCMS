@@ -3,6 +3,7 @@
  */
 
 (function($){
+	
 	var allSelectBox = [];
 	var killAllBox = function(bid){
 		$.each(allSelectBox, function(i){

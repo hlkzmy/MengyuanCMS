@@ -1,0 +1,22 @@
+<table class='ArticleTable'  cellpadding='0' cellspacing='0' border='1'>
+	<thead>
+	   <tr>
+	     <td colspan='2'>相关课件</td>
+	   </tr>
+	</thead>
+	<tbody>
+	<?php foreach($this->data['list'] as $key=>$element):?>
+	<tr>
+		 <td class="listNum">
+		 	<span class="no"><?php echo $key+1;?></span>
+		 </td>
+	     <td class="listNumA">
+	        <a href="<?php echo $element['title_url'];?>">
+	          <?php echo $element['name']; ?>
+	         </a>
+	    </td>
+	 </tr>
+	<?php endforeach;?>
+	</tbody>	
+</table>
+<div class="z_shadow_245"></div>

@@ -22,3 +22,60 @@ table tr td button{
 vertical-align:middle;	
 }
 
+
+/*=======================常用表格的设置=======================*/
+.CustomerTable{
+border-top :1px solid #c9caca;
+border-left:1px solid #c9caca;
+}
+.CustomerTable tr td.center{
+text-align:center;
+text-indent:0px;
+}
+
+.CustomerTable tbody tr td{
+line-height:30px;
+height:30px;
+border-bottom:1px solid #c9caca;
+border-right:1px solid #c9caca;
+}
+.CustomerTable tbody tr td.indent{
+padding-left:20px;
+text-align:left;
+}
+.CustomerTable tbody tr td.top{
+padding-top:20px;
+}
+.CustomerTable tbody tr td.bottom{
+padding-bottom:20px;
+}
+/*=======================数据库对象列表过滤表格设置=======================*/
+.pagerTable{
+border-top :1px solid #c9caca;
+border-left:1px solid #c9caca;	
+}
+.pagerTable tr td{
+width:auto;
+border-bottom:1px solid #c9caca;
+border-right:1px solid #c9caca;
+padding:0px 20px;
+line-height:26px;
+height:26px;
+text-align:left;
+}
+
+.pagerTable  tr td.indent{
+text-indent:20px;
+text-align:left;
+}
+.pagerTable  tr td.center{
+text-align:center;
+}
+
+/*===系统设置-网站前台设置-配置表格  所使用的样式===*/
+#FrontendConfigTable .interval{
+background:#d4ffe9;
+font-size:14px;
+font-weight:bold;
+text-align:center;
+}

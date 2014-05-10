@@ -1,4 +1,5 @@
 <?php
+
 return array(
 		
 		'not_need_auth_module' => array('application'),
@@ -9,19 +10,19 @@ return array(
 				
 		'not_need_auth_action' => array(
 	    //不需要验证的方法	
-				'application.index.showuserlogin',
-				'application.index.checkuserlogin',
-				'application.index.captcha',
-				'application.index.logout',
+				'admin.index.showuserlogin',
+				'admin.index.checkuserlogin',
+				'admin.index.captcha',
+				'admin.index.logout',
 				
 		),
 		
 		'need_generate_menu' =>array(
-				//需要生成菜单的方法列表
+		//需要生成菜单的方法列表
 		
-			'application.index.admin',
+			'admin.index.console',
 				 
-			'application.index.sidebar',
+			'admin.index.sidebar',
 				 
 		),
 		
@@ -30,16 +31,17 @@ return array(
 				'ext' =>'xls,xlsx', 
 				'dir' => BASEPATH. '/public/ReportTemplate/' 
 		),
-		'daliy_report'=>array(
-				'deadline' =>'23:59:59',
-				'startline' =>'00:00:00',
-				),
-		'ignore_list' =>array(
-				//检查未交周报的忽略名单
-				'超级管理员',
-				'张良全',
-				'沈振冈'
-				)
+		
+		
+		//视频缩略图的尺寸的列表
+		'video_thumb_size_list' =>array(
+										"640x480",
+										"426x320",
+										"150x113",
+										"116x87",
+										"64x48"
+		)
+		
 		
 		
 		

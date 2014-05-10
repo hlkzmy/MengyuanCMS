@@ -97,29 +97,6 @@
 
 .grid table td { border-color:#ededed;}
 
-
-/*这是专门为无限分类添加的样式,folder表示大分类（分类下还有分类）,file表示栏目（分类下没有分类，只有视频）*/
-.grid table td div.folder{
-width:16px;
-height:16px;
-float:left;
-background:url(images/UnlimitedSort/folder.png);
-}
-.grid table td div.file{
-width:16px;
-height:16px;
-float:left;
-background:url(images/UnlimitedSort/file.png);
-}
-.grid table td span.item{
-width:auto;
-height:16px;
-line-height:16px;
-padding:0px 5px;
-float:left;
-}
-
-
 .grid .resizeMarker, .grid .resizeProxy { background:url(images/grid/resizeCol.png) repeat-y;}
 
 .grid .gridHeader th.hover, .grid .gridHeader th.thSelected { border-color:#aaccf6; }
@@ -131,6 +108,63 @@ float:left;
 .grid .gridTbody .selected { border-color:#b8d0d6; background:#7cc5e5;}
 .grid .gridTbody .selected .tdSelected { background:#e8edf3;}
 .grid .gridTbody .tdSelected { background:#f8f8f8;}
+
+/*以下是为了做无限分类列表所做出的努力，额外的定义了一些样式,这一部分的内容在core.css中有对应的部分*/
+.grid .gridTbody td div div{
+float:left;
+}
+
+/*伸展状态开始*/
+.grid .gridTbody td div.only_collapsed{
+background:url(images/UnlimitedList/tree.png) no-repeat;
+
+}
+.grid .gridTbody td div.first_collapsed{
+background:url(images/UnlimitedList/tree.png) no-repeat;
+
+}
+.grid .gridTbody td div.middle_collapsed{
+background:url(images/UnlimitedList/tree.png) no-repeat;
+
+}
+.grid .gridTbody td div.last_collapsed{
+background:url(images/UnlimitedList/tree.png) no-repeat;
+
+}
+/*压缩状态开始*/
+.grid .gridTbody td div.only_expanded{
+background:url(images/UnlimitedList/tree.png) no-repeat;
+}
+.grid .gridTbody td div.first_expanded{
+background:url(images/UnlimitedList/tree.png) no-repeat;
+}
+.grid .gridTbody td div.middle_expanded{
+background:url(images/UnlimitedList/tree.png) no-repeat;
+}
+.grid .gridTbody td div.last_expanded{
+background:url(images/UnlimitedList/tree.png) no-repeat;
+}
+.grid .gridTbody td div.folder{
+background:url(images/UnlimitedList/folder.png) no-repeat;
+}
+.grid .gridTbody td div.file{
+background:url(images/UnlimitedList/file.png) no-repeat;
+}
+.grid .gridTbody td div.node{
+background:url(images/UnlimitedList/node.png) no-repeat;
+}
+.grid .gridTbody td div.last_node{
+background:url(images/UnlimitedList/node.png) no-repeat;
+}
+.grid .gridTbody td div.line{
+background:url(images/UnlimitedList/line.png) no-repeat;
+}
+.grid .gridTbody td div.item{
+background:none;
+}
+
+/*----------------------------------努力结束----------------------------------*/
+
 .grid .error{background:#fb7e81;}
 
 /* ProgressBar */
@@ -225,6 +259,14 @@ body, #splitBar { background:#e5edef;}
 .comboxop { border-color:#B8D0D6; }
 .combox, .combox div, .combox div a { background:url(images/search-bg.gif) no-repeat; }
 
-
+/*progress*/
+#_percentImage{
+float:left;
+margin:7px 0px 0px 10px;
+}
+#_percentText{
+width:30px;
+float:left;
+}
 
 

@@ -1,0 +1,18 @@
+<table class='ArticleTable'  cellpadding='0' cellspacing='0' border='1'>
+	<thead>
+	   <tr>
+	     <td colspan='2'><?php echo $this->data['courseware_sort_name'];?></td>
+	   </tr>
+	</thead>
+	<tbody>
+	<?php foreach($this->data['list'] as $element):?>
+	<tr>
+	     <td>
+	        <a href="<?php echo $element['title_url'];?>">
+	          <?php echo $element['name']; ?>
+	         </a>
+	    </td>
+	  </tr>
+	<?php endforeach;?>
+	</tbody>	
+</table>

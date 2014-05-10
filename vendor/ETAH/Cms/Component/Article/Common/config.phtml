@@ -1,0 +1,26 @@
+<div class='pageContent'>
+<?php echo $this->form()->openTag($configForm);?>
+	<?php foreach($configForm as $key=>$element):?>
+		<?php if($element->getAttribute('type')=='hidden'):?>
+		
+	    	<?php echo $this->formElement($element);$configForm->remove( $element->getName() );?>
+	    	
+	    <?php endif;?>
+	<?php endforeach;?>
+<table id='ComponentConfigTable' class='CustomerTable' width='100%'  cellspacing='0'  cellpadding='0' border='0'>
+	<tbody>
+	<?php foreach($configForm as $key=>$element):?>
+	 	<tr>
+	 	    <td class='center' width='140'><?php echo $element->getLabel(); ?></td>
+			<td class='indent'><?php echo $this->formElement($element);?></td>
+		</tr>
+	<?php endforeach;?>
+	</tbody>
+</table>
+<div class="panelBar">
+	<ul class="toolBar">
+		<li><input type='submit' value='保存配置' /></li>
+	</ul>
+</div>
+<?php echo $this->form()->closeTag();?>
+</div><!-- pageContent end -->
