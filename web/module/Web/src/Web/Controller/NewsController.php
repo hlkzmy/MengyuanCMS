@@ -22,19 +22,19 @@ class NewsController extends WebBaseController
     	$serviceLocator = $this->getServiceLocator();
     	 
     	$honorViewModel  = new ArticleColumn($serviceLocator);
-    	$honorViewModel->setCategoryId(18);
+    	$honorViewModel->setCategoryId(20);
     	$honorViewModel->setArticleCount(10);
     	$honorViewModel->componentRender();
     	 
     	 
     	$dutyViewModel = new ArticleColumn($serviceLocator);
-    	$dutyViewModel->setCategoryId(18);
+    	$dutyViewModel->setCategoryId(42);
     	$dutyViewModel->setArticleCount(10);
     	$dutyViewModel->componentRender();
     	 
     	 
     	$advantageViewModel = new ArticleColumn($serviceLocator);
-    	$advantageViewModel->setCategoryId(18);
+    	$advantageViewModel->setCategoryId(43);
     	$advantageViewModel->setArticleCount(10);
     	$advantageViewModel->componentRender();
     	 

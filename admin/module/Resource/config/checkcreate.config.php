@@ -2,7 +2,7 @@
 
 return array(
     
-    'resource.article.checkcreate' => array(
+	'resource.article.checkcreate' => array(
         'filter' => array(
             'articleFilter' => array(
                 'columns' => array(
@@ -69,6 +69,7 @@ return array(
             )
         ), //end of model
     ), //end of article
+    
     'resource.articlesort.checkcreate' => array(
         'filter' => array(
             'articleSortFilter' => array(
@@ -101,8 +102,7 @@ return array(
         ), //end of model
         'rehabilitation' => array(
             //进行一些善后处理，对无限分类的部分进行伤口缝合
-
-            array(
+			array(
                 'type' => 'sort',
                 'model' => 'articleSortModel'
             )

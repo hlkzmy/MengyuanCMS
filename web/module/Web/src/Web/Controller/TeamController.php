@@ -27,13 +27,13 @@ class TeamController extends WebBaseController
     	 
     	 
     	$dutyViewModel = new ArticleColumn($serviceLocator);
-    	$dutyViewModel->setCategoryId(18);
+    	$dutyViewModel->setCategoryId(19);
     	$dutyViewModel->setArticleCount(10);
     	$dutyViewModel->componentRender();
     	 
     	 
     	$advantageViewModel = new ArticleColumn($serviceLocator);
-    	$advantageViewModel->setCategoryId(18);
+    	$advantageViewModel->setCategoryId(41);
     	$advantageViewModel->setArticleCount(10);
     	$advantageViewModel->componentRender();
     	 

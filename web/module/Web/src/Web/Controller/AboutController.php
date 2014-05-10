@@ -21,13 +21,13 @@ class AboutController extends WebBaseController
     	$serviceLocator = $this->getServiceLocator();
     	
     	$honorViewModel  = new ArticleColumn($serviceLocator);
-    	$honorViewModel->setCategoryId(18);
+    	$honorViewModel->setCategoryId(13);
     	$honorViewModel->setArticleCount(9);
     	$honorViewModel->componentRender();
     	
     	
     	$dutyViewModel = new ArticleColumn($serviceLocator);
-    	$dutyViewModel->setCategoryId(18);
+    	$dutyViewModel->setCategoryId(14);
     	$dutyViewModel->setArticleCount(9);
     	$dutyViewModel->setArticleTitleWithDate(true);
     	$dutyViewModel->componentRender();
@@ -35,7 +35,7 @@ class AboutController extends WebBaseController
     	
     	
     	$advantageViewModel = new ArticleColumn($serviceLocator);
-    	$advantageViewModel->setCategoryId(18);
+    	$advantageViewModel->setCategoryId(23);
     	$advantageViewModel->setArticleCount(9);
     	$advantageViewModel->setArticleTitleWithDate(true);
     	$advantageViewModel->componentRender();

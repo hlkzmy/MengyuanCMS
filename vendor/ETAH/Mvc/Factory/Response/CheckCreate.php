@@ -109,6 +109,8 @@ class CheckCreate extends Response{
 				die('请给'.$model_name.'指定取数据的filter');
 			}
 			$insertData = $dataChecked[$model['filter_name']];
+			
+			
 			$additionalData = array();
 	
 			//对需要额外处理的数据进行处理
@@ -154,6 +156,9 @@ class CheckCreate extends Response{
 					}
 				}
 			}
+			
+			
+			
 			if (isset($modelConfig[$model_name]['array_columns'])
 					&& sizeof($modelConfig[$model_name]['array_columns']) > 0){
 					
@@ -234,7 +239,8 @@ class CheckCreate extends Response{
 				}
 					
 			}else{
-					
+
+				
 					
 				if (!isset($modelConfig[$model_name]['columns'])){
 					die($model_name.'的配置文件中columns缺失');
@@ -265,14 +271,13 @@ class CheckCreate extends Response{
 				//把刚才额外处理的数据弄回来
 				$insertData = array_merge($insertData,$additionalData);
 					
-					
 				if(!isset($this->baseController->{$model_name})){
 						
 					die('添加所需要的数据库对象'.$model_name.'没有完成初始化');
 				}
 					
 				if (sizeof($insertData) >0 ){
-					//     						print_r($insertData);
+					
 					$this->baseController->{$model_name}->insertRow($insertData);
 						
 					$retention = array_merge($retention,$insertData);
@@ -315,7 +320,7 @@ class CheckCreate extends Response{
 		//数据善后工作
 	
 		if (isset($checkCreateConfig['rehabilitation'])){
-			 
+
 			foreach ($checkCreateConfig['rehabilitation'] as $rehabilitation){
 	
 				if ($rehabilitation['type'] == 'sort'){
@@ -336,8 +341,10 @@ class CheckCreate extends Response{
 						);
 	
 					}else{
+						
 						$parent = $this->baseController->{$rehabilitation['model']}->getRowById($lastInsertData['parent_id']);
 							
+						
 						$left_number = $parent['right_number'];
 							
 						$right_number = $left_number+1;

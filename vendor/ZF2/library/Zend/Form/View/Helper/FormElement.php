@@ -62,6 +62,11 @@ class FormElement extends BaseAbstractHelper
         'time'           => 'formtime',
         'url'            => 'formurl',
         'week'           => 'formweek',
+        
+        //以下是为了使用dwz插件所作出的努力
+        'dwz_lookup'	 =>  'formdwzlookup'
+        
+        
     );
 
     /**
@@ -111,6 +116,7 @@ class FormElement extends BaseAbstractHelper
             return $renderedInstance;
         }
 
+        
         $renderedType = $this->renderType($element);
 
         if ($renderedType !== null) {

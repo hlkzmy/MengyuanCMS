@@ -7,9 +7,9 @@ use Zend\Db\Adapter\Adapter;
 
 
 
-class ArticleCategory extends BaseModel
+class ArticleSort extends BaseModel
 {
-    protected $table = 'resource_article_category';
+    protected $table = 'resource_article_sort';
     
     public function __construct(Adapter $adapter)
     {

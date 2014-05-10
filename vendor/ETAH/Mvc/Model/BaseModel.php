@@ -329,7 +329,7 @@ class BaseModel extends TableGateway
 		
 		$insert->values($data);
 		
-// 		echo $insert->getSqlString(new \Zend\Db\Adapter\Platform\Mysql());
+		//echo $insert->getSqlString(new \Zend\Db\Adapter\Platform\Mysql());
 
 		$insertState = $this->insertWith($insert);
 			

@@ -70,9 +70,9 @@ class Content extends BaseComponent implements ComponentInterface{
 			return;//如果分类ID为空的前提下，直接return
 		}
 		
-		$articleCategoryModel = $this->serviceManager->get('Cms\Component\Article\Column\Model\ArticleCategory');
+		$articleSortModel = $this->serviceManager->get('Cms\Component\Article\Column\Model\ArticleSort');
 		
-		$articleCategoryInfo = $articleCategoryModel->getRowById($this->categoryId);
+		$articleCategoryInfo = $articleSortModel->getRowById($this->categoryId);
 		if(sizeof($articleCategoryInfo)==0){
 			return;//如果分类ID为空的前提下，直接return
 		}

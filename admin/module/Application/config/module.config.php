@@ -86,17 +86,18 @@ return array(
     /**
      * 以下是为了使用dwz自定义的表单组件所进行的配置
      */
-    'view_helpers'=>array(
+    'form_elements'=>array(
     	'invokables'=>array(
-    		'formdwzlookup'			  => 'Etah\Mvc\View\Helper\Form\Dwz\FormDwzLookup',
-        	'formdwzuploadify'		  => 'Etah\Mvc\View\Helper\Form\Dwz\FormDwzUploadify',
-    		'formdwzdatepicker'		  => 'Etah\Mvc\View\Helper\Form\Dwz\FormDwzDatePicker',
+    		'formdwzlookup'	 => 'Etah\Mvc\View\Helper\Form\Dwz\FormDwzLookup',
     	)
     ),
-    				
-    				
-
     
+    'view_helpers'=>array(
+    	'invokables'=>array(
+    		'formdwzlookup'	 => 'Etah\Mvc\View\Helper\Form\Dwz\FormDwzLookup',
+         )
+    ),
+    				
     'translator' => array(
         'locale' => 'zh_CN',
         'translation_file_patterns' => array(
@@ -127,17 +128,13 @@ return array(
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
         'template_path_stack' => array(
-        		
-            'Application' =>dirname(__DIR__) . '/view',
-        		
-        	'Cms'=>WEBSITE_DISK_PATH.'/vendor/ETAH/Cms'
+        	'Application' =>dirname(__DIR__) . '/view',
         ),
     ),	
     
     'controller_plugins' => array(
     		'invokables' => array(
     				'Permission' => 'Etah\Mvc\Plugin\Permission\Permission',
-    				'LogManager' => 'Etah\Mvc\Plugin\Log\LogManager'
     		),
     ),
     

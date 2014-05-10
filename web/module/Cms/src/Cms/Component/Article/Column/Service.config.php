@@ -8,8 +8,8 @@
  */
 
 use Cms\Component\Article\Column\Model\Article;
-use Cms\Component\Article\Column\Model\ArticleCategory as ArticleCategory;
-use Cms\Component\Article\Column\Model\ArticleContent as ArticleContent;
+use Cms\Component\Article\Column\Model\ArticleSort;
+use Cms\Component\Article\Column\Model\ArticleContent;
 
 return array (
 		
@@ -24,11 +24,11 @@ return array (
 				  
 				},
 				
-				'Cms\Component\Article\Column\Model\ArticleCategory'=>function($serviceManager){
+				'Cms\Component\Article\Column\Model\ArticleSort'=>function($serviceManager){
 				
 					$dbAdapter = $serviceManager->get ( 'Zend\Db\Adapter\Adapter' );
 						
-					return new ArticleCategory ( $dbAdapter );
+					return new ArticleSort ( $dbAdapter );
 				
 				},
 				
