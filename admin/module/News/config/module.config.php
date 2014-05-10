@@ -5,19 +5,19 @@ return array(
     /*****首页显示页面*****/
     'router' => array(
         'routes' => array(			
-            'help' => array(
+            'news' => array(
                 'type'    => 'Segment',
                 'options' => array(
-                    'route'    => '/help[/:controller][/][:action][/][:id]',
+                    'route'    => '/news[/:controller][/][:action][/][:id]',
                     'constraints' => array(
                         'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
                     	'id'=> '[0-9+]',
                     ),
                     'defaults' => array(
-                        '__NAMESPACE__' => 'Help\Controller',
+                        '__NAMESPACE__' => 'News\Controller',
                         'controller'    => 'Article',
-                        'action'        => 'showActicleList',
+                        'action'        => 'list',
                     ),
                 ),
             ),
@@ -28,8 +28,8 @@ return array(
 	/*****添加新的控制器*****/
     'controllers' => array(
         'invokables' => array(
-        	'Help\Controller\Article'    => 'Help\Controller\ArticleController',
-        	'Help\Controller\ArticleSort'=> 'Help\Controller\ArticleSortController'
+        	'News\Controller\Article'    => 'Help\Controller\ArticleController',
+        	'News\Controller\ArticleSort'=> 'Help\Controller\ArticleSortController'
         ),
     ),
 	/*****模版路径*****/

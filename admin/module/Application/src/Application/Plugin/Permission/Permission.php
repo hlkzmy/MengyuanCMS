@@ -62,33 +62,21 @@ class Permission extends AbstractPlugin
 		
 		foreach($menuItemList as $key=>$menuItem){
 			
-			$parentId = $menuItem['parent_id'];
+			$level 		= $menuItem['level'];//得到节点的级别
+			$parentId 	= $menuItem['parent_id'];//得到节点的父节点
 			
-			if($parentId==0){
-				unset($menuItemList[$key]['module_name']);
-				unset($menuItemList[$key]['controller_name']);
-				unset($menuItemList[$key]['action_name']);
+			$resourceArray = array($menuItem['module_name'],$menuItem['controller_name'],$menuItem['action_name']);
+			$menuItemList[$key]['resource'] = strtolower(  implode('.',array_filter($resourceArray))  );
+			
+			if($parentId==0&&$level==0){//后台菜单的根节点，没有任何可以点击触发的它的地方
 				$menuItemList[$key]['uri'] = '#';
 			}
             else{
             	
-            	if($menuItem['level']==1){
-            		unset($menuItemList[$key]['module_name']);
-            		unset($menuItemList[$key]['controller_name']);
-            		unset($menuItemList[$key]['action_name']);
+            	if($menuItem['level']==1){//横向导航栏的按钮
             		$menuItemList[$key]['uri']	= sprintf("%s/index/sidebar/%s",$baseUrl,$menuItem['module_name']);
             	}
             	else{
-            		
-            		if(isset($menuItem['module_name'])&&isset($menuItem['controller_name'])&&$menuItem['action_name']){
-            			//通过菜单项中的模块名称、控制器名称、方法名称拼接得到资源名称
-            			$resourceArray = array($menuItem['module_name'],$menuItem['controller_name'],$menuItem['action_name']);
-            			$menuItemList[$key]['resource'] = strtolower(  implode('.',array_filter($resourceArray))  );
-            		}
-            		else{
-            			$menuItemList[$key]['uri'] ='#';
-            		}
-            		
             		
             		if(!is_null($menuItem['module_name'])){
             			$menuItemList[$key]['route']	  = $menuItem['module_name'];
@@ -104,7 +92,6 @@ class Permission extends AbstractPlugin
             		}
             		
             		$menuItemList[$key]['target'] = 'navTab';
-            		
             	}
             	
             	

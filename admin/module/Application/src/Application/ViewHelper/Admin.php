@@ -196,7 +196,6 @@ class Admin extends AbstractHelper
     	
     	$html = '<div  class="accordion"  fillSpace="sidebar">';
     	
-    	
     	foreach($pages as $key=>$page){
     		 
     		if(!$this->accept($page)||!$page->hasPages()){

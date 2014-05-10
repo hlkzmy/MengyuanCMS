@@ -202,18 +202,23 @@ class IndexController extends BaseController
 
     }
     
-   
+   /**
+    * 生成侧边栏的方法
+    * @return \Zend\View\Model\ViewModel
+    */
     public function sidebarAction()
     {
     	$module = $this->params('m');
     	
     	$viewModel = new ViewModel();
-    	
     	$viewModel->setVariable('module', $module);
     	
      	return $viewModel;
 
     }//function sidebar() end
+    
+    
+    
     
     public function showPasswordChangeAction()
     {

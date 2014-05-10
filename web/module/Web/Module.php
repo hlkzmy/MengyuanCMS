@@ -9,13 +9,15 @@
 
 namespace Web;
 
-
 class Module
 {
-    
+	
+	
+	
+	
 	public function getConfig()
     {
-        return include __DIR__ . '/config/module.config.php';
+    	return include __DIR__ . '/config/module.config.php';
     }
     
     public function getServiceConfig()
@@ -24,28 +26,6 @@ class Module
     
     }
     
-    public function onBootStrap($e){
-    	
-    	$serviceManager = $e->getApplication()->getServiceManager();
-    	
-    	$pm = $serviceManager->get('View\Helper\Manager')->get('Navigation')->getPluginManager();
-    	
-    	$pm->setInvokableClass('hengleike','\Zend\View\Helper\Navigation\Links');
-    	
-    }
-    
-    
-    public function getViewHelperConfig($e){
-    	
-    	return array(
-    			
-    		'invokables' => array (
-    					'hengleike'=> '\Zend\View\Helper\Navigation\Links'
-    		 )
-    		
-    	
-    	);
-    }
     
     public function getAutoloaderConfig()
     {
