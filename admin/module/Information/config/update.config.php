@@ -6,27 +6,15 @@ return array(
 
     	'columns' => array( 
         //在列表中需要显示的字段	
-//     						'username',
-	    			
-	    					'realname',
+							'realname',
     			
-//     						'job_number',
-	        		
-	    					'realname',
-	    			
-	    					'cellphone',
+    						'cellphone',
 	    			
 			    			'qq',
 	        		
 			    			'email',
     			
-    						'school_id',
-	    			
-	    					'work_type_id',
-	    			
-			    			'subject_id',
-	    			
-			    			'role_id',
+    						'role_id',
     			
     						'description'
         		    ),
@@ -35,7 +23,7 @@ return array(
     			
 			     			    	'userModel'	   => array(
 			     			    						 'type' =>'master',
-			     			    		                 'field'=> array('realname','school_id','qq','cellphone','email','work_type_id','subject_id','description')
+			     			    		                 'field'=> array('realname','qq','cellphone','email','description')
 			     			    				  ),
     			
 				    				'userRoleModel'=> array(
@@ -45,15 +33,7 @@ return array(
 				    				),
     			
     			 ),
-    		'additional_columns' => array(
-    					
-    				'school_id'  	=> array(
-    						'type'=>'field_lookup',
-    						'model'=>'schoolModel',
-    						'query_field'=>array('id','name'),
-    				),
-    	
-			)
+    		
      ),//information.user.update end
      
 	'information.role.update' => array(

@@ -3,22 +3,6 @@ return array(
 		
 	'information.user.checkcreate' => array(
 				
-				'preproccess'=>array(
-						
-				//对所有需要预处理的数据进行处理		
-						'postdata' =>array(
-										'getpassword',
-										'checkSchool'
-										
-								),
-				//运行一些前置的函数，先进行一些与数据无关的检验		
-						'check'=>array(
-								
-								
-								)
-						
-				),//end of preproccess
-				
 				'filter' =>array(
 				
 						'userFilter'=>array(
@@ -31,8 +15,6 @@ return array(
 				
 										'password'=>'',
 										
-										'job_number'=>'',
-				
 										'id_card'=>'',
 				
 										'cellphone'=>'',
@@ -40,15 +22,6 @@ return array(
 										'qq'=>'',
 				
 										'email'=>'',
-										
-										'school_id'=>array(
-												'type'=>'map',
-												'from'=>'school_school_id'
-												),
-				
-										'work_type_id'=>'',
-				
-										'subject_id'=>'',
 										
 										'description'=>''
 				
@@ -86,8 +59,6 @@ return array(
 												'type' => 'md5'
 												),
 						
-										'job_number'=>'',
-						
 										'id_card'=>'',
 						
 										'cellphone'=>'',
@@ -95,12 +66,6 @@ return array(
 										'qq'=>'',
 						
 										'email'=>'',
-										
-										'school_id'=>'',
-						
-										'work_type_id'=>'',
-						
-										'subject_id'=>'',
 										
 										'description'=>''
 		

@@ -7,7 +7,7 @@ return array(
     	'type'	  => 'filter',
     	//列表的类型，一种是筛选类型的数据,一种是不需要进行筛选的数据
     
-    	'layout_height'=>140,
+    	'layout_height'=>118,
     		
     	'master_model'=>'userModel',
     	//进行查询所对应的主表
@@ -20,29 +20,7 @@ return array(
         		
         				'email'=>'',
         		
-        		        'school_id'=>array(
-        		        					   'type' =>'query',
-        		        					   'model'=>'schoolModel',
-        		        					   'query_field' =>'id',
-        		        					   'result_field'=>'name'
-        		        				),
-        		
-        		
-        				'subject_id'=>array(
-        										'type' =>'query',
-        										'model'=>'subjectModel',
-        										'query_field' =>'id',
-        										'result_field'=>'name'
-        				),
-        		
-        				'work_type_id'=>array(
-        										'type' =>'query',
-        										'model'=>'workTypeModel',
-        										'query_field' =>'id',
-        										'result_field'=>'name'
-        				),
-        				
-        				'add_time'=>'',
+        		        'add_time'=>'',
         		
         		        'status'=>'',
         		
@@ -69,21 +47,7 @@ return array(
     															'label'=>'电子邮箱',
     															'width'=>160
     														 ),
-    											'school_id_string'=>array(
-										    					'label'=>'所属学校',
-										    					'width'=>'200'
-								    			),
-    			
-								    			'subject_id_string'=>array(
-										    					'label'=>'主讲科目',
-										    					'width'=>'80'
-								    			),
-    			
-								    			'work_type_id_string'=>array(
-										    					'label'=>'工作类型',
-										    					'width'=>'80'
-								    			),
-    			
+    											
     											'add_time'=>array(
     															'label'=>'添加时间',
     															'width'=>'160'
@@ -110,25 +74,8 @@ return array(
 			    					'realname'=>array(
 			    							'form_control'=>'text',
 			    							'method'=>'like',
-			    					),
+			    					)
 			    					
-			    					'school_id'=>array(
-			    							'label'=>'所属学校',
-			    							'form_control'=>'text',
-			    							'method'=>'like',
-			    					),
-			    					'subject_id'=>array(
-			    							'label'=>'主讲科目',
-			    							'form_control'=>'text',
-			    							'method'=>'like',
-			    					),
-			    					'work_type_id'=>array(
-			    							'label'=>'工作类型',
-			    							'form_control'=>'text',
-			    							'method'=>'like',
-			    					),
-			    						
-			    						
 			    			),//columns end
     			
     	),//pager_form end

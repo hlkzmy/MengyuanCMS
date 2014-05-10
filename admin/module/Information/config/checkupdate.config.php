@@ -3,20 +3,6 @@ return array(
 		
 		'information.user.checkupdate' => array(
 				
-				'preproccess'=>array(
-						
-				//对所有需要预处理的数据进行处理		
-						'postdata' =>array(
-									'checkSchool'	
-								),
-				//运行一些前置的函数，先进行一些与数据无关的检验		
-						'check'=>array(
-								
-								  
-								)
-						
-				),//end of preproccess
-				
 				'filter' =>array(
 				
 						'userFilter'=>array(
@@ -35,10 +21,6 @@ return array(
 				
 										'email'=>'',
 				
-										'work_type_id'=>'',
-				
-										'subject_id'=>'',
-										
 										'description'=>''
 				
 								),
@@ -77,10 +59,6 @@ return array(
 						
 										'email'=>'',
 						
-										'work_type_id'=>'',
-						
-										'subject_id'=>'',
-										
 										'description'=>''
 		
 								),

@@ -51,22 +51,6 @@ class UserController extends BaseController {
 		
 	}
 	
-	public function checkSchool($postData)
-	{
-		if (isset($postData['school_school_id']) && is_numeric($postData['school_school_id'])){
-			$areaInfo = $this->areaModel->getRowById($postData['school_school_id'],array('level'));
-		}else{
-			$this->ajaxReturn('300', '请填写用户所属的学校');
-		}
-		
-		if (!isset($areaInfo['level']) || $areaInfo['level'] != 5){
-			$this->ajaxReturn('300', '选择用户所属学校时，请选择到学校级别');
-		}
-		
-		return $postData;
-		
-	}
-	
 	
 	public function testAction()
 	{
