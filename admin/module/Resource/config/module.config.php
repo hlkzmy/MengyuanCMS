@@ -32,20 +32,9 @@ return array(
         
     	'invokables' => array(
         		
-        	'Resource\Controller\Video'    			=> 'Video\Controller\VideoController',
-        	'Resource\Controller\VideoSort'			=> 'Video\Controller\VideoSortController',
-    		'Resource\Controller\VideoLabel'		=> 'Video\Controller\VideoLabelController',
-        	'Resource\Controller\Download'    		=> 'Video\Controller\DownloadController',
-    			
         	'Resource\Controller\Article'    		=> 'Article\Controller\ArticleController',
         	'Resource\Controller\ArticleSort'		=> 'Article\Controller\ArticleSortController',
-        		
-        	'Resource\Controller\Courseware'    	=> 'Courseware\Controller\CoursewareController',
-        	'Resource\Controller\CoursewareSort'	=> 'Courseware\Controller\CoursewareSortController',
-    			
-    		'Resource\Controller\VideoComment'	    => 'Comment\Controller\VideoCommentController',
-    		'Resource\Controller\EvaluateComment'	=> 'Comment\Controller\EvaluateCommentController'
-    		
+        	
          ),
     ),
 	/*****模版路径*****/
