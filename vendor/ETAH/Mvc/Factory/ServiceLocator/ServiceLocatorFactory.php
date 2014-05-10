@@ -10,7 +10,6 @@ class ServiceLocatorFactory
     
     private static $serviceManager = null;
 
-    
     public static function getInstance()
     {
         if(null === self::$serviceManager) {
