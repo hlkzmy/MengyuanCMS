@@ -22,7 +22,6 @@ class Content extends BaseComponent implements ComponentInterface{
 		parent::__construct($serviceManager);
 		
 		
-		
 		$this->setWidth($this->width);
 		$this->setHeight($this->height);
 		$this->setAlt($this->alt);
