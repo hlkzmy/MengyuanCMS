@@ -148,7 +148,7 @@ class BaseForm extends Form
 			die('添加对象的页面中存在表单元素'.$name.'的控件类型form_control没有被设定');
 		}
 		
-		$formControl = ucfirst( strtolower( $formElementConfig['form_control'] ));
+		$formControl = ucfirst(  $formElementConfig['form_control'] );
 		
 		if(class_exists('Zend\Form\Element\\'.$formControl)){
 			$formControl = 'Zend\Form\Element\\'.$formControl;
