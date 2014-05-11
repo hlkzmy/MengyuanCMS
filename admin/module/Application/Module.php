@@ -16,13 +16,12 @@ use Zend\Permissions\Acl\Acl;
 use Zend\Permissions\Acl\Resource\GenericResource as Resource;
 use Zend\Permissions\Acl\Role\GenericRole as Role;
 use Zend\Navigation\Navigation;
-use Zend\Navigation\Page\Mvc as MvcPage;
-use Zend\Navigation\Page\Uri as UriPage;
+
 use Zend\Log\Writer;
 
 use Etah\Mvc\Factory\ServiceLocator\ServiceLocatorFactory;
 
-use System\Model\UserModel;
+
 
 class Module {
 	
