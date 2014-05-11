@@ -22,10 +22,11 @@ class Content extends BaseComponent implements ComponentInterface{
 		parent::__construct($serviceManager);
 		
 		
-		$this->setTemplate('Cms\Component\Banner\Picture\Template\Content');
+		
 		$this->setWidth($this->width);
 		$this->setHeight($this->height);
 		$this->setAlt($this->alt);
+		$this->setTemplate('Cms/Component/Banner/Picture/Template/Content');
 	}//function __construct() end
 	
 	
