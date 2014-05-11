@@ -9,9 +9,8 @@
 	padding:3px 3px 3px 0px;	
 }
 #BannerPictureContainer{/*栏目页的banner条*/
-	width:990px;
+	width:987px;
 	height:194px;
-	background:url(BannerPictureBg.jpg) no-repeat;
 }
 #SmallSlidePictureContainer{/*栏目页的图片容器*/
 	width:496px;

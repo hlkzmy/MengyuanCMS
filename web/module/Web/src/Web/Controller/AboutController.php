@@ -12,14 +12,23 @@ namespace Web\Controller;
 use Web\Controller\WebBaseController;
 use Zend\View\Model\ViewModel;
 use Cms\Component\Article\Column\Content as ArticleColumn;
+use Cms\Component\Banner\Picture\Content as BannerPicture;
 
 
 class AboutController extends WebBaseController
 {
-    public function indexAction()
+    
+	
+	public function indexAction()
     {
     	$serviceLocator = $this->getServiceLocator();
     	
+    	//第一步：栏目页的bannner
+    	$topBannerViewModel = new BannerPicture($serviceLocator);
+    	$topBannerViewModel->setBannerPictureName('about_banner.jpg');
+    	$topBannerViewModel->componentRender();
+    	
+    	//第二步：三个文章栏目页
     	$honorViewModel  = new ArticleColumn($serviceLocator);
     	$honorViewModel->setCategoryId(13);
     	$honorViewModel->setArticleTitleLength(16);
@@ -43,7 +52,13 @@ class AboutController extends WebBaseController
     	$advantageViewModel->setArticleTitleWithDate(true);
     	$advantageViewModel->componentRender();
     	
+    	
+    	
+    	
+    	
+    	
     	$viewModel = new ViewModel();
+    	$viewModel->addChild( $topBannerViewModel,'topBannerViewModel');
     	$viewModel->addChild( $honorViewModel,'sideArticleColumnViewModel');
     	$viewModel->addChild( $dutyViewModel,'leftArticleColumnViewModel');
     	$viewModel->addChild( $advantageViewModel,'rightArticleColumnViewModel');
