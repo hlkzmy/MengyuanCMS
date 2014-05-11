@@ -22,19 +22,24 @@ class ProfessionalController extends WebBaseController
     	 
     	$honorViewModel  = new ArticleColumn($serviceLocator);
     	$honorViewModel->setCategoryId(15);
-    	$honorViewModel->setArticleCount(10);
+    	$honorViewModel->setArticleCount(9);
+    	$honorViewModel->setArticleTitleLength(16);
     	$honorViewModel->componentRender();
     	 
     	 
     	$dutyViewModel = new ArticleColumn($serviceLocator);
     	$dutyViewModel->setCategoryId(16);
-    	$dutyViewModel->setArticleCount(10);
+    	$dutyViewModel->setArticleCount(9);
+    	$dutyViewModel->setArticleTitleLength(20);
+    	$dutyViewModel->setArticleTitleWithDate(true);
     	$dutyViewModel->componentRender();
     	 
     	 
     	$advantageViewModel = new ArticleColumn($serviceLocator);
     	$advantageViewModel->setCategoryId(38);
-    	$advantageViewModel->setArticleCount(10);
+    	$advantageViewModel->setArticleCount(9);
+    	$advantageViewModel->setArticleTitleLength(20);
+    	$advantageViewModel->setArticleTitleWithDate(true);
     	$advantageViewModel->componentRender();
     	 
     	$viewModel = new ViewModel();

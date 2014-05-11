@@ -1,6 +1,6 @@
 <?php
 
-namespace Help\Model;
+namespace Web\Model;
 
 use Application\Model\BaseModel;
 use Zend\Db\Adapter\Adapter;
@@ -8,7 +8,7 @@ use Zend\Db\Sql\Where;
 
 class ArticleSortModel extends BaseModel
 {
-    protected $table = 'oa_help_article_sort';
+    protected $table = 'resource_article_sort';
     
     public function __construct(Adapter $adapter)
     {
@@ -48,7 +48,7 @@ class ArticleSortModel extends BaseModel
     	//根据文章分类id得到文章分类信息
     	$select = $this->getSql()->select();
     	
-    	$where = new where();
+    	$where = new Where();
     	
     	$where->equalTo('id',$ArticleSortId);
     	

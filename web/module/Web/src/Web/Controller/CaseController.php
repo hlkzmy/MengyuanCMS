@@ -21,19 +21,24 @@ class CaseController extends WebBaseController
     	 
     	$honorViewModel  = new ArticleColumn($serviceLocator);
     	$honorViewModel->setCategoryId(17);
-    	$honorViewModel->setArticleCount(10);
+    	$honorViewModel->setArticleTitleLength(16);
+    	$honorViewModel->setArticleCount(9);
     	$honorViewModel->componentRender();
     	 
     	 
     	$dutyViewModel = new ArticleColumn($serviceLocator);
     	$dutyViewModel->setCategoryId(22);
-    	$dutyViewModel->setArticleCount(10);
+    	$dutyViewModel->setArticleTitleLength(20);
+    	$dutyViewModel->setArticleCount(9);
+    	$dutyViewModel->setArticleTitleWithDate(true);
     	$dutyViewModel->componentRender();
     	 
     	 
     	$advantageViewModel = new ArticleColumn($serviceLocator);
     	$advantageViewModel->setCategoryId(40);
-    	$advantageViewModel->setArticleCount(10);
+    	$advantageViewModel->setArticleTitleLength(20);
+    	$advantageViewModel->setArticleCount(9);
+    	$advantageViewModel->setArticleTitleWithDate(true);
     	$advantageViewModel->componentRender();
     	 
     	$viewModel = new ViewModel();

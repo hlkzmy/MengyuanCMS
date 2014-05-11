@@ -1,0 +1,22 @@
+<ul class='ArticleColumnItem'>
+	<li class='ArticleColumnItemLeft'>&nbsp;</li>
+	<li class='ArticleColumnItemMiddle'>
+		<ul class='titleContainer'>
+			<li class='first'>
+				<span class='ArticleColumnItemTitle'><?php echo $this->categoryName; ?></span>
+				<span class='ArticleColumnItemMore'>
+					<a href='<?php echo $this->articleCategoryHref;?>' target='_blank'>More</a>
+				</span>
+			</li>
+			<?php if(isset($this->articleList)):?>
+				<?php foreach($this->articleList as $element):?>					
+					<li>
+						<a href='<?php echo $element['href']?>' target='_blank'><?php echo $element['title']; ?></a>
+					</li>		
+				<?php endforeach;?>	
+			<?php endif;?>
+		</ul>
+	</li>
+	<li class='ArticleColumnItemRight'>&nbsp;</li>
+</ul><!-- ul.ArticleColumnItem end -->
+

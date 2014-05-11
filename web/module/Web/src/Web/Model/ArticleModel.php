@@ -1,6 +1,6 @@
 <?php
 
-namespace Help\Model;
+namespace Web\Model;
 
 use Application\Filter\HelpArticleFilter;
 
@@ -16,11 +16,9 @@ use  Zend\Paginator\Adapter\DbSelect;
 use  Zend\Paginator\Paginator;
 use Zend\Db\ResultSet\ResultSet;
 
-
-
-class ArticleInfoModel extends BaseModel
+class ArticleModel extends BaseModel
 {
-    protected $table = 'oa_help_article_info';
+    protected $table = 'resource_article';
     
     public function __construct(Adapter $adapter)
     {
