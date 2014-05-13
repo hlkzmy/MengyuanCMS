@@ -50,16 +50,20 @@ class Content extends BaseComponent implements ComponentInterface{
 		}
 		
 		$articleModel = $this->serviceManager->get('Cms\Component\Article\Details\Model\Article');
+		$articleContentModel = $this->serviceManager->get('Cms\Component\Article\Details\Model\ArticleContent');
 		
-		$articleInfo = $articleModel->getRowById($this->articleId);
-		if(sizeof($articleInfo)==0){
-			return;//如果分类ID为空的前提下，直接return
+		$article 		= $articleModel->getRowById($this->articleId);
+		$articleContent = $articleContentModel->getRowById($this->articleId);
+		if(sizeof($article)==0||sizeof($articleContent)==0){
+			return;
 		}
 		
-		$this->setArticleId($articleInfo['id']);
-		$this->setArticleTitle($articleInfo['title']);
+		$article['content'] = $articleContent['content'];
 		
-		$this->setVariable('articleInfo', $articleInfo);
+		$this->setArticleId($article['id']);
+		$this->setArticleTitle($article['title']);
+		
+		$this->setVariable('article', $article);
 		
 	}//function render() end
 	
