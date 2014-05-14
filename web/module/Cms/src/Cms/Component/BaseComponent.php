@@ -18,5 +18,8 @@ abstract class BaseComponent extends ViewModel
 		
 	}//function __construct();
 	
+	
+	
+	
     
 }

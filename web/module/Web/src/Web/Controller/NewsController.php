@@ -14,11 +14,16 @@ use Zend\View\Model\ViewModel;
 use Cms\Component\Article\Column\Content  as ArticleColumn;
 use Cms\Component\Article\Details\Content as ArticleDetails;
 use Cms\Component\Banner\Picture\Content as BannerPicture;
+use Cms\Component\Article\Sidebar\Content as ArticleCategorySidebar;
+
 
 class NewsController extends WebBaseController
 {
     public function indexAction()
     {
+    	
+    	$categoryId = $this->params('id');
+    	 
     	$serviceLocator = $this->getServiceLocator();
     	 
     	//第一步：栏目页的bannner
@@ -49,11 +54,18 @@ class NewsController extends WebBaseController
     	$advantageViewModel->setArticleTitleLength(20);
     	$advantageViewModel->componentRender();
     	 
+    	//第三步：栏目页的文章分类页的导航栏
+    	$articleCategorySidebarViewModel = new ArticleCategorySidebar($serviceLocator);
+    	$articleCategorySidebarViewModel->setCategoryId($categoryId);
+    	$articleCategorySidebarViewModel->componentRender();
+    	
+    	 
     	$viewModel = new ViewModel();
     	$viewModel->addChild( $honorViewModel,'sideArticleColumnViewModel');
-    	$viewModel->addChild( $dutyViewModel,'leftArticleColumnViewModel');
     	$viewModel->addChild( $topBannerViewModel,'topBannerViewModel');
+    	$viewModel->addChild( $dutyViewModel,'leftArticleColumnViewModel');
     	$viewModel->addChild( $advantageViewModel,'rightArticleColumnViewModel');
+    	$viewModel->addChild( $articleCategorySidebarViewModel,'articleCategorySidebarViewModel');
     	$viewModel->setTemplate("web/common/layout");
     	return $viewModel;
     }

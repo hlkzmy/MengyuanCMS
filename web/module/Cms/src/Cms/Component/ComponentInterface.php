@@ -21,4 +21,5 @@ interface ComponentInterface
 	public function componentRender($returnType='ViewModel');
 	
     
+	
 }

@@ -31,7 +31,6 @@ class Content extends BaseComponent implements ComponentInterface{
 	 * 这个时候在一个模板中写很多的判断语句就有一点不合算，
 	 * 让用户直接设置完整的模板路径难度又太大，所以设置一个组件模板的编号是最简单的
 	 */
-	
 	public function setTemplateStyle($styleNumber){
 		$this->setTemplate(sprintf('Cms/Component/Article/Column/Template/Style%s',$styleNumber));
 		return $this;

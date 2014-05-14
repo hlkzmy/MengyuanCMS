@@ -12,50 +12,59 @@ return array(
         						'route' => '/about.html',
         						'defaults' => array (
         								'controller' => 'Web\Controller\About',
-        								'action' => 'index'
-        						)
+        								'action'     => 'index',
+        								'id'=> 8
+        						) 
         				)
         		),
+				'professional' => array (
+						'type' => 'Literal',
+						'options' => array (
+								'route' => '/professional.html',
+								'defaults' => array (
+										'controller' => 'Web\Controller\Professional',
+										'action' => 'index',
+										'id'=> 9
+								)
+						)
+				),
         		'case' => array (
         				'type' => 'Literal',
         				'options' => array (
         						'route' => '/case.html',
         						'defaults' => array (
         								'controller' => 'Web\Controller\Case',
-        								'action' => 'index'
+        								'action' => 'index',
+        								'id'=> 10
         						)
         				)
         		),
+				
+				'team' => array (
+						'type' => 'Literal',
+						'options' => array (
+								'route' => '/team.html',
+								'defaults' => array (
+										'controller' => 'Web\Controller\Team',
+										'action' => 'index',
+										'id'=> 11
+								)
+						)
+				),
+				
+				
         		'news' => array (
         				'type' => 'Literal',
         				'options' => array (
         						'route' => '/news.html',
         						'defaults' => array (
         								'controller' => 'Web\Controller\News',
-        								'action' => 'index'
-        						)
-        				)
-        		),
-        		'professional' => array (
-        				'type' => 'Literal',
-        				'options' => array (
-        						'route' => '/professional.html',
-        						'defaults' => array (
-        								'controller' => 'Web\Controller\Professional',
-        								'action' => 'index'
-        						)
-        				)
-        		),
-        		'team' => array (
-        				'type' => 'Literal',
-        				'options' => array (
-        						'route' => '/team.html',
-        						'defaults' => array (
-        								'controller' => 'Web\Controller\Team',
-        								'action' => 'index'
+        								'action' => 'index',
+        								'id'=> 12
         						)
         				)
         		)
+        		
         		
 				
 		)//routes end
