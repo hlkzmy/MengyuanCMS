@@ -1,6 +1,6 @@
 <ul class='SidebarNavigation'>
 	<li class='parent-article-category'><?php echo $this->parentArticleCategory['name'];?></li>
 	<?php foreach($this->childrenArticleCategoryList as $category):?>
-	<li class='children-article-category'><a href='<?php echo $category['href']?>' target='_blank'><?php echo $category['name'];?></a></li>
+	<li class='children-article-category'><a href='<?php echo $category['href']?>' ><?php echo $category['name'];?></a></li>
 	<?php endforeach;?>
 </ul>

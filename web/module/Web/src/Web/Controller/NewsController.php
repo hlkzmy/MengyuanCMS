@@ -14,7 +14,10 @@ use Zend\View\Model\ViewModel;
 use Cms\Component\Article\Column\Content  as ArticleColumn;
 use Cms\Component\Article\Details\Content as ArticleDetails;
 use Cms\Component\Banner\Picture\Content as BannerPicture;
+//加载文章分类侧边栏的组件
 use Cms\Component\Article\Sidebar\Content as ArticleCategorySidebar;
+//加载文章列表的组件
+use Cms\Component\Article\ListControl\Content as ArticleListControl;
 
 
 class NewsController extends WebBaseController
@@ -124,9 +127,32 @@ class NewsController extends WebBaseController
     
     public function categoryAction(){
     	
-    	$id = $this->params('id');
+    	$id = $this->params('id');//从url参数中得到文章分类的id
+    	
+    	$serviceLocator = $this->getServiceLocator();
+    	
+    	//第一步：栏目页的bannner
+    	$topBannerViewModel = new BannerPicture($serviceLocator);
+    	$topBannerViewModel->setBannerPictureName('default_banner.jpg');
+    	$topBannerViewModel->componentRender();
+    	
+    	
+    	//第二步：加载文章侧边栏视图
+    	$articleSidebarCategory = new ArticleCategorySidebar($serviceLocator);
+    	$articleSidebarCategory->setCategoryId($id);
+    	$articleSidebarCategory->componentRender();
+    	
+    	//第三步：加载文章列表的组件
+    	$articleListControl = new ArticleListControl($serviceLocator);
+    	$articleListControl->setCategoryId($id);
+    	$articleListControl->setArticleTitleLength(200);
+    	$articleListControl->setArticleTitleWithDate(true);
+    	$articleListControl->componentRender();
     	
     	$viewModel = new ViewModel();
+    	$viewModel->addChild( $topBannerViewModel,'topBannerViewModel');
+    	$viewModel->addChild($articleSidebarCategory,'articleSidebarCategoryViewModel');
+    	$viewModel->addChild($articleListControl,'articleListControlViewModel');
     	return $viewModel;
     }//function categoryAction() end
     
