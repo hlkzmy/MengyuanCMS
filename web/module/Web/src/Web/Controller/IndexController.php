@@ -12,6 +12,7 @@ namespace Web\Controller;
 use Web\Controller\WebBaseController;
 use Zend\View\Model\ViewModel;
 use Cms\Component\Article\Column\Content as ArticleColumn;//内容组件的文章栏目
+use Cms\Component\Slide\Javascript\Content as JavascriptSlideControl;
 
 class IndexController extends WebBaseController
 {
@@ -20,7 +21,12 @@ class IndexController extends WebBaseController
     {
     	
     	$serviceLocator = $this->getServiceLocator();
-    	 
+    	
+    	//第一步:得到首页幻灯片的内容
+    	$javascriptSlideViewModel = new JavascriptSlideControl($serviceLocator);
+    	$javascriptSlideViewModel->componentRender();
+    	
+    	
     	$leftArticleColumnViewModel  = new ArticleColumn($serviceLocator);
     	$leftArticleColumnViewModel	->setCategoryId(13)
     								->setArticleTitleLength(21)
@@ -48,6 +54,7 @@ class IndexController extends WebBaseController
 							    	->componentRender();
     	 
     	$viewModel = new ViewModel();
+    	$viewModel->addChild( $javascriptSlideViewModel   ,'javascriptSlideViewModel');
     	$viewModel->addChild( $leftArticleColumnViewModel   ,'leftArticleColumnViewModel');
     	$viewModel->addChild( $middleArticleColumnViewModel ,'middleArticleColumnViewModel');
     	$viewModel->addChild( $rightArticleColumnViewModel  ,'rightArticleColumnViewModel');

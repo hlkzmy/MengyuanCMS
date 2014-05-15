@@ -25,7 +25,7 @@ class Content extends BaseComponent implements ComponentInterface{
 		$this->setWidth($this->width);
 		$this->setHeight($this->height);
 		$this->setAlt($this->alt);
-		$this->setTemplate('Cms/Component/Banner/Picture/Template/Content');
+		$this->setTemplateStyle(1);
 	}//function __construct() end
 	
 	
@@ -70,15 +70,14 @@ class Content extends BaseComponent implements ComponentInterface{
 	 */
 	public function componentRender($returnType='ViewModel'){
 		
+		//1. 得到基础路径的视图助手，从而得到完整的http绝对香炉
 		$basePathViewHelper = $this->serviceManager->get('View\Helper\Manager')->get('basepath');
 		
-		if(is_null($this->bannerPictureName)){
-			$this->setBannerPictureName('default_banner.jpg');
-		}
+		//2.得到phpRenderer对象，从而附加css js
+		$phpRenderer = $this->serviceManager->get('Zend\View\Renderer\PhpRenderer');
+		$phpRenderer->headLink()->appendStylesheet($basePathViewHelper('component/slide/javascript/plugin.css'));
+		$phpRenderer->headScript()->appendFile($basePathViewHelper('component/slide/javascript/plugin.js'));
 		
-		$relativePath = sprintf("%s/%s",$this->bannerPath,$this->bannerPictureName);
-		
-		$this->setVariable('imgSrc', $basePathViewHelper($relativePath));
 		
 	}//function render() end
 	

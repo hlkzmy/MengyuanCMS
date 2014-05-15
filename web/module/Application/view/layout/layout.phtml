@@ -12,9 +12,9 @@
 								  'href' => $this->basePath('theme/favicon.ico')
 								 )
 						  )
-                ->appendStylesheet($this->basePath('theme/default/layout/style.css'))
-                ->appendStylesheet($this->basePath('theme/default/index/style.css'))
-                ->appendStylesheet($this->basePath('theme/default/common/layout.css'));
+                ->prependStylesheet($this->basePath('theme/default/layout/style.css'))
+                ->prependStylesheet($this->basePath('theme/default/index/style.css'))
+                ->prependStylesheet($this->basePath('theme/default/common/layout.css'));
 				
 ?>
 <!-- Scripts -->
