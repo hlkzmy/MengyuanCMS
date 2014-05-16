@@ -24,6 +24,12 @@ class IndexController extends WebBaseController
     	
     	//第一步:得到首页幻灯片的内容
     	$javascriptSlideViewModel = new JavascriptSlideControl($serviceLocator);
+    	$javascriptSlideViewModel	->setImageBasePath('theme/default/common/slide');
+    	$javascriptSlideViewModel	->addSlideElement(1,'测试标题1','测试标题1的相关描述','1.jpg')
+    								->addSlideElement(2,'测试标题2','测试标题2的相关描述','2.jpg')
+    								->addSlideElement(2,'测试标题2','测试标题3的相关描述','3.jpg');
+    	
+    								
     	$javascriptSlideViewModel->componentRender();
     	
     	
@@ -54,10 +60,10 @@ class IndexController extends WebBaseController
 							    	->componentRender();
     	 
     	$viewModel = new ViewModel();
-    	$viewModel->addChild( $javascriptSlideViewModel   ,'javascriptSlideViewModel');
-    	$viewModel->addChild( $leftArticleColumnViewModel   ,'leftArticleColumnViewModel');
-    	$viewModel->addChild( $middleArticleColumnViewModel ,'middleArticleColumnViewModel');
-    	$viewModel->addChild( $rightArticleColumnViewModel  ,'rightArticleColumnViewModel');
+    	$viewModel->addChild( $javascriptSlideViewModel    ,'javascriptSlideViewModel');
+    	$viewModel->addChild( $leftArticleColumnViewModel  ,'leftArticleColumnViewModel');
+    	$viewModel->addChild( $middleArticleColumnViewModel,'middleArticleColumnViewModel');
+    	$viewModel->addChild( $rightArticleColumnViewModel ,'rightArticleColumnViewModel');
     	
     	
     	return $viewModel;

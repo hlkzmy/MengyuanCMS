@@ -1,0 +1,130 @@
+.homepage-slider {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.homepage-slider .tag {
+	width: 81px;
+	height: 81px;
+	background: url(../images/top-stories-tag.png) 0 0 no-repeat;
+	position: absolute;
+	z-index: 1;
+}
+
+.homepage-slider .rounded-corners {
+	width: 900px;
+	height: 3px;
+	background: url(../images/homepage-slider-rounded-corners.png) 0 0 no-repeat;
+	position: absolute;
+	z-index: 2;
+}
+
+
+
+.homepage-slider .btn-previous {
+	width: 450px;
+	height: 350px;
+	text-indent: 5000px;
+	position: absolute;
+	z-index: 2;
+}
+
+.homepage-slider .btn-previous:hover {
+	background: url(../images/homepage-slider-btn-previous-bg.png) center left no-repeat;
+}
+
+.homepage-slider .btn-next {
+	margin: 0 0 0 450px;
+	width: 450px;
+	height: 350px;
+	text-indent: 5000px;
+	position: absolute;
+	z-index: 2;
+}
+
+.homepage-slider .btn-next:hover {
+	background: url(../images/homepage-slider-btn-next-bg.png) center right no-repeat;
+}
+
+.homepage-slider-item {
+	width: 900px;
+	height: 350px;
+	float: left;
+}
+
+.homepage-slider-item .background {
+	margin: 237px 0 0 0;
+	width: 900px;
+	height: 83px;
+	background: url(../images/top-stories-info-bg.png) 0 0 no-repeat;
+	position: absolute;
+	z-index: 1;
+}
+
+.homepage-slider-item .title {
+	margin: 237px 0 0 0;
+	padding: 13px 220px 0 16px;
+	width: 664px;
+	height: 70px;
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	position: absolute;
+	z-index: 2;
+}
+
+.homepage-slider-item .title i {
+	height: 18px;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: normal;
+	margin-bottom: 5px;
+	display: block;
+	overflow: hidden;
+}
+
+.homepage-slider-item .title:hover i {
+	color: #00c6ff;
+	text-decoration: underline;
+}
+
+.homepage-slider-item .title u {
+	height: 36px;
+	text-decoration: none;
+	display: block;
+	overflow: hidden;
+}
+
+/*幻灯片导航栏的底部的阴影部分的内容*/
+.homepage-slider-image-shadow {
+	width: 900px;
+	height: 9px;
+	background: url(../images/image-shadow-5.png) center 1px no-repeat;
+}
+
+
+/*幻灯片导航栏的相关内容*/
+.homepage-slider .navigation {
+	padding: 16px 0;
+	margin: -9px 0 5px 400px;
+	overflow: hidden;
+}
+
+.homepage-slider .navigation a {
+	margin: 0 10px 0 0;
+	width: 10px;
+	height: 10px;
+	background: url(../images/ico-bullet-8.png) 0 0 no-repeat;
+	display: block;
+	float: left;
+}
+
+.homepage-slider .navigation a:hover {
+	background-position: 0 -10px;
+}
+
+.homepage-slider .navigation .active {
+	background-position: 0 -10px;
+}
+

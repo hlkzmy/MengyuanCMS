@@ -3,66 +3,75 @@
 namespace Cms\Component\Slide\Javascript;
 use Cms\Component\BaseComponent;
 use Cms\Component\ComponentInterface;
+use Cms\Component\Slide\Javascript\SlideElement;
 
 
 class Content extends BaseComponent implements ComponentInterface{
 	
-	protected $bannerPictureName = null;//banner图片的名称
+	protected $imageBasePath = 'theme/default/common/slide';//图片的基准路径
 	
-	protected $bannerPath = '/theme/default/common/banner';//相当于public的路径
+	protected $showNavigation = false;//是否显示幻灯片下面的导航栏
 	
-	protected $width  = '100%';
+	protected $showShadow = false;//显示幻灯片下面的阴影
 	
-	protected $height = '100%';
 	
-	protected $alt = '图片提示';
+	public $slideElementList = array();
 	
 	
 	function __construct($serviceManager){
 		parent::__construct($serviceManager);
-		
-		
-		$this->setWidth($this->width);
-		$this->setHeight($this->height);
-		$this->setAlt($this->alt);
 		$this->setTemplateStyle(1);
 	}//function __construct() end
 	
-	
-	/**
-	 * 设置栏目的标题
-	 */
-	public function setWidth($width){
-		$this->setVariable('width', $width);
-		return $this;
-	}//function setColumnTitle() end
-	
-	/**
-	 * 设置栏目要读取哪个分类之下的文章
-	 * @param $categoryId 
-	 */
- 	public function setHeight($height){
-		$this->setVariable('height', $height);
-		return $this;
-	}//function setCategoryId() end
-	
-	
-	/**
-	 * 设置一个栏目之下显示文章的总数
-	 */
- 	public function setAlt($alt){
- 		$this->setVariable('alt', $alt);
+	public function setShowNaviagtion($status){
+		$this->setVariable('showNavigation', $status);
 		return $this;
 	}
 	
-	public function setBannerPath($bannerPath){
-		$this->bannerPath = $bannerPath;
+	public function setShowShadow($status){
+		$this->setVariable('showShadow', $status);
 		return $this;
 	}
-	public function setBannerPictureName($name){
-		$this->bannerPictureName = $name;
+	
+	
+	
+	
+	/**
+	 * 
+	 * @param string $path
+	 * @return \Cms\Component\Slide\Javascript\Content
+	 */
+	public function setImageBasePath($path){
+		$this->imageBasePath = $path;
 		return $this;
 	}
+	
+	
+	/**
+	 * 向幻灯片组件中添加幻灯片的图片的元素
+	 * 幻灯片是一个组件,里面每一张图片是一个元素
+	 * @param int $id
+	 * @param string $path
+	 * @param string $title
+	 * @param string $description
+	 */
+	public function addSlideElement($id,$title,$description,$path,$href=null){
+		
+		$element = new SlideElement();
+		$element->setId($id)
+				->setImagePath($path)
+				->setTitle($title)
+				->setDescription($description);
+		
+		if(is_null($href)){
+			$element->setHref('javascript:;');
+		}
+		
+		$this->slideElementList[$id] = $element;//如果有相同id的元素就会进行覆盖
+		return $this;
+	}//function addSlideElement() end
+	
+	
 	
 	
 	/**
@@ -70,14 +79,26 @@ class Content extends BaseComponent implements ComponentInterface{
 	 */
 	public function componentRender($returnType='ViewModel'){
 		
-		//1. 得到基础路径的视图助手，从而得到完整的http绝对香炉
+		//1. 得到基础路径的视图助手，从而得到完整的http绝对路径
 		$basePathViewHelper = $this->serviceManager->get('View\Helper\Manager')->get('basepath');
 		
 		//2.得到phpRenderer对象，从而附加css js
 		$phpRenderer = $this->serviceManager->get('Zend\View\Renderer\PhpRenderer');
-		$phpRenderer->headLink()->appendStylesheet($basePathViewHelper('component/slide/javascript/plugin.css'));
-		$phpRenderer->headScript()->appendFile($basePathViewHelper('component/slide/javascript/plugin.js'));
+		$phpRenderer->headLink()	->appendStylesheet($basePathViewHelper('component/slide/javascript/css/style.css'));
+		$phpRenderer->headScript()	->appendFile($basePathViewHelper('component/slide/javascript/js/jquery.easing.1.3.js'))
+									->appendFile($basePathViewHelper('component/slide/javascript/js/jquery.scrollTo-min.js'));
+									//->appendFile($basePathViewHelper('component/slide/javascript/js/aktuals.js'));
 		
+		
+		//3.将对象中的幻灯片组件远足添加到模版中用于循环
+		foreach($this->slideElementList as $key=>$element){
+			$path = $basePathViewHelper(sprintf("%s/%s",$this->imageBasePath,$element->imagePath));
+			$this->slideElementList[$key]->setImagePath($path);
+		}
+		
+		
+		
+		$this->setVariable('slideElementList', $this->slideElementList);
 		
 	}//function render() end
 	

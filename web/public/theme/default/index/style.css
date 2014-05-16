@@ -1,9 +1,9 @@
 /*--------------------------------首页幻灯片的容器--------------------------------*/
 #SlidePictureContainer{
 	width:100%;
-	height:312px;
-	/* border:1px solid #ff0000; */
-	background:url(SlidePicture1.jpg) no-repeat center;
+	height:332px;
+	border:1px solid #ff0000;
+	/*background:url(SlidePicture1.jpg) no-repeat center; */
 }
 
 /*--------------------------------首页三个文章栏目的容器--------------------------------*/
