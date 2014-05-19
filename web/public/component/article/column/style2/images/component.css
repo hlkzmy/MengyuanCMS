@@ -48,11 +48,11 @@
 }
 .ArticleColumnItemMiddle ul.titleContainer li{
 	list-style:none;
-	/* border:1px solid #ff0000; */
 	height:30px;
 	line-height:30px;
 	font-size:13px;
 	text-align:left;
+	
 }
 .ArticleColumnItemMiddle ul.titleContainer li a{
 	color:#000000;
