@@ -82,12 +82,14 @@ class Content extends BaseComponent implements ComponentInterface{
 			$column['date'] = 'add_time';
 		}
 		
-		
-		//得到所有子孙分类下的文章列表
+		//第二步:渲染视图模版，添加css和js的路径
+		$phpRenderer 		= $this->serviceManager->get('Zend\View\Renderer\PhpRenderer');
+		$basePathViewHelper = $this->serviceManager->get('View\Helper\Manager')->get('basepath');
+		$cssPath = $basePathViewHelper( sprintf("component/article/list-control/style%s/images/component.css",$this->styleNumber));
+		$phpRenderer->headLink()->appendStylesheet($cssPath);
 		
 		
 		$articleList = $articleModel->getArticleList($childrenCategoryIdList,$column);
-		
 		
 		//第三步：对于查询的结果做一些处理
 		//1.对文章标题的url做操作

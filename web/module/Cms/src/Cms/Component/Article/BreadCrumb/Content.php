@@ -64,7 +64,7 @@ class Content extends BaseComponent implements ComponentInterface{
 		//第二步:渲染视图模版，添加css和js的路径
 		$phpRenderer 		= $this->serviceManager->get('Zend\View\Renderer\PhpRenderer');
 		$basePathViewHelper = $this->serviceManager->get('View\Helper\Manager')->get('basepath');
-		$cssPath = $basePathViewHelper( sprintf("component/article/category/style%s/images/component.css",$this->styleNumber));
+		$cssPath = $basePathViewHelper( sprintf("component/article/bread-crumb/style%s/images/component.css",$this->styleNumber));
 		$phpRenderer->headLink()->appendStylesheet($cssPath);
 		
 		
@@ -84,7 +84,6 @@ class Content extends BaseComponent implements ComponentInterface{
 		
 		//2.添加首页的链接
 		$ancestorCategoryList = array_merge(array(array('name'=>'首页','href'=>'/')),$ancestorCategoryList);
-		
 		
 		$this->setVariable('categoryList', $ancestorCategoryList);
 		

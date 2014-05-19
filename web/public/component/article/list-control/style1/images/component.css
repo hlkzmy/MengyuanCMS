@@ -1,0 +1,24 @@
+ul.article-list-control{
+	margin:10px;
+	list-style-type:disc;
+	list-style-position:inside;
+}
+
+ul.article-list-control li{
+	height:26px;
+	line-height:26px;
+	border-bottom:1px dashed #C0C0C0;
+	font-size:14px;
+	text-align:left;
+	text-indent:10px;
+	
+}
+
+ul.article-list-control li a{
+	color:#000000
+}
+
+ul.article-list-control li span.date{
+	float:right;
+	margin-right:10px;
+}
