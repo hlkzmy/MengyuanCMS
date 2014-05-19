@@ -58,9 +58,9 @@
 .ArticleColumnItemMiddle ul.titleContainer li{
 	list-style:none;
 	/* border:1px solid #ff0000; */
-	height:25px;
-	line-height:25px;
-	font-size:12px;
+	height:30px;
+	line-height:30px;
+	font-size:13px;
 	text-align:center;
 }
 .ArticleColumnItemMiddle ul.titleContainer li a{

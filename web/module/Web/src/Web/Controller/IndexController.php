@@ -34,17 +34,17 @@ class IndexController extends WebBaseController
     	
     	
     	$leftArticleColumnViewModel  = new ArticleColumn($serviceLocator);
-    	$leftArticleColumnViewModel	->setCategoryId(13)
+    	$leftArticleColumnViewModel	->setCategoryId(20)
     								->setArticleTitleLength(21)
-    								->setArticleCount(8)
+    								->setArticleCount(6)
     								->setTemplateStyle(2)
     								->componentRender();
     	
     	
     	$middleArticleColumnViewModel = new ArticleColumn($serviceLocator);
-    	$middleArticleColumnViewModel	->setCategoryId(14)
+    	$middleArticleColumnViewModel	->setCategoryId(42)
     									->setArticleTitleLength(21)
-								    	->setArticleCount(8)
+								    	->setArticleCount(6)
 								    	->setArticleTitleWithDate(true)
 								    	->setTemplateStyle(2)
 								    	->componentRender();
@@ -52,9 +52,9 @@ class IndexController extends WebBaseController
     	 
     	 
     	$rightArticleColumnViewModel = new ArticleColumn($serviceLocator);
-		$rightArticleColumnViewModel->setCategoryId(23)
+		$rightArticleColumnViewModel->setCategoryId(43)
 									->setArticleTitleLength(21)
-							    	->setArticleCount(8)
+							    	->setArticleCount(6)
 							    	->setArticleTitleWithDate(true)
 							    	->setTemplateStyle(2)
 							    	->componentRender();

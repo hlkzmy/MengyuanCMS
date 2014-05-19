@@ -99,7 +99,7 @@ class ArticleFilter extends BaseFilter
 		//content
 		
 		$StringLength = new StringLength();
-		$StringLength->setMax('1000');
+		$StringLength->setMax('6000');
 		$StringLength->setMin('10');
 		$StringLength->setMessage('文章内容不能超过 %max% 个字符',$StringLength::TOO_LONG);
 		$StringLength->setMessage('文章内容不能小于 %min% 个字符',$StringLength::TOO_SHORT);
