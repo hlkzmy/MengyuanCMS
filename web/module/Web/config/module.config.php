@@ -28,12 +28,12 @@ return array(
 								)
 						)
 				),
-        		'case' => array (
+        		'contact' => array (
         				'type' => 'Literal',
         				'options' => array (
-        						'route' => '/case.html',
+        						'route' => '/contact.html',
         						'defaults' => array (
-        								'controller' => 'Web\Controller\Case',
+        								'controller' => 'Web\Controller\Contact',
         								'action' => 'index',
         								'id'=> 10
         						)
@@ -74,12 +74,12 @@ return array(
     
     'controllers' => array (
 			'invokables' => array (
-				'Web\Controller\Index' => 'Web\Controller\IndexController',
-				'Web\Controller\About' => 'Web\Controller\AboutController',
-				'Web\Controller\Case' => 'Web\Controller\CaseController',
-				'Web\Controller\News' => 'Web\Controller\NewsController',
-				'Web\Controller\Professional' => 'Web\Controller\ProfessionalController',
-				'Web\Controller\Team' => 'Web\Controller\TeamController',
+				'Web\Controller\Index' 			=> 'Web\Controller\IndexController',
+				'Web\Controller\About' 			=> 'Web\Controller\AboutController',
+				'Web\Controller\Contact' 		=> 'Web\Controller\ContactController',
+				'Web\Controller\News' 			=> 'Web\Controller\NewsController',
+				'Web\Controller\Professional' 	=> 'Web\Controller\ProfessionalController',
+				'Web\Controller\Team' 			=> 'Web\Controller\TeamController',
 			) 
 	),
 	'view_manager' => array(

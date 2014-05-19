@@ -4,7 +4,7 @@ global_elem_hovered = 0;
 var interval_variable = setInterval("autoScroll()",2000);
 
 function scrollToElem(elem) {
-	jQuery('#aktuals_field').scrollTo('#aktuals'+elem, 500, {easing:'easeInOutExpo', axis:'x' });
+	$('#aktuals_field').scrollTo('#aktuals'+elem, 500, {easing:'easeInOutExpo', axis:'x' });
 	set_active_btn(elem);
 	global_current_elem = elem;
 	reset_interval();
@@ -17,7 +17,7 @@ function scrollRight() {
 	else {
 		elem = global_current_elem + 1;
 	}
-	jQuery('#aktuals_field').scrollTo('#aktuals'+elem, 1100, {easing:'easeInOutExpo', axis:'x' });
+	$('#aktuals_field').scrollTo('#aktuals'+elem, 1100, {easing:'easeInOutExpo', axis:'x' });
 	set_active_btn(elem);
 	global_current_elem = elem;
 }

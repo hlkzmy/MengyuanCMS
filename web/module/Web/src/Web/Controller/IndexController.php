@@ -12,7 +12,7 @@ namespace Web\Controller;
 use Web\Controller\WebBaseController;
 use Zend\View\Model\ViewModel;
 use Cms\Component\Article\Column\Content as ArticleColumn;//内容组件的文章栏目
-use Cms\Component\Slide\Javascript\Content as JavascriptSlideControl;
+use Cms\Component\Slide\Javascript\Content as JavascriptSlideControl;//幻灯片的组件
 
 class IndexController extends WebBaseController
 {
@@ -27,8 +27,8 @@ class IndexController extends WebBaseController
     	$javascriptSlideViewModel	->setImageBasePath('theme/default/common/slide');
     	$javascriptSlideViewModel	->addSlideElement(1,'测试标题1','测试标题1的相关描述','1.jpg')
     								->addSlideElement(2,'测试标题2','测试标题2的相关描述','2.jpg')
-    								->addSlideElement(2,'测试标题2','测试标题3的相关描述','3.jpg');
-    	
+    								->addSlideElement(3,'测试标题3','测试标题3的相关描述','3.jpg')
+    								->addSlideElement(4,'测试标题4','测试标题4的相关描述','4.jpg');
     								
     	$javascriptSlideViewModel->componentRender();
     	

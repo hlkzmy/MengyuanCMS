@@ -15,6 +15,7 @@ use Cms\Component\Article\Column\Content  as ArticleColumn;
 use Cms\Component\Article\Sidebar\Content as ArticleCategorySidebar;
 use Cms\Component\Banner\Picture\Content  as BannerPicture;
 
+
 class CaseController extends WebBaseController
 {
     public function indexAction()
