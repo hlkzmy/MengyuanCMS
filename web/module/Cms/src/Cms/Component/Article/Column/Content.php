@@ -27,8 +27,6 @@ class Content extends BaseComponent implements ComponentInterface{
 	
 	
 
-	
-	
 	/**
 	 * 设置栏目的标题
 	 */
@@ -100,7 +98,14 @@ class Content extends BaseComponent implements ComponentInterface{
 		$this->setCategoryId($articleCategoryInfo['id']);
 		$this->setCategoryName($articleCategoryInfo['name']);
 		
-		//第二步：查询该文章分类之下所有文章列表的信息
+		//第二步:渲染视图模版，添加css和js的路径
+		$phpRenderer 		= $this->serviceManager->get('Zend\View\Renderer\PhpRenderer');
+		$basePathViewHelper = $this->serviceManager->get('View\Helper\Manager')->get('basepath');
+		$cssPath = $basePathViewHelper( sprintf("component/article/column/style%s/images/component.css",$this->styleNumber));
+		$phpRenderer->headLink()->appendStylesheet($cssPath);
+		
+		
+		//第三步：查询该文章分类之下所有文章列表的信息
 		$articleModel = $this->serviceManager->get('Cms\Component\Article\Column\Model\Article');
 		
 		$column = array('id','title');
@@ -112,7 +117,7 @@ class Content extends BaseComponent implements ComponentInterface{
 		
 		$articleList = array_slice($articleList, 0 ,$this->articleCount);
 		
-		//第三步：对于查询的结果做一些处理
+		//第四步：对于查询的结果做一些处理
 		//1.对文章标题的url做操作
 		$url = $this->serviceManager->get('Controller\Plugin\Manager')->get('url');
 		

@@ -22,12 +22,14 @@ return array (
 						
 					return new ArticleModel ( $dbAdapter );
 				},
+				
 				'Web\Model\ArticleSortModel'=>function($serviceManager){
 				
 					$dbAdapter = $serviceManager->get ( 'Zend\Db\Adapter\Adapter' );
 				
 					return new ArticleSortModel ( $dbAdapter );
 				},
+				
 				'Web\Model\ArticleContentModel'=>function($serviceManager){
 				
 					$dbAdapter = $serviceManager->get ( 'Zend\Db\Adapter\Adapter' );

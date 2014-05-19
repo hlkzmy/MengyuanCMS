@@ -9,8 +9,9 @@ abstract class BaseComponent extends ViewModel
 {
     protected $serviceManager = null;//服务管理者对象
     
-    
-	public function __construct(ServiceLocatorInterface $serviceManager){
+   	protected $styleNumber = 1;//模版默认的样式
+   	
+    public function __construct(ServiceLocatorInterface $serviceManager){
 		
 		if(is_null($this->serviceManager)){
 			$this->serviceManager = $serviceManager;
@@ -29,6 +30,8 @@ abstract class BaseComponent extends ViewModel
 		
 		$namespace =  substr($class,0,strrpos($class, '\\'));
 		$namespace =  str_replace('\\', '/',$namespace);
+		
+		$this->styleNumber = $styleNumber;
 		
 		$this->setTemplate(sprintf('%s/Template/Style%s',$namespace,$styleNumber));
 		return $this;
