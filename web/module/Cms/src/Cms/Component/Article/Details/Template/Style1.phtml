@@ -1,0 +1,15 @@
+<div class="article-details">
+		<div class="article-details-title"><?php echo $this->article['title'];?></div>
+		<?php if(isset($this->article['sub_title'])&&strlen(trim($this->article['sub_title']))):?>
+			<div class="article-details-subtitle">---<?php echo $this->article['sub_title'];?></div>
+		<?php endif;?>
+		<table class='article-details-info'>
+			<tr>
+				<td>点击数:<?php echo $this->article['hits'];?></td>
+				<td>发布时间:<?php echo $this->article['add_time'];?></td>
+			</tr>
+		</table>
+		<div class="article-details-content">
+			<?php echo $this->article['content'];?>
+		</div>
+</div><!-- article-details end -->

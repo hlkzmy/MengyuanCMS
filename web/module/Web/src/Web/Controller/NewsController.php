@@ -20,6 +20,11 @@ use Cms\Component\Article\BreadCrumb\Content as ArticleBreadCrumb;//加载文章
 
 class NewsController extends WebBaseController
 {
+	
+	/**
+	 * 文章页的首页
+	 * @see \Zend\Mvc\Controller\AbstractActionController::indexAction()
+	 */
     public function indexAction()
     {
     	
@@ -173,13 +178,44 @@ class NewsController extends WebBaseController
     	
     	$serviceLocator = $this->getServiceLocator();
     	
-		//对于文章内容页的视图
+    	
+    	//第一步：拿到文章的详细内容
+    	$articleModel = $serviceLocator->get('Web\Model\ArticleModel');
+    	$article = $articleModel->getRowById($id,array('article_sort_id'));
+    	
+    	if(sizeof($article)==0){
+    		die('在系统中没有查询到相关的文章内容,请您返回');
+    	}
+    	
+    	$articleSortId = $article['article_sort_id'];
+
+    	//第二️步：栏目页的bannner
+    	$topBannerViewModel = new BannerPicture($serviceLocator);
+    	$topBannerViewModel->setBannerPictureName('default_banner.jpg');
+    	$topBannerViewModel->componentRender();
+    	
+    	//第三步：加载文章侧边栏视图
+    	$articleSidebarCategory = new ArticleCategorySidebar($serviceLocator);
+    	$articleSidebarCategory->setCategoryId($articleSortId);
+    	$articleSidebarCategory->setTemplateStyle(2);
+    	$articleSidebarCategory->componentRender();
+    	
+    	//第四步：加载当前文章的面包屑路径ArticleBreadCrumb
+    	$articleBreadCrumb = new ArticleBreadCrumb($serviceLocator);
+    	$articleBreadCrumb->setCategoryId($articleSortId);
+    	$articleBreadCrumb->componentRender();
+    	
+    	
+    	//第五步:对于文章内容页的视图
     	$articleDetailsViewModel  = new ArticleDetails($serviceLocator);
     	$articleDetailsViewModel->setArticleId($id);
     	$articleDetailsViewModel->componentRender();
     	
     	
     	$viewModel = new ViewModel();
+    	$viewModel->addChild( $articleBreadCrumb,'articleBreadCrumbViewModel');
+    	$viewModel->addChild( $topBannerViewModel,'topBannerViewModel');
+    	$viewModel->addChild($articleSidebarCategory,'articleSidebarCategoryViewModel');
     	$viewModel->addChild($articleDetailsViewModel,'articleDetailsViewModel');
     	return $viewModel;
     }//function contentAction() end

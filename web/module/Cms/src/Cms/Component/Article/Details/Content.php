@@ -15,7 +15,7 @@ class Content extends BaseComponent implements ComponentInterface{
 		parent::__construct($serviceManager);
 		
 		
-		$this->setTemplate('Cms/Component/Article/Details/Template/Content');
+		$this->setTemplateStyle(1);
 	}//function __construct() end
 	
 	
@@ -64,6 +64,12 @@ class Content extends BaseComponent implements ComponentInterface{
 		$this->setArticleTitle($article['title']);
 		
 		$this->setVariable('article', $article);
+		
+		//第二步:渲染视图模版，添加css和js的路径
+		$phpRenderer 		= $this->serviceManager->get('Zend\View\Renderer\PhpRenderer');
+		$basePathViewHelper = $this->serviceManager->get('View\Helper\Manager')->get('basepath');
+		$cssPath = $basePathViewHelper( sprintf("component/article/details/style%s/images/component.css",$this->styleNumber));
+		$phpRenderer->headLink()->appendStylesheet($cssPath);
 		
 	}//function render() end
 	

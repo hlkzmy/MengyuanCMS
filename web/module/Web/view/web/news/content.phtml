@@ -1,1 +1,12 @@
-<?php echo $this->articleDetailsViewModel;?>
+<div id='BannerPictureContainer'>
+	<?php echo $this->topBannerViewModel;?>
+</div><!-- BannerPictureContainer end -->
+<table cellspacing='0' cellpadding='0' border='0' width='100%'>
+	<tr>
+		<td valign='top' rowspan='2' width='260'><?php echo $this->articleSidebarCategoryViewModel;?></td>
+		<td height='30'><?php echo $this->articleBreadCrumbViewModel;?></td>
+	</tr>
+	<tr>
+		<td valign='top'><?php echo $this->articleDetailsViewModel;?></td>
+	</tr>
+</table>
