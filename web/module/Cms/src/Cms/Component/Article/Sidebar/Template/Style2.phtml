@@ -1,6 +1,9 @@
-<ul>
-	<li><?php echo $this->parentArticleCategory['name'];?></li>
+<ul class='SidebarNavigation style2'>
+	<li class='parent-article-category'>
+		<div class='chinese-name'><?php echo $this->parentArticleCategory['name'];?></div>
+		<div class='english-name'><?php echo $this->parentArticleCategory['english_name'];?></div>
+	</li>
 	<?php foreach($this->childrenArticleCategoryList as $category):?>
-	<li><a href='<?php echo $category['href']?>'><?php echo $category['name'];?></a></li>
+	<li class='children-article-category'><a href='<?php echo $category['href']?>' ><?php echo $category['name'];?></a></li>
 	<?php endforeach;?>
 </ul>

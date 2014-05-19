@@ -1,0 +1,50 @@
+.SidebarNavigation.style2 {/*侧边栏文章分类导航条*/
+	width:250px;
+	margin:0px;
+	height:567px;
+	padding:0px;
+	background:url(SidebarNavigation.jpg) bottom center;
+	/* border:1px solid #ff0000; */
+}
+/*侧边栏文章分类导航条-父级的名称*/
+.SidebarNavigation.style2 li.parent-article-category{
+	width:215px;
+	height:59px;
+	margin:0px auto;
+	overflow:hidden;
+	background:url(parent-article-category.jpg) no-repeat;
+	color:#ffffff;
+}
+.SidebarNavigation.style2 li.parent-article-category div.chinese-name{
+	width:100%;
+	height:30px;
+	line-height:40px;
+	text-align:center;
+	font-size:16px;
+}
+.SidebarNavigation.style2 li.parent-article-category div.english-name{
+	width:100%;
+	height:19px;
+	line-height:20px;
+	color:#0E5F8E;
+	/* border:1px solid #ff0000; */
+	text-align:left;
+	text-indent:70px;
+	font-size:12px;
+}
+
+.SidebarNavigation.style2 li.children-article-category{
+	width:215px;
+	margin:0px auto;
+	font-size:16px;
+	text-align:left;
+	text-indent:50px;
+	height:40px;
+	line-height:40px;
+	margin-bottom:3px;
+	background:url(children-article-category.jpg) no-repeat;
+}
+
+.SidebarNavigation.style2 li.children-article-category a{
+	color:#666865;
+}

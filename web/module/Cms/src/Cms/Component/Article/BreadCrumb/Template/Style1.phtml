@@ -1,0 +1,11 @@
+<ul class='article-category-breadcrumb'>
+	<li>您现在的位置：</li>
+	<?php if(isset($this->categoryList)):?>
+		<?php foreach($this->categoryList as $key=>$element):?>					
+			<li>
+				<a href='<?php echo $element['href']?>' target='_self'><?php echo $element['name']; ?></a>
+				<?php if($key<count($this->categoryList)-1):?>&gt;<?php endif;?>
+			</li>		
+		<?php endforeach;?>	
+	<?php endif;?>
+</ul>

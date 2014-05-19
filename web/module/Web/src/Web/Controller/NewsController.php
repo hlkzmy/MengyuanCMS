@@ -14,11 +14,9 @@ use Zend\View\Model\ViewModel;
 use Cms\Component\Article\Column\Content  as ArticleColumn;
 use Cms\Component\Article\Details\Content as ArticleDetails;
 use Cms\Component\Banner\Picture\Content as BannerPicture;
-//加载文章分类侧边栏的组件
-use Cms\Component\Article\Sidebar\Content as ArticleCategorySidebar;
-//加载文章列表的组件
-use Cms\Component\Article\ListControl\Content as ArticleListControl;
-
+use Cms\Component\Article\Sidebar\Content as ArticleCategorySidebar;//加载文章分类侧边栏的组件
+use Cms\Component\Article\ListControl\Content as ArticleListControl;//加载文章列表的组件
+use Cms\Component\Article\BreadCrumb\Content as ArticleBreadCrumb;//加载文章列表的组件
 
 class NewsController extends WebBaseController
 {
@@ -140,6 +138,7 @@ class NewsController extends WebBaseController
     	//第二步：加载文章侧边栏视图
     	$articleSidebarCategory = new ArticleCategorySidebar($serviceLocator);
     	$articleSidebarCategory->setCategoryId($id);
+    	$articleSidebarCategory->setTemplateStyle(2);
     	$articleSidebarCategory->componentRender();
     	
     	//第三步：加载文章列表的组件
@@ -149,8 +148,15 @@ class NewsController extends WebBaseController
     	$articleListControl->setArticleTitleWithDate(true);
     	$articleListControl->componentRender();
     	
+    	//第四步：加载当前文章的面包屑路径ArticleBreadCrumb
+    	$articleBreadCrumb = new ArticleBreadCrumb($serviceLocator);
+    	$articleBreadCrumb->setCategoryId($id);
+    	$articleBreadCrumb->componentRender();
+    	
+    	
     	$viewModel = new ViewModel();
     	$viewModel->addChild( $topBannerViewModel,'topBannerViewModel');
+    	$viewModel->addChild( $articleBreadCrumb,'articleBreadCrumbViewModel');
     	$viewModel->addChild($articleSidebarCategory,'articleSidebarCategoryViewModel');
     	$viewModel->addChild($articleListControl,'articleListControlViewModel');
     	return $viewModel;

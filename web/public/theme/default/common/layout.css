@@ -20,13 +20,7 @@
 	background:url(SmallSlidePictureContainer.jpg) no-repeat center center;
 }
 
-.SidebarNavigation{/*侧边栏文章分类导航条*/
-	width:231px;
-	height:282px;
-	margin:0px;
-	background:#EEEEEE;
-	padding:0px;
-}
+
 #SidebarPhoneNumber{/*侧边栏400电话*/
 	width:231px;
 	height:126px;
@@ -39,25 +33,4 @@
 }
 
 
-/*侧边栏文章分类导航条-父级的名称*/
-.SidebarNavigation li.parent-article-category{
-	font-size:24px;
-	text-align:center;
-	height:50px;
-	line-height:50px;
-	background:#126EAF;
-	color:#ffffff;
-}
 
-.SidebarNavigation li.children-article-category{
-	font-size:16px;
-	text-align:center;
-	height:46px;
-	line-height:46px;
-	background:#EEEEEE;
-	border-bottom:1px solid #E0E0E0;
-}
-
-.SidebarNavigation li.children-article-category a{
-	color:#666865;
-}

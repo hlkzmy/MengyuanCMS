@@ -33,6 +33,7 @@ class Content extends BaseComponent implements ComponentInterface{
 		
 	}//function setColumnTitle() end
 	
+	
 	/**
 	 * 设置栏目要读取哪个分类之下的文章
 	 * @param $id 
@@ -100,6 +101,11 @@ class Content extends BaseComponent implements ComponentInterface{
 			$childrenArticleCategoryList[$key]['href'] = $url->fromRoute('article-category-route',array('id'=>$element['id']));
 		}
 		
+		//第三步:渲染视图模版，添加css和js的路径
+		$phpRenderer 		= $this->serviceManager->get('Zend\View\Renderer\PhpRenderer');
+		$basePathViewHelper = $this->serviceManager->get('View\Helper\Manager')->get('basepath');
+		$cssPath = $basePathViewHelper( sprintf("component/article/sidebar/style%s/images/component.css",$this->styleNumber));
+		$phpRenderer->headLink()->appendStylesheet($cssPath);
 		
 		$this->setVariable('parentArticleCategory', $parentArticleCategory);
 		$this->setVariable('childrenArticleCategoryList', $childrenArticleCategoryList);
