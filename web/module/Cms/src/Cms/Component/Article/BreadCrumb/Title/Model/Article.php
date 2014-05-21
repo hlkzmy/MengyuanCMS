@@ -1,15 +1,15 @@
 <?php
 
-namespace Cms\Component\Article\BreadCrumb\Model;
+namespace Cms\Component\Article\BreadCrumb\Title\Model;
 
 use Application\Model\BaseModel;
 use Zend\Db\Adapter\Adapter;
 
 
 
-class ArticleSort extends BaseModel
+class Article extends BaseModel
 {
-    protected $table = 'resource_article_sort';
+    protected $table = 'resource_article';
     
     public function __construct(Adapter $adapter)
     {

@@ -57,6 +57,7 @@ return array(
         		),
 				
 				
+		    /*----------------------------动态路由开始----------------------------*/
 				'contact-content-route' => array (
 						'type' => 'Segment',
 						'options' => array (
@@ -67,7 +68,7 @@ return array(
 								'defaults' => array (
 										'controller' => 'Web\Controller\Contact',
 										'action'     => 'content',
-										'id'		 => 3538
+										'id'		 => 3535
 								)
 						)
 				),

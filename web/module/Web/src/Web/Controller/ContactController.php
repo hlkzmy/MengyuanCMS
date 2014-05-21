@@ -14,7 +14,7 @@ use Zend\View\Model\ViewModel;
 use Cms\Component\Banner\Picture\Content as BannerPicture;
 use Cms\Component\Article\Details\Content as ArticleDetails;
 use Cms\Component\Article\Sidebar\Title\Content as ArticleCategorySidebar;
-use Cms\Component\Article\BreadCrumb\Content as ArticleBreadCrumb;//加载文章列表的组件
+use Cms\Component\Article\BreadCrumb\Title\Content as ArticleBreadCrumb;//加载文章列表的组件
 
 
 class ContactController extends WebBaseController
@@ -47,7 +47,6 @@ class ContactController extends WebBaseController
     	
     	$articleCategoryId = $articleCategory['article_sort_id'];
     	
-    	 
     	//第一步：栏目页的bannner
     	$topBannerViewModel = new BannerPicture($serviceLocator);
     	$topBannerViewModel->setBannerPictureName('contact_banner.jpg');
@@ -61,7 +60,7 @@ class ContactController extends WebBaseController
     	 
     	//第四步：加载当前文章的面包屑路径ArticleBreadCrumb
     	$articleBreadCrumb = new ArticleBreadCrumb($serviceLocator);
-    	$articleBreadCrumb->setCategoryId($articleCategoryId);
+    	$articleBreadCrumb->setArticleId($id);
     	$articleBreadCrumb->componentRender();
     	
     	//第五步:对于文章内容页的视图

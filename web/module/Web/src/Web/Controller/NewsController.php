@@ -16,7 +16,7 @@ use Cms\Component\Article\Details\Content as ArticleDetails;
 use Cms\Component\Banner\Picture\Content as BannerPicture;
 use Cms\Component\Article\Sidebar\Category\Content as ArticleCategorySidebar;
 use Cms\Component\Article\ListControl\Content as ArticleListControl;//加载文章列表的组件
-use Cms\Component\Article\BreadCrumb\Content as ArticleBreadCrumb;//加载文章列表的组件
+use Cms\Component\Article\BreadCrumb\Category\Content as ArticleBreadCrumb;//加载文章列表的组件
 
 class NewsController extends WebBaseController
 {

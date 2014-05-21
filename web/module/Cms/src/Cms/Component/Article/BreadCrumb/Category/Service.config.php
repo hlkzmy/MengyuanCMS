@@ -7,7 +7,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-use Cms\Component\Article\BreadCrumb\Model\ArticleSort;
+use Cms\Component\Article\BreadCrumb\Category\Model\ArticleSort;
 
 return array (
 		

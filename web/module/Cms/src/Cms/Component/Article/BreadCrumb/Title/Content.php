@@ -1,46 +1,26 @@
 <?php
 
-namespace Cms\Component\Article\BreadCrumb;
-use Cms\Component\BaseComponent;
+namespace Cms\Component\Article\BreadCrumb\Title;
+use Cms\Component\Article\BreadCrumb\BreadCrumbContent;
 use Cms\Component\ComponentInterface;
 
 
-class Content extends BaseComponent implements ComponentInterface{
+class Content extends BreadCrumbContent implements ComponentInterface{
 	
-	protected $categoryId   = null;//栏目的ID
-	
-	protected $showRootNode = false;//是否显示根节点
+	protected $articleId   = null;//栏目的ID
 	
 	function __construct($serviceManager){
 		parent::__construct($serviceManager);
 		
 		
-		$this->setTemplateStyle(1);
+		
 	}//function __construct() end
 	
 	
-	/**
-	 * 设置栏目要读取哪个分类之下的文章
-	 * @param $categoryId 
-	 */
-	public function setCategoryId($id){
-		$this->categoryId = $id;
-		return $this;
-	}//function setCategoryId() end
-	
-	
-	
-	/**
-	 * 是否显示根节点
-	 * @param boolean $status
-	 * @return \Cms\Component\Article\BreadCrumb\Content
-	 */
-	
-	public function setShowRootNode($status){
-		$this->showRootNode = $status;
+	public function setArticleId($id){
+		$this->articleId = $id;
 		return $this;
 	}
-	
 	
 	
 	/**
@@ -49,13 +29,22 @@ class Content extends BaseComponent implements ComponentInterface{
 	public function componentRender($returnType='ViewModel'){
 		
 		//第一步:查询文章分类相关信息
-		if(is_null($this->categoryId)){
-			return;//如果分类ID为空的前提下，直接return
+		if(is_null($this->articleId)){
+			return;//如果文章ID为空的前提下，直接return
 		}
 		
-		$articleSortModel = $this->serviceManager->get('Cms\Component\Article\Column\Model\ArticleSort');
+		$articleModel     = $this->serviceManager->get('Cms\Component\Article\Breadcrumb\Title\Model\Article');
+		$articleCategoryModel = $this->serviceManager->get('Cms\Component\Article\Breadcrumb\Title\Model\ArticleSort');
 		
-		$ancestorCategoryList = $articleSortModel->getAncestorRowListById($this->categoryId,array('id','name','parent_id'));
+		$article = $articleModel->getRowById($this->articleId);
+		if(sizeof($article)==0){
+			return;//如果文章内容为空的前提下，直接return
+		}
+		
+		$articleCategoryId = $article['article_sort_id'];
+		
+		
+		$ancestorCategoryList = $articleCategoryModel->getAncestorRowListById($articleCategoryId,array('id','name','parent_id'));
 		if(sizeof($ancestorCategoryList)==0){
 			return;//如果分类ID为空的前提下，直接return
 		}
@@ -84,6 +73,10 @@ class Content extends BaseComponent implements ComponentInterface{
 		
 		//2.添加首页的链接
 		$ancestorCategoryList = array_merge(array(array('name'=>'首页','href'=>'/')),$ancestorCategoryList);
+
+		
+		//3.添加当前文章页的链接
+		array_push($ancestorCategoryList,array('name'=>$article['title'],'href'=>'javascript:;'));
 		
 		$this->setVariable('categoryList', $ancestorCategoryList);
 		
