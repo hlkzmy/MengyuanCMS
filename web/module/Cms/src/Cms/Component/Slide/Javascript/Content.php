@@ -14,8 +14,7 @@ class Content extends BaseComponent implements ComponentInterface{
 	
 	protected $showShadow = false;//显示幻灯片下面的阴影
 	
-	
-	public $slideElementList = array();
+	protected $slideElementList = array();
 	
 	
 	function __construct($serviceManager){
@@ -84,10 +83,10 @@ class Content extends BaseComponent implements ComponentInterface{
 		
 		//2.得到phpRenderer对象，从而附加css js
 		$phpRenderer = $this->serviceManager->get('Zend\View\Renderer\PhpRenderer');
-		$phpRenderer->headLink()	->appendStylesheet($basePathViewHelper('component/slide/javascript/css/style.css'));
+		$phpRenderer->headLink()	->appendStylesheet($basePathViewHelper('component/slide/javascript/images/component.css'));
 		$phpRenderer->headScript()	->appendFile($basePathViewHelper('component/slide/javascript/js/jquery.easing.1.3.js'))
-									->appendFile($basePathViewHelper('component/slide/javascript/js/jquery.scrollTo-min.js'));
-									//->appendFile($basePathViewHelper('component/slide/javascript/js/aktuals.js'));
+									->appendFile($basePathViewHelper('component/slide/javascript/js/jquery.scrollTo-min.js'))
+									->appendFile($basePathViewHelper('component/slide/javascript/js/aktuals.js'));
 		
 		
 		//3.将对象中的幻灯片组件远足添加到模版中用于循环
@@ -95,7 +94,6 @@ class Content extends BaseComponent implements ComponentInterface{
 			$path = $basePathViewHelper(sprintf("%s/%s",$this->imageBasePath,$element->imagePath));
 			$this->slideElementList[$key]->setImagePath($path);
 		}
-		
 		
 		
 		$this->setVariable('slideElementList', $this->slideElementList);

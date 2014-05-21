@@ -1,43 +1,100 @@
-<div class='slide-javascript-control'>
-	<a href="javascript:;" class="btn-previous" >&nbsp;</a> 
-	<a href="javascript:;" class="btn-next"     >&nbsp;</a>
-	<table cellpadding='0' cellspacing='0'>
-		<tr>
-		<?php foreach($this->slideElementList as $element):?>	
-			<td>
-				<div class="slider-item" style='width:984px;'>
-					<img src='<?php echo $element->imagePath;?>' width='984' height='313' />
-					<div class="background">
-						<div class='title'><?php echo $element->title;?></div>
-						<div class='description'><?php echo $element->description;?></div>
+<!--[if lte IE 7]>
+		<style type="text/css">
+			html .jqueryslidemenu { height: 1%; } /* Holly Hack for IE7 and below */
+		</style>
+<![endif]-->
+	<div class="homepage-slider">
+					<a href="#" class="btn-previous" onmouseover="set_hover_on();" onmouseout="set_hover_off();"  onclick="scrollLefty(); return false;">&nbsp;</a> 
+					<a href="#" class="btn-next"     onmouseover="set_hover_on();" onmouseout="set_hover_off();"  onclick="scrollRight(); return false;">&nbsp;</a>
+					<span class="tag">&nbsp;</span> 
+					<span class="rounded-corners">&nbsp;</span>
+					<div id="aktuals_field" style="overflow: hidden; position: relative; width: 900px;">
+						<table>
+							<tr>
+								<td>
+									<div class="homepage-slider-item" id="aktuals1" style='background: url(theme/default/common/slide/image-53.jpg) 0 0 no-repeat;'>
+										<a href="http://js.alixixi.com" class="title"> 
+											<i>阿里西西 网页特效频道 js.alixiix.com</i>
+											<u>提供海量JS脚本代码，JS特效代码，广告特效代码！全面丰富的网页特效代码尽在js.alixixi.com。</u>
+										</a>
+										o<div class="background"></div>
+									</div>
+								</td>
+								<td>
+									<div class="homepage-slider-item" id="aktuals2"
+										style='background: url(theme/default/common/slide/image-54.jpg) 0 0 no-repeat;'>
+										<a href="http://js.alixixi.com" class="title">
+											<i>更多的网页特效代码请访问阿里西西！</i>
+											<u>Suspendisse a nunc nulla. In accumsan enim a nisi
+											tempor quis bibendum lacus mattis. Curabitur adipiscing nulla
+											quis augue luctus volutpat.</u>
+										</a>
+										<div class="background"></div>
+									</div>
+								</td>
+
+								<td>
+
+									<div class="homepage-slider-item" id="aktuals3"
+										style='background: url(theme/default/common/slide/image-55.jpg) 0 0 no-repeat;'>
+										<a href="http://www.moqifan.com" class="title"> <i>更多的网页模板请访问
+												www.alixixi.cn</i> <u>Vestibulum cursus diam vel magna
+											tristique sodales. Nullam fermentum nibh vitae nisl sodales
+											in blandit sem euismod. Aliquam erat volutpat. Nulla
+											facilisi.</u>
+										</a>
+										<div class="background"></div>
+										<!-- END .homepage-slider-item -->
+									</div>
+								</td>
+								<td>
+									<!-- BEGIN .homepage-slider-item -->
+									<div class="homepage-slider-item" id="aktuals4"
+										style='background: url(theme/default/common/slide/image-56.jpg) 0 0 no-repeat;'>
+										<a href="http://js.alixixi.com" class="title"> <i>更多的网页制作教程请访问阿里西西主站
+												www.alixixi.com</i> <u>Donec et ligula sed metus euismod
+											ultrices. Pellentesque ullamcorper velit in tellus luctus
+											hendrerit sed eu enim.</u>
+										</a>
+										<div class="background"></div>
+										<!-- END .homepage-slider-item -->
+									</div>
+								</td>
+
+								<td>
+									<!-- BEGIN .homepage-slider-item -->
+									<div class="homepage-slider-item" id="aktuals5"
+										style='background: url(theme/default/common/slide/image-57.jpg) 0 0 no-repeat;'>
+										<a href="http://www.moqifan.com" class="title"> 
+											<i>Aliquam et tortor at tellus dapibus luctus</i>
+											<u>Praesent id arcu
+											nec urna iaculis gravida ac ut sapien. Duis et metus id
+											ligula convallis pulvinar. Quisque et libero sit amet erat
+											euismod blandit.</u>
+										</a>
+										<div class="background"></div>
+										<!-- END .homepage-slider-item -->
+									</div>
+								</td>
+
+							</tr>
+						</table>
 					</div>
-				</div>
-			</td>
-		<?php endforeach;?>				
-		</tr>
-	</table>
-</div>
-<script type='text/javascript'>
 
-	$(".slide-javascript-control").find('.btn-previous').click(function(){
-		
-		$(".slide-javascript-control table tbody").find('td:first').find('.slider-item').animate({width:'0px'},1000,function(){
-
-			$(".slide-javascript-control table tbody").find('td:first').remove().appendTo( $(".slide-javascript-control table tbody tr"));
-
-			$(".slide-javascript-control table tbody").find('td').find('.slider-item').css('width','984px');
-			
-		});
-
-		
-				
+					<!-- BEGIN .homepage-slider-image-shadow -->
+					<div class="homepage-slider-image-shadow">
+						&nbsp;
+						<!-- END .homepage-slider-image-shadow -->
+					</div>
 
 
-		
-
-		
-		
-	});
-</script>
-
-
+					<!-- BEGIN .navigation -->
+					<div class="navigation">
+						<a href="#" id="aktuals1_btn" onclick="scrollToElem(1); return false;" class="active"></a>
+						<a href="#" id="aktuals2_btn" onclick="scrollToElem(2); return false;"></a>
+						<a href="#" id="aktuals3_btn" onclick="scrollToElem(3); return false;"></a>
+						<a href="#" id="aktuals4_btn" onclick="scrollToElem(4); return false;"></a>
+						<a href="#" id="aktuals5_btn" onclick="scrollToElem(5); return false;"></a>
+					</div>
+					<!-- END .homepage-slider -->
+	</div>

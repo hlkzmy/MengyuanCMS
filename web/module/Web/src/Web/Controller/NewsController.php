@@ -49,7 +49,7 @@ class NewsController extends WebBaseController
     	$dutyViewModel->setCategoryId(42);
     	$dutyViewModel->setArticleCount(9);
     	$dutyViewModel->setArticleTitleWithDate(true);
-    	$dutyViewModel->setArticleTitleLength(20);
+    	$dutyViewModel->setArticleTitleLength(19);
     	$dutyViewModel->componentRender();
     	 
     	 
@@ -57,7 +57,7 @@ class NewsController extends WebBaseController
     	$advantageViewModel->setCategoryId(43);
     	$advantageViewModel->setArticleCount(9);
     	$advantageViewModel->setArticleTitleWithDate(true);
-    	$advantageViewModel->setArticleTitleLength(20);
+    	$advantageViewModel->setArticleTitleLength(19); 
     	$advantageViewModel->componentRender();
     	 
     	//第三步：栏目页的文章分类页的导航栏
