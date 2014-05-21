@@ -7,13 +7,13 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-use Cms\Component\Article\Sidebar\Model\ArticleCategory;
+use Cms\Component\Article\Sidebar\Category\Model\ArticleCategory;
 
 return array (
 		
 		'factories' => array (
 		
-				'Cms\Component\Article\Sidebar\Model\ArticleCategory'=>function($serviceManager){
+				'Cms\Component\Article\Sidebar\Category\Model\ArticleCategory'=>function($serviceManager){
 				
 					$dbAdapter = $serviceManager->get ( 'Zend\Db\Adapter\Adapter' );
 						

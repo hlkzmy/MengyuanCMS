@@ -1,0 +1,9 @@
+<ul class='SidebarNavigation style2'>
+	<li class='parent-article-category'>
+		<div class='chinese-name'><?php echo $this->category['name'];?></div>
+		<div class='english-name'><?php echo $this->category['english_name'];?></div>
+	</li>
+	<?php foreach($this->childrenElementList as $element):?>
+	<li class='children-article-category'><a href='<?php echo $element['href']?>' ><?php echo $element['title'];?></a></li>
+	<?php endforeach;?>
+</ul>

@@ -14,7 +14,7 @@ use Zend\View\Model\ViewModel;
 use Cms\Component\Article\Column\Content  as ArticleColumn;
 use Cms\Component\Article\Details\Content as ArticleDetails;
 use Cms\Component\Banner\Picture\Content as BannerPicture;
-use Cms\Component\Article\Sidebar\Content as ArticleCategorySidebar;//加载文章分类侧边栏的组件
+use Cms\Component\Article\Sidebar\Category\Content as ArticleCategorySidebar;
 use Cms\Component\Article\ListControl\Content as ArticleListControl;//加载文章列表的组件
 use Cms\Component\Article\BreadCrumb\Content as ArticleBreadCrumb;//加载文章列表的组件
 
@@ -34,7 +34,7 @@ class NewsController extends WebBaseController
     	 
     	//第一步：栏目页的bannner
     	$topBannerViewModel = new BannerPicture($serviceLocator);
-    	$topBannerViewModel->setBannerPictureName('about_banner.jpg');
+    	$topBannerViewModel->setBannerPictureName('news_banner.jpg');
     	$topBannerViewModel->componentRender();
     	
     	//第二步：三个文章栏目页 
@@ -136,7 +136,7 @@ class NewsController extends WebBaseController
     	
     	//第一步：栏目页的bannner
     	$topBannerViewModel = new BannerPicture($serviceLocator);
-    	$topBannerViewModel->setBannerPictureName('default_banner.jpg');
+    	$topBannerViewModel->setBannerPictureName('news_banner.jpg');
     	$topBannerViewModel->componentRender();
     	
     	
@@ -191,7 +191,7 @@ class NewsController extends WebBaseController
 
     	//第二️步：栏目页的bannner
     	$topBannerViewModel = new BannerPicture($serviceLocator);
-    	$topBannerViewModel->setBannerPictureName('default_banner.jpg');
+    	$topBannerViewModel->setBannerPictureName('news_banner.jpg');
     	$topBannerViewModel->componentRender();
     	
     	//第三步：加载文章侧边栏视图

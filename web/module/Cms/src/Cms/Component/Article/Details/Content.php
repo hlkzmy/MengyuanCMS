@@ -11,12 +11,31 @@ class Content extends BaseComponent implements ComponentInterface{
 	
 	protected $articleTitle = null;//文章的标题
 	
+	
+	
+	
 	function __construct($serviceManager){
 		parent::__construct($serviceManager);
 		
 		
 		$this->setTemplateStyle(1);
+		$this->setShowArticleTitle(true);
+		$this->setShowArticleSubTitle(true);
+		$this->setShowArticleInfo(true);
 	}//function __construct() end
+	
+	
+	public function setShowArticleTitle($status){
+		$this->setVariable('showArticleTitle', $status);
+	}
+	
+	public function setShowArticleSubTitle($status){
+		$this->setVariable('showArticleSubTitle', $status);
+	}
+	
+	public function setShowArticleInfo($status){
+		$this->setVariable('showArticleDetailsInfo', $status);
+	}
 	
 	
 	/**

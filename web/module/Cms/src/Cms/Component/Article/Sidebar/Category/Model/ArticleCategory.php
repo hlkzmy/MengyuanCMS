@@ -1,6 +1,6 @@
 <?php
 
-namespace Cms\Component\Article\Sidebar\Model;
+namespace Cms\Component\Article\Sidebar\Category\Model;
 
 use Application\Model\BaseModel;
 use Zend\Db\Adapter\Adapter;

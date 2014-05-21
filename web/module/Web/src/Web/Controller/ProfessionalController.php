@@ -13,7 +13,7 @@ use Web\Controller\WebBaseController;
 use Zend\View\Model\ViewModel;
 use Cms\Component\Article\Column\Content as ArticleColumn;
 use Cms\Component\Banner\Picture\Content as BannerPicture;
-use Cms\Component\Article\Sidebar\Content as ArticleCategorySidebar;
+use Cms\Component\Article\Sidebar\Category\Content as ArticleCategorySidebar;
 
 class ProfessionalController extends WebBaseController
 {
@@ -39,7 +39,7 @@ class ProfessionalController extends WebBaseController
     	$dutyViewModel = new ArticleColumn($serviceLocator);
     	$dutyViewModel->setCategoryId(16);
     	$dutyViewModel->setArticleCount(9);
-    	$dutyViewModel->setArticleTitleLength(20);
+    	$dutyViewModel->setArticleTitleLength(19);
     	$dutyViewModel->setArticleTitleWithDate(true);
     	$dutyViewModel->componentRender();
     	 
@@ -47,7 +47,7 @@ class ProfessionalController extends WebBaseController
     	$advantageViewModel = new ArticleColumn($serviceLocator);
     	$advantageViewModel->setCategoryId(38);
     	$advantageViewModel->setArticleCount(9);
-    	$advantageViewModel->setArticleTitleLength(20);
+    	$advantageViewModel->setArticleTitleLength(19);
     	$advantageViewModel->setArticleTitleWithDate(true);
     	$advantageViewModel->componentRender();
     	 

@@ -1,58 +1,12 @@
 <?php
 
-namespace Cms\Component\Article\Sidebar;
-use Cms\Component\BaseComponent;
+namespace Cms\Component\Article\Sidebar\Category;
+use Cms\Component\Article\Sidebar\SidebarContent;
 use Cms\Component\ComponentInterface;
 use Zend\Db\Sql\Where;
 
 
-class Content extends BaseComponent implements ComponentInterface{
-	
-	protected $categoryId   = null;//文章分类的id
-	
-	protected $categoryName = null;//文章分类的名称
-	
-	protected $childrenCategoryCount = 5;//侧边栏文章分类的个数
-	
-	
-	function __construct($serviceManager){
-		parent::__construct($serviceManager);
-		
-		
-		$this->setTemplateStyle(1);
-	}//function __construct() end
-	
-	
-	/**
-	 * 设置栏目的标题
-	 */
-	public function setCategoryName($name){
-		$this->categoryName = $name;
-		$this->setVariable('categoryName', $name);
-		return $this;
-		
-	}//function setColumnTitle() end
-	
-	
-	/**
-	 * 设置栏目要读取哪个分类之下的文章
-	 * @param $id 
-	 */
-	public function setCategoryId($id){
-		$this->categoryId = $id;
-		$this->setVariable('categoryId', $id);
-		return $this;
-	}//function setCategoryId() end
-	
-	/**
-	 * 设置侧边栏的文章分类的个数
-	 * $param $count
-	 */
-	public function setChildrenCategoryCount($count){
-		$this->childrenCategoryCount = $count;
-		return $this;
-	}
-	
+class Content extends SidebarContent implements ComponentInterface{
 	
 	
 	/**
@@ -65,7 +19,7 @@ class Content extends BaseComponent implements ComponentInterface{
 			return;//如果分类ID为空的前提下，直接return
 		}
 		
-		$articleCategoryModel = $this->serviceManager->get('Cms\Component\Article\Sidebar\Model\ArticleCategory');
+		$articleCategoryModel = $this->serviceManager->get('Cms\Component\Article\Sidebar\Category\Model\ArticleCategory');
 		
 		//第二步:得到分类本身的信息
 		$articleCateogry = $articleCategoryModel->getRowById($this->categoryId);

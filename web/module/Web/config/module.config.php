@@ -5,6 +5,7 @@ return array(
 		
 	'router' => array(
 		'routes' => array(	
+				
         	/*----------------------------静态路由开始----------------------------*/
         		'about' => array (
         				'type' => 'Literal',
@@ -28,17 +29,7 @@ return array(
 								)
 						)
 				),
-        		'contact' => array (
-        				'type' => 'Literal',
-        				'options' => array (
-        						'route' => '/contact.html',
-        						'defaults' => array (
-        								'controller' => 'Web\Controller\Contact',
-        								'action' => 'index',
-        								'id'=> 50
-        						)
-        				)
-        		),
+        		
 				
 				'team' => array (
 						'type' => 'Literal',
@@ -63,11 +54,25 @@ return array(
         								'id'=> 12
         						)
         				)
-        		)
-        		
-        		
+        		),
 				
-		)//routes end
+				
+				'contact-content-route' => array (
+						'type' => 'Segment',
+						'options' => array (
+								'route' => '/contact[-:id].html',
+								'constraints'=>array(
+									'id'=>'[1-9][0-9]*'
+								),
+								'defaults' => array (
+										'controller' => 'Web\Controller\Contact',
+										'action'     => 'content',
+										'id'		 => 3538
+								)
+						)
+				),
+        		
+        )//routes end
     ),
 		
 	

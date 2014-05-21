@@ -13,7 +13,7 @@ use Web\Controller\WebBaseController;
 use Zend\View\Model\ViewModel;
 use Cms\Component\Article\Column\Content as ArticleColumn;
 use Cms\Component\Banner\Picture\Content as BannerPicture;
-use Cms\Component\Article\Sidebar\Content as ArticleCategorySidebar;
+use Cms\Component\Article\Sidebar\Category\Content as ArticleCategorySidebar;
 
 class TeamController extends WebBaseController
 {
