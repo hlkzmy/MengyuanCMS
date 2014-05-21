@@ -60,6 +60,8 @@ class Content extends BaseComponent implements ComponentInterface{
 	 */
 	public function addSlideElement($id,$title,$description,$path,$href=null){
 		
+		
+		
 		$element = new SlideElement();
 		$element->setId($id)
 				->setImagePath($path)
@@ -68,6 +70,9 @@ class Content extends BaseComponent implements ComponentInterface{
 		
 		if(is_null($href)){
 			$element->setHref('javascript:;');
+		}
+		else{
+			$element->setHref($href);
 		}
 		
 		$this->slideElementList[$id] = $element;//如果有相同id的元素就会进行覆盖

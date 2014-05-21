@@ -25,13 +25,13 @@ class IndexController extends WebBaseController
     	//第一步:得到首页幻灯片的内容
     	$javascriptSlideViewModel = new JavascriptSlideControl($serviceLocator);
     	$javascriptSlideViewModel	->setImageBasePath('theme/default/common/slide');
-    	$javascriptSlideViewModel	->addSlideElement(1,'测试标题1','测试标题1的相关描述','1.jpg')
-    								->addSlideElement(2,'测试标题2','测试标题2的相关描述','2.jpg')
-    								->addSlideElement(3,'测试标题3','测试标题3的相关描述','3.jpg');
+    	$javascriptSlideViewModel	->addSlideElement(1,'测试标题1','测试标题1的相关描述','1.jpg','/category-13.html')
+    								->addSlideElement(2,'测试标题2','测试标题2的相关描述','2.jpg','/category-14.html')
+    								->addSlideElement(3,'测试标题3','测试标题3的相关描述','3.jpg','/category-23.html');
     								
     	$javascriptSlideViewModel->componentRender();
     	
-    	
+    	 
     	$leftArticleColumnViewModel  = new ArticleColumn($serviceLocator);
     	$leftArticleColumnViewModel	->setCategoryId(20)
     								->setArticleTitleLength(20)

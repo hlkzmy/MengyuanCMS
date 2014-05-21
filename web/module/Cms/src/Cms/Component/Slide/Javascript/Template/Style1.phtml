@@ -10,7 +10,7 @@
 				<tr>
 					<?php foreach($this->slideElementList as $key=>$element):?>
 					<td><div class="slide-javascript-control-item" id="aktuals<?php echo $key;?>" style='background: url(<?php echo $element->imagePath;?>) 0 0 no-repeat;'>
-							<a href="http://js.alixixi.com" class="title"> 
+							<a href="<?php echo $element->href;?>" class="title"> 
 									<i><?php echo $element->title;?></i>
 									<u><?php echo $element->description;?></u>
 							</a>
