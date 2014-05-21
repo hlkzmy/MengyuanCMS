@@ -95,7 +95,6 @@ class Content extends BaseComponent implements ComponentInterface{
 			$this->slideElementList[$key]->setImagePath($path);
 		}
 		
-		
 		$this->setVariable('slideElementList', $this->slideElementList);
 		
 	}//function render() end

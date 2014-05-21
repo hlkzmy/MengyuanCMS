@@ -11,72 +11,17 @@
 					<div id="aktuals_field" style="overflow: hidden; position: relative; width: 900px;">
 						<table>
 							<tr>
+								<?php foreach($this->slideElementList as $key=>$element):?>
 								<td>
-									<div class="homepage-slider-item" id="aktuals1" style='background: url(theme/default/common/slide/image-53.jpg) 0 0 no-repeat;'>
+									<div class="homepage-slider-item" id="aktuals<?php echo $key;?>" style='background: url(<?php echo $element->imagePath;?>) 0 0 no-repeat;'>
 										<a href="http://js.alixixi.com" class="title"> 
-											<i>阿里西西 网页特效频道 js.alixiix.com</i>
-											<u>提供海量JS脚本代码，JS特效代码，广告特效代码！全面丰富的网页特效代码尽在js.alixixi.com。</u>
-										</a>
-										o<div class="background"></div>
-									</div>
-								</td>
-								<td>
-									<div class="homepage-slider-item" id="aktuals2"
-										style='background: url(theme/default/common/slide/image-54.jpg) 0 0 no-repeat;'>
-										<a href="http://js.alixixi.com" class="title">
-											<i>更多的网页特效代码请访问阿里西西！</i>
-											<u>Suspendisse a nunc nulla. In accumsan enim a nisi
-											tempor quis bibendum lacus mattis. Curabitur adipiscing nulla
-											quis augue luctus volutpat.</u>
+											<i><?php echo $element->title;?></i>
+											<u><?php echo $element->description;?></u>
 										</a>
 										<div class="background"></div>
 									</div>
 								</td>
-
-								<td>
-
-									<div class="homepage-slider-item" id="aktuals3"
-										style='background: url(theme/default/common/slide/image-55.jpg) 0 0 no-repeat;'>
-										<a href="http://www.moqifan.com" class="title"> <i>更多的网页模板请访问
-												www.alixixi.cn</i> <u>Vestibulum cursus diam vel magna
-											tristique sodales. Nullam fermentum nibh vitae nisl sodales
-											in blandit sem euismod. Aliquam erat volutpat. Nulla
-											facilisi.</u>
-										</a>
-										<div class="background"></div>
-										<!-- END .homepage-slider-item -->
-									</div>
-								</td>
-								<td>
-									<!-- BEGIN .homepage-slider-item -->
-									<div class="homepage-slider-item" id="aktuals4"
-										style='background: url(theme/default/common/slide/image-56.jpg) 0 0 no-repeat;'>
-										<a href="http://js.alixixi.com" class="title"> <i>更多的网页制作教程请访问阿里西西主站
-												www.alixixi.com</i> <u>Donec et ligula sed metus euismod
-											ultrices. Pellentesque ullamcorper velit in tellus luctus
-											hendrerit sed eu enim.</u>
-										</a>
-										<div class="background"></div>
-										<!-- END .homepage-slider-item -->
-									</div>
-								</td>
-
-								<td>
-									<!-- BEGIN .homepage-slider-item -->
-									<div class="homepage-slider-item" id="aktuals5"
-										style='background: url(theme/default/common/slide/image-57.jpg) 0 0 no-repeat;'>
-										<a href="http://www.moqifan.com" class="title"> 
-											<i>Aliquam et tortor at tellus dapibus luctus</i>
-											<u>Praesent id arcu
-											nec urna iaculis gravida ac ut sapien. Duis et metus id
-											ligula convallis pulvinar. Quisque et libero sit amet erat
-											euismod blandit.</u>
-										</a>
-										<div class="background"></div>
-										<!-- END .homepage-slider-item -->
-									</div>
-								</td>
-
+								<?php endforeach;?>
 							</tr>
 						</table>
 					</div>
