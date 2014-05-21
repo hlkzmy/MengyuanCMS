@@ -14,6 +14,8 @@ class Content extends BaseComponent implements ComponentInterface{
 	
 	protected $showShadow = false;//显示幻灯片下面的阴影
 	
+	protected $showTag = false;//是否显示幻灯片左上角的图标
+	
 	protected $slideElementList = array();
 	
 	
@@ -32,8 +34,10 @@ class Content extends BaseComponent implements ComponentInterface{
 		return $this;
 	}
 	
-	
-	
+	public function setShowTag($status){
+		$this->setVariable('showTag', $status);
+		return $this;
+	}
 	
 	/**
 	 * 

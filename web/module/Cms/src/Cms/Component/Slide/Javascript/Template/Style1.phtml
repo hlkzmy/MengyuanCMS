@@ -1,45 +1,34 @@
-<!--[if lte IE 7]>
-		<style type="text/css">
-			html .jqueryslidemenu { height: 1%; } /* Holly Hack for IE7 and below */
-		</style>
-<![endif]-->
-	<div class="homepage-slider">
-					<a href="#" class="btn-previous" onmouseover="set_hover_on();" onmouseout="set_hover_off();"  onclick="scrollLefty(); return false;">&nbsp;</a> 
-					<a href="#" class="btn-next"     onmouseover="set_hover_on();" onmouseout="set_hover_off();"  onclick="scrollRight(); return false;">&nbsp;</a>
-					<span class="tag">&nbsp;</span> 
-					<span class="rounded-corners">&nbsp;</span>
-					<div id="aktuals_field" style="overflow: hidden; position: relative; width: 900px;">
-						<table>
-							<tr>
-								<?php foreach($this->slideElementList as $key=>$element):?>
-								<td>
-									<div class="homepage-slider-item" id="aktuals<?php echo $key;?>" style='background: url(<?php echo $element->imagePath;?>) 0 0 no-repeat;'>
-										<a href="http://js.alixixi.com" class="title"> 
-											<i><?php echo $element->title;?></i>
-											<u><?php echo $element->description;?></u>
-										</a>
-										<div class="background"></div>
-									</div>
-								</td>
-								<?php endforeach;?>
-							</tr>
-						</table>
-					</div>
-
-					<!-- BEGIN .homepage-slider-image-shadow -->
-					<div class="homepage-slider-image-shadow">
-						&nbsp;
-						<!-- END .homepage-slider-image-shadow -->
-					</div>
-
-
-					<!-- BEGIN .navigation -->
-					<div class="navigation">
-						<a href="#" id="aktuals1_btn" onclick="scrollToElem(1); return false;" class="active"></a>
-						<a href="#" id="aktuals2_btn" onclick="scrollToElem(2); return false;"></a>
-						<a href="#" id="aktuals3_btn" onclick="scrollToElem(3); return false;"></a>
-						<a href="#" id="aktuals4_btn" onclick="scrollToElem(4); return false;"></a>
-						<a href="#" id="aktuals5_btn" onclick="scrollToElem(5); return false;"></a>
-					</div>
-					<!-- END .homepage-slider -->
+<div class="slide-javascript-control">
+	<a href="#" class="btn-previous" onmouseover="set_hover_on();" onmouseout="set_hover_off();"  onclick="scrollLeft(); return false;">&nbsp;</a> 
+	<a href="#" class="btn-next"     onmouseover="set_hover_on();" onmouseout="set_hover_off();"  onclick="scrollRight(); return false;">&nbsp;</a>
+	<?php if($this->showTag):?>
+		<span class="tag">&nbsp;</span> 
+	<?php endif;?>
+	<span class="rounded-corners">&nbsp;</span>
+	<div id="aktuals_field" style="overflow: hidden; position: relative; width: 986px;">
+		<table>
+				<tr>
+					<?php foreach($this->slideElementList as $key=>$element):?>
+					<td><div class="slide-javascript-control-item" id="aktuals<?php echo $key;?>" style='background: url(<?php echo $element->imagePath;?>) 0 0 no-repeat;'>
+							<a href="http://js.alixixi.com" class="title"> 
+									<i><?php echo $element->title;?></i>
+									<u><?php echo $element->description;?></u>
+							</a>
+							<div class="background"></div></div></td>
+					<?php endforeach;?>
+				</tr>
+		</table>
 	</div>
+	<?php if($this->showShadow):?>
+		<div class="slide-javascript-control-shadow">&nbsp;<!-- END .homepage-slider-image-shadow --></div>
+	<?php endif;?>
+	<?php if($this->showNavigation):?>
+		<div class="navigation">
+			<a href="#" id="aktuals1_btn" onclick="scrollToElem(1); return false;" class="active"></a>
+			<a href="#" id="aktuals2_btn" onclick="scrollToElem(2); return false;"></a>
+			<a href="#" id="aktuals3_btn" onclick="scrollToElem(3); return false;"></a>
+			<a href="#" id="aktuals4_btn" onclick="scrollToElem(4); return false;"></a>
+			<a href="#" id="aktuals5_btn" onclick="scrollToElem(5); return false;"></a>
+		</div>
+	<?php endif;?>
+</div>

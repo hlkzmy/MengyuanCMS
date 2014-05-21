@@ -11,7 +11,7 @@ function scrollToElem(elem) {
 }
 
 function scrollRight() {
-	if (global_current_elem == 5) {
+	if (global_current_elem == 3) {
 		elem = 1;
 	}
 	else {
@@ -23,7 +23,7 @@ function scrollRight() {
 }
 
 function scrollLeft() {
-	if (global_current_elem == 1) {elem = 5;}
+	if (global_current_elem == 1) {elem = 3;}
 	else {elem = global_current_elem - 1;}
 	$('#aktuals_field').scrollTo('#aktuals'+elem, 1100, {easing:'easeInOutExpo', axis:'x' });
 	set_active_btn(elem);
@@ -45,13 +45,11 @@ function set_hover_off() {
 
 function set_active_btn(elem) {
 	
-	jQuery("#aktuals1_btn").removeClass("active");
-	jQuery("#aktuals2_btn").removeClass("active");
-	jQuery("#aktuals3_btn").removeClass("active");
-	jQuery("#aktuals4_btn").removeClass("active");
-	jQuery("#aktuals5_btn").removeClass("active");
+	$("#aktuals1_btn").removeClass("active");
+	$("#aktuals2_btn").removeClass("active");
+	$("#aktuals3_btn").removeClass("active");
 	
-	jQuery("#aktuals"+elem+"_btn").addClass("active");
+	$("#aktuals"+elem+"_btn").addClass("active");
 }
 
 function reset_interval() {

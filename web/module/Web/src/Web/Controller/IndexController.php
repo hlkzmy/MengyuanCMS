@@ -27,9 +27,7 @@ class IndexController extends WebBaseController
     	$javascriptSlideViewModel	->setImageBasePath('theme/default/common/slide');
     	$javascriptSlideViewModel	->addSlideElement(1,'测试标题1','测试标题1的相关描述','1.jpg')
     								->addSlideElement(2,'测试标题2','测试标题2的相关描述','2.jpg')
-    								->addSlideElement(3,'测试标题3','测试标题3的相关描述','3.jpg')
-    								->addSlideElement(4,'测试标题4','测试标题4的相关描述','4.jpg')
-    								->addSlideElement(5,'测试标题5','测试标题4的相关描述','5.jpg');
+    								->addSlideElement(3,'测试标题3','测试标题3的相关描述','3.jpg');
     								
     	$javascriptSlideViewModel->componentRender();
     	
