@@ -13,9 +13,10 @@
 	z-index: 1;
 }
 
-.slide-javascript-control table tr td{
+.slide-javascript-control table,tr,td{
 	margin:0px;
 	padding:0px;
+	border-collapse: collapse;
 }
 
 .slide-javascript-control .rounded-corners {
