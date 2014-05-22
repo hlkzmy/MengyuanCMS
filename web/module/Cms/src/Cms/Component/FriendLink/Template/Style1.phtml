@@ -1,12 +1,22 @@
-<table  id='friend-link' cellspacing='0' cellpadding='0'>
+<table  id='friend-link' cellspacing='0' cellpadding='0' border='0'>
 	<tr>
 		<td width='14' class='first'>&nbsp;</td>
 		<?php foreach($this->childrenElementList as $element):?>
-		<td width='80' >
+		<td>
 			<a href='<?php echo $element->href;?>' target='_blank'><?php echo $element->title;?></a>
 		</td>
    		<?php endforeach;?>
-   		<td>&nbsp;</td>
-   		<td width='14' class='last'>&nbsp;</td>
+   		<td width='320'>&nbsp;</td>
+   		<td width='70'>
+   			<a href="#weixin-modal-dialog" data-toggle="modal">
+               <img  src='<?php echo $this->basepath('theme/default/common/weixin/sys.gif');?>' />
+            </a>
+   		</td>	
+        <td width='70'>
+   			<a href="http://weibo.com/u/3165111964?wvr=5&c=spr_web_mthz_sogoumz_weibo_t001" target='_blank' >
+               <img  src='<?php echo $this->basepath('theme/default/common/sina/weibo.jpg');?>' />
+            </a>
+   		</td>
+        <td width='14' class='last'>&nbsp;</td>
 	</tr>
 </table><!-- headerNavigation end -->

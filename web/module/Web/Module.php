@@ -13,6 +13,7 @@ use Zend\Mvc\MvcEvent;
 
 //加载友情链接的视图组件，避免在每个视图中都要写一次视图加载的问题
 use Cms\Component\FriendLink\Content as friendLinkViewModel;
+use Cms\Component\Social\Weixin\Content as WeixinViewModel;
 
 class Module
 {
@@ -24,21 +25,22 @@ class Module
 		
 		$phpRenderer = $serviceManager->get('Zend\View\Renderer\PhpRenderer');
 		
-		
-		$layout = $serviceManager->get('Controller\Plugin\Manager')->get('layout');
-		
 		$friendLinkViewModel = new friendLinkViewModel($serviceManager);
 		$friendLinkViewModel->setChildrenElementType('title');
-		$friendLinkViewModel->addTitleChildrenElement(1,'友情链接1','http://www.baidu.com');
-		$friendLinkViewModel->addTitleChildrenElement(2,'友情链接2','http://www.baidu.com');
-		$friendLinkViewModel->addTitleChildrenElement(3,'友情链接3','http://www.baidu.com');
-		$friendLinkViewModel->addTitleChildrenElement(4,'友情链接4','http://www.baidu.com');
-		$friendLinkViewModel->addTitleChildrenElement(5,'友情链接5','http://www.baidu.com');
+		$friendLinkViewModel->addTitleChildrenElement(1,'北大法意','http://www.lawyee.net/index.asp');
+		$friendLinkViewModel->addTitleChildrenElement(2,'九江新闻网','http://www.jjxw.cn/');
+		$friendLinkViewModel->addTitleChildrenElement(3,'江西省律师协会','http://www.jxlawyer.com/');
+		$friendLinkViewModel->addTitleChildrenElement(4,'中国律师网','http://www.acla.org.cn/');
+		$friendLinkViewModel->addTitleChildrenElement(5,'中国法院网','http://www.chinacourt.org/index.shtml');
+		$friendLinkViewModel->componentRender();
 		
-		$friendLinkViewModelRenderResult = $friendLinkViewModel->componentRender('html');
+		//微信分享插件
+		$weixinViewModel = new WeixinViewModel($serviceManager);
+		$weixinViewModel->componentRender();
 		
-		$phpRenderer->layout()->setVariable('friendLinkViewModel',$friendLinkViewModelRenderResult);
 		
+		$phpRenderer->layout()->addChild($friendLinkViewModel,'friendLinkViewModel');
+		$phpRenderer->layout()->addChild($weixinViewModel,'weixinViewModel');
 		
 	}//function onBootStrap();
 	

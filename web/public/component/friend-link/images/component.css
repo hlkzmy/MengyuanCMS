@@ -8,14 +8,18 @@
 	line-height:45px;
 }
 #friend-link td{
+	text-align:center;
+	padding:0px 5px;
 	background:url(footerTopBg.jpg) repeat-x;
 }
 
 #friend-link td.first{
+	padding:0px;
 	background:url(footerTopLeftBg.jpg) no-repeat;
 }
 
 #friend-link td.last{
+	padding:0px;
 	background:url(footerTopRightBg.jpg) no-repeat center right;
 }
 

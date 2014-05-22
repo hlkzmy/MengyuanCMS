@@ -1,0 +1,11 @@
+#weixin-modal-dialog{
+	display: none;
+}
+
+#weixin-modal-dialog .modal-content .modal-body img{
+	margin-left:130px;
+}
+
+#weixin-modal-dialog .modal-content .modal-footer{
+	text-align:left;
+}

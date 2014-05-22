@@ -15,6 +15,8 @@
                 ->prependStylesheet($this->basePath('theme/default/layout/style.css'))
                 ->prependStylesheet($this->basePath('theme/default/index/style.css'))
                 ->prependStylesheet($this->basePath('theme/default/common/layout.css'));
+                
+                
 				
 ?>
 <!-- Scripts -->
@@ -61,7 +63,8 @@ $(document).ready(function(){
 		<div id="mainer">
             <?php echo $this->content; ?>
         </div> <!-- mainer end -->
-		<div id='footer'>
+        <?php echo $this->weixinViewModel;?>
+        <div id='footer'>
 			<?php echo $this->friendLinkViewModel;?>
 			<table id='copyright' cellspacing='0' cellpadding='0' border='0'>
 				<tr>
@@ -69,7 +72,7 @@ $(document).ready(function(){
 					<td width='240'> &nbsp;</td>
 					<td width='160'>Copyright &copy; 2012-2016</td>
 					<td width='140'>康润律师事务所</td>
-					<td width='140'><a href='http://www.miibeian.gov.cn' class='beian'>赣ICP备案xxxxxx号</a></td>
+					<td width='140'><a href='http://www.miibeian.gov.cn' class='beian'>赣ICP备14002981号-1</a></td>
 					<td>&nbsp;</td>
 					<td  width='15' class='last'>&nbsp;</td>
 				</tr>
