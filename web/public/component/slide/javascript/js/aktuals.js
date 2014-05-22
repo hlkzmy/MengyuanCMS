@@ -1,7 +1,7 @@
 global_current_elem = 1;
 global_elem_hovered = 0;
 
-var interval_variable = setInterval("autoScroll()",2000);
+var interval_variable = setInterval("autoScroll()",8000); 
 
 function scrollToElem(elem) {
 	jQuery('#aktuals_field').scrollTo('#aktuals'+elem, 500, {easing:'easeInOutExpo', axis:'x' });
@@ -52,5 +52,5 @@ function set_active_btn(elem) {
 
 function reset_interval() {
 	clearInterval(interval_variable);
-	interval_variable = setInterval("autoScroll()",2000);
+	interval_variable = setInterval("autoScroll()",8000);
 }

@@ -29,10 +29,13 @@ class Layout extends AbstractPlugin
      */
     public function setTemplate($template)
     {
-        $viewModel = $this->getViewModel();
+    	
+    	$viewModel = $this->getViewModel();
         $viewModel->setTemplate((string) $template);
         return $this;
     }
+    
+   
 
     /**
      * Invoke as a functor

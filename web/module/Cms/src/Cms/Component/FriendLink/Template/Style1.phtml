@@ -1,0 +1,12 @@
+<table  id='friend-link' cellspacing='0' cellpadding='0'>
+	<tr>
+		<td width='14' class='first'>&nbsp;</td>
+		<?php foreach($this->childrenElementList as $element):?>
+		<td width='80' >
+			<a href='<?php echo $element->href;?>' target='_blank'><?php echo $element->title;?></a>
+		</td>
+   		<?php endforeach;?>
+   		<td>&nbsp;</td>
+   		<td width='14' class='last'>&nbsp;</td>
+	</tr>
+</table><!-- headerNavigation end -->

@@ -1,0 +1,27 @@
+#friend-link{
+	width:100%;
+	height:45px;
+	overflow:hidden;
+	padding:0px;
+	margin:0px;
+	font-size:13px;
+	line-height:45px;
+}
+#friend-link td{
+	background:url(footerTopBg.jpg) repeat-x;
+}
+
+#friend-link td.first{
+	background:url(footerTopLeftBg.jpg) no-repeat;
+}
+
+#friend-link td.last{
+	background:url(footerTopRightBg.jpg) no-repeat center right;
+}
+
+#friend-link td a{
+	color:#255EC5;
+}
+#friend-link td a:hover{
+	color:#ff0000;
+}

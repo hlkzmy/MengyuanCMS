@@ -35,21 +35,15 @@ margin:0px auto;
 	width:100%;
 	height:143px;
 	overflow:hidden;
-	/* border:1px solid #ff0000; */
 }
 #mainer{
 	width:100%;
 	height:auto;
-	/*border:1px solid #ff0000;*/
 }
 #footer{
 	width:100%;
 	height:101px;
 	overflow:hidden;
-	/* border:1px solid #ff0000; */
-	margin-top:5px;
-	overflow:hidden;
-	
 }
 
 /*-----------网站header的容器定义----------*/
@@ -145,18 +139,13 @@ margin:0px auto;
 }
 
 /*-----------网站footer的容器定义----------*/
-#footerTop{
-	width:100%;
-	height:45px;
-	overflow:hidden;
-	padding:0px;
-	margin:0px;
-	font-size:13px;
-	line-height:45px;
-	background:url(footerTopBg.jpg) repeat-x;
-	/* border:1px solid #ff0000; */	
-}
 
+#footer a{
+	text-decoration:none;
+}
+#footer a:hover{
+	text-decoration:underline;
+}
 
 #footerBottom{
 	width:100%;
@@ -168,29 +157,6 @@ margin:0px auto;
 	text-align:center;
 	background:url(footerBottomBg.jpg) repeat-x;
 	/* border:1px solid #ff0000; */	
-}
-
-
-#footer a{
-	text-decoration:none;
-}
-#footer a:hover{
-	text-decoration:underline;
-}
-
-
-#footerTop li.Item{
-	display:inline;
-	float: left;
-	padding:0px 10px;
-	cursor:pointer;
-}
-
-#footerTop li.Item a{
-	color:#255EC5;
-}
-#footerTop li.Item a:hover{
-	color:#ff0000;
 }
 
 #footerBottom a.beian{
