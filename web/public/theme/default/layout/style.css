@@ -147,7 +147,7 @@ margin:0px auto;
 	text-decoration:underline;
 }
 
-#footerBottom{
+#copyright{
 	width:100%;
 	height:46px;
 	overflow:hidden;
@@ -155,14 +155,25 @@ margin:0px auto;
 	font-size:13px;
 	color:#737373;
 	text-align:center;
-	background:url(footerBottomBg.jpg) repeat-x;
-	/* border:1px solid #ff0000; */	
+	
 }
 
-#footerBottom a.beian{
+#copyright tr td{
+	background:url(footerBottomBg.jpg) repeat-x;
+}
+
+#copyright tr td.first{
+	background:url(footerBottomLeftBg.jpg)  no-repeat;
+}
+
+#copyright tr td.last{
+	background:url(footerBottomRightBg.jpg) no-repeat;
+}
+
+#copyright a.beian{
 	color:#737373;
 }
-#footerBottom a.beian:hover{
+#copyright a.beian:hover{
 	color:#ff0000;
 }
 
