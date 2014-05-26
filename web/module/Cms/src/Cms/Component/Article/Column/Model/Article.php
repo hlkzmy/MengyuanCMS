@@ -26,7 +26,7 @@ class Article extends BaseModel
     	
     	$where = new Where();
     	$where->equalTo('article_sort_id', $categoryId);
-    	return $this->getRowByCondition($where,$column);
+    	return $this->getRowByCondition($where,$column,null,null,array('id'=>'desc'));
     }
     
     

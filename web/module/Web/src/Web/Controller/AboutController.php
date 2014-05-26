@@ -43,7 +43,7 @@ class AboutController extends WebBaseController
     	$dutyViewModel = new ArticleColumn($serviceLocator);
     	$dutyViewModel->setCategoryId(14);
     	$dutyViewModel->setArticleCount(9);
-    	$dutyViewModel->setArticleTitleLength(20);
+    	$dutyViewModel->setArticleTitleLength(19);
     	$dutyViewModel->setArticleTitleWithDate(true);
     	$dutyViewModel->componentRender();
     	
@@ -51,7 +51,7 @@ class AboutController extends WebBaseController
     	$advantageViewModel = new ArticleColumn($serviceLocator);
     	$advantageViewModel->setCategoryId(23);
     	$advantageViewModel->setArticleCount(9);
-    	$advantageViewModel->setArticleTitleLength(20);
+    	$advantageViewModel->setArticleTitleLength(19);
     	$advantageViewModel->setArticleTitleWithDate(true);
     	$advantageViewModel->componentRender();
     	

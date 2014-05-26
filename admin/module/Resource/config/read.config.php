@@ -6,6 +6,7 @@ return array(
         'type' => 'filter',
         //列表的类型，一种是筛选类型的数据,一种是不需要进行筛选的数据
         'master_model' => 'articleModel',
+		'order' => array('id' => 'desc'),
         //进行查询所对应的主表
         'layout_height' => 140,
         'columns' => array(

@@ -72,13 +72,10 @@ margin:0px auto;
 }
 
 #headerLogo {
-	margin-left:56px;
-	margin-top: 0px;
 	display: inline;
 	float: left;
 	height: 108px;
-	margin-bottom: 0;
-	width: 369px;
+	width: 472px;
 	background:url(headerLogo.jpg) no-repeat;
 	clear:right;
 }
