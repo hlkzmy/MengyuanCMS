@@ -140,12 +140,10 @@ class NewsController extends WebBaseController
     	$articleListControl = new ArticleListControl($serviceLocator);
     	$articleListControl->setCategoryId($id);
     	$articleListControl->setParams($this->params());
-    	$articleListControl->setItemCountPerPage(15);
+    	$articleListControl->setItemCountPerPage(13);
     	$articleListControl->setRequestUri($request->getRequestUri());
     	$articleListControl->setArticleTitleLength(200);
     	$articleListControl->setArticleTitleWithDate(true);
-    	
-    	
     	
     	if(!$request->isXmlHttpRequest()){
     		

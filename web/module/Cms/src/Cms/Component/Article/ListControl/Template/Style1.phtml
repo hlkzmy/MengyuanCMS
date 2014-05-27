@@ -15,6 +15,9 @@
 	<?php endif;?>
 </ul><!-- article-list-ul end -->
 
+<?php if($this->paginator->getTotalItemCount()>$this->paginator->getItemCountPerPage()):?>
+
+
 <?php echo $this->paginationcontrol($this->paginator,'Sliding',$this->partial);?>
 
 <script type="text/javascript">
@@ -43,3 +46,4 @@
     
 </script>
 </div><!-- article-list-control end -->
+<?php endif;?>
