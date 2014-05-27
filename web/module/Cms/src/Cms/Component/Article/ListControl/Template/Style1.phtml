@@ -1,4 +1,8 @@
-<ul class='article-list-control'>
+<div class='article-list-control'>
+<?php echo $this->form()->openTag($this->paginatorForm);?>
+	<?php echo $this->formhidden($this->paginatorForm->get('currentPageNumber'));?>
+<?php echo $this->form()->closeTag();?>
+<ul class='article-list-ul'>
 	<?php if(isset($this->articleList)):?>
 		<?php foreach($this->articleList as $article):?>					
 			<li>
@@ -9,4 +13,33 @@
 			</li>		
 		<?php endforeach;?>	
 	<?php endif;?>
-</ul>
+</ul><!-- article-list-ul end -->
+
+<?php echo $this->paginationcontrol($this->paginator,'Sliding',$this->partial);?>
+
+<script type="text/javascript">
+
+    $(".article-list-control").find('.pagination').find("a[page]").die().click(function(){
+
+    	   var currentPageNumber  = $(this).attr('page');
+    	   var articleListControl = $(this).parents('div.article-list-control');
+		   var paginatorForm = articleListControl.find('.paginator-form');
+		   paginatorForm.find("input[name=currentPageNumber]").attr('value',currentPageNumber);
+
+		   var $postData = paginatorForm.serialize();
+
+		   var $postUrl  = paginatorForm.attr('action');
+    	   
+ 		   $.ajax({
+	            url:$postUrl,
+	            data:$postData,
+	            type:'POST',
+	            dataType:'html',
+	            success:function(html){
+	            	articleListControl.html(html);
+				}
+          });
+     });
+    
+</script>
+</div><!-- article-list-control end -->

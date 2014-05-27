@@ -17,5 +17,4 @@ class ArticleSort extends BaseModel
         $this->initialize();
     }
     
-    
 }

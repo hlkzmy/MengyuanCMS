@@ -134,37 +134,54 @@ class NewsController extends WebBaseController
     	
     	$serviceLocator = $this->getServiceLocator();
     	
-    	//第一步：栏目页的bannner
-    	$topBannerViewModel = new BannerPicture($serviceLocator);
-    	$topBannerViewModel->setBannerPictureName('news_banner.jpg');
-    	$topBannerViewModel->componentRender();
-    	
-    	
-    	//第二步：加载文章侧边栏视图
-    	$articleSidebarCategory = new ArticleCategorySidebar($serviceLocator);
-    	$articleSidebarCategory->setCategoryId($id);
-    	$articleSidebarCategory->setTemplateStyle(2);
-    	$articleSidebarCategory->componentRender();
+    	$request = $this->getRequest();
     	
     	//第三步：加载文章列表的组件
     	$articleListControl = new ArticleListControl($serviceLocator);
     	$articleListControl->setCategoryId($id);
+    	$articleListControl->setParams($this->params());
+    	$articleListControl->setItemCountPerPage(15);
+    	$articleListControl->setRequestUri($request->getRequestUri());
     	$articleListControl->setArticleTitleLength(200);
     	$articleListControl->setArticleTitleWithDate(true);
-    	$articleListControl->componentRender();
-    	
-    	//第四步：加载当前文章的面包屑路径ArticleBreadCrumb
-    	$articleBreadCrumb = new ArticleBreadCrumb($serviceLocator);
-    	$articleBreadCrumb->setCategoryId($id);
-    	$articleBreadCrumb->componentRender();
     	
     	
-    	$viewModel = new ViewModel();
-    	$viewModel->addChild( $topBannerViewModel,'topBannerViewModel');
-    	$viewModel->addChild( $articleBreadCrumb,'articleBreadCrumbViewModel');
-    	$viewModel->addChild($articleSidebarCategory,'articleSidebarCategoryViewModel');
-    	$viewModel->addChild($articleListControl,'articleListControlViewModel');
-    	return $viewModel;
+    	
+    	if(!$request->isXmlHttpRequest()){
+    		
+    		$articleListControl->componentRender();
+    		
+    		//第一步：栏目页的bannner
+    		$topBannerViewModel = new BannerPicture($serviceLocator);
+    		$topBannerViewModel->setBannerPictureName('news_banner.jpg');
+    		$topBannerViewModel->componentRender();
+    		 
+    		//第二步：加载文章侧边栏视图
+    		$articleSidebarCategory = new ArticleCategorySidebar($serviceLocator);
+    		$articleSidebarCategory->setCategoryId($id);
+    		$articleSidebarCategory->setTemplateStyle(2);
+    		$articleSidebarCategory->componentRender();
+    		
+    		//第四步：加载当前文章的面包屑路径ArticleBreadCrumb
+    		$articleBreadCrumb = new ArticleBreadCrumb($serviceLocator);
+    		$articleBreadCrumb->setCategoryId($id);
+    		$articleBreadCrumb->componentRender();
+    		
+    		$viewModel = new ViewModel();
+    		$viewModel->addChild( $topBannerViewModel,'topBannerViewModel');
+    		$viewModel->addChild( $articleBreadCrumb,'articleBreadCrumbViewModel');
+    		$viewModel->addChild($articleSidebarCategory,'articleSidebarCategoryViewModel');
+    		$viewModel->addChild($articleListControl,'articleListControlViewModel');
+    		return $viewModel;
+    	}
+    	else{
+    		
+    		$html = $articleListControl->componentRender('html');
+    		
+    		exit($html);
+    	}
+    	
+    	
     }//function categoryAction() end
     
     

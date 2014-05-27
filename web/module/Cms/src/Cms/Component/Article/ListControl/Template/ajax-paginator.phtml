@@ -1,0 +1,52 @@
+<?php if ($this->pageCount): ?>
+    <div class="pagination pagination-centered">
+        <ul>
+            <!-- Previous page link -->
+            <?php if (isset($this->previous)): ?>
+                <li>
+                    <a target=paginator href="javascript:;" page="<?php echo $this->first;?>" >首页</a>
+                </li>
+                <li>
+
+                    <a target=paginator href="javascript:;" page="<?php echo $this->previous;?>" >&lt;&lt;
+                    </a>
+                </li>
+            <?php else: ?>
+                <li class="disabled">
+                    <a href="javascript:;">首页</a>
+                </li>
+                <li class="disabled">
+                    <a href="javascript:;"> &lt;&lt; </a>
+                </li>
+            <?php endif; ?>
+            <!-- Numbered page links -->
+            <?php foreach ($this->pagesInRange as $page): ?>
+                <?php if ($page != $this->current): ?>
+                    <li>
+                        <a target=paginator href="javascript:;" page="<?php echo $page;?>" ><?php echo $page; ?></a>
+                    </li>
+                <?php else: ?>
+                    <li class="active">
+                        <a href="javascript:;"><?php echo $page; ?></a>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <!-- Next page link -->
+            <?php if (isset($this->next)): ?>
+                <li>
+                    <a target=paginator href="javascript:;" page="<?php echo $this->next;?>" > &gt;&gt; </a>
+                </li>
+                <li>
+                    <a target=paginator href="javascript:;" page="<?php echo $this->last;?>" >尾页</a>
+                </li>
+            <?php else: ?>
+                <li class="disabled">
+                    <a href="javascript:;" > &gt;&gt; </a>
+				</li>
+                <li class="disabled">
+                    <a href="javascript:;">尾页</a>
+               	</li>
+            <?php endif; ?>
+        </ul>
+    </div>
+<?php endif; ?>
