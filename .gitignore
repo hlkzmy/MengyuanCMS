@@ -1,2 +1,4 @@
 .settings/*
 db.php
+admin/config/autoload/db.php
+web/config/autoload/db.php
