@@ -216,12 +216,6 @@ class Content extends BaseComponent implements ComponentInterface{
 	}//function render() end
 	
 	
-	
-	
-	
-	
-	
-	
 }//class end
 
 

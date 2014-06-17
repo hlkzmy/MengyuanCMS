@@ -139,9 +139,12 @@ class NewsController extends WebBaseController
     	//第三步：加载文章列表的组件
     	$articleListControl = new ArticleListControl($serviceLocator);
     	$articleListControl->setCategoryId($id);
+    	
     	$articleListControl->setParams($this->params());
-    	$articleListControl->setItemCountPerPage(13);
+    	
     	$articleListControl->setRequestUri($request->getRequestUri());
+    	
+    	$articleListControl->setItemCountPerPage(13);
     	$articleListControl->setArticleTitleLength(200);
     	$articleListControl->setArticleTitleWithDate(true);
     	
