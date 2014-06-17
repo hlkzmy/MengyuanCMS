@@ -30,10 +30,10 @@
 	height:126px;
 	background:url(SidebarPhoneNumber.jpg) no-repeat;
 }
-#SidebarActivity{/*侧边栏专题活动,后面要改成邮箱*/
+#SidebarEmail{/*侧边栏专题活动,后面要改成邮箱*/
 	width:231px;
 	height:93px;
-	background:url(SidebarActivity.jpg) no-repeat;
+	background:url(SidebarEmail.jpg) no-repeat;
 }
 
 #SideArticleColumn{/*栏目页的图片容器旁边的栏目*/

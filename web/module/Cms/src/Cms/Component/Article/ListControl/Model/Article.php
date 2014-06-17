@@ -32,7 +32,6 @@ class Article extends BaseModel
     	$where = new Where();
     	$where->in('article_sort_id', $categoryId);
     	
-    	
     	$select = new Select();
 		$select->from($this->table);
 		$select->columns($column);
